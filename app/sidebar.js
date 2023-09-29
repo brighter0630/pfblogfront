@@ -27,7 +27,7 @@ function Sidebar({ sidebarToggle, openSidebar }) {
       </div>
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <Link href="/" className="flex">
+          <Link href="/dashboard" className="flex">
             <BsPieChartFill className="icon" />
             대시보드
           </Link>
