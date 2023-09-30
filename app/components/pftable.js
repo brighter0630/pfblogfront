@@ -9,7 +9,7 @@ export default function PfTable({ data, currentPrices }) {
   });
 
   return (
-    <div className="flex overflow-auto rounded-lg shadow min-w-min max-w-4xl relative left-9 top-2">
+    <div className="flex overflow-auto rounded-lg shadow min-w-min max-w-4xl relative">
       <table className="w-full border-gray-100 border-b-2">
         <thead className="border-gray-200 border-b-2">
           <tr className="">
@@ -30,6 +30,9 @@ export default function PfTable({ data, currentPrices }) {
             </th>
             <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
               현재 주가
+            </th>
+            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+              수익률
             </th>
             <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
               PER
@@ -64,6 +67,15 @@ export default function PfTable({ data, currentPrices }) {
               </td>
               <td className={"p-3 text-sm"}>
                 {(Math.round(stock.price * 100) / 100).toFixed(2)}
+              </td>
+              <td className={"p-3 text-sm"}>
+                {(
+                  Math.round(
+                    (stock.price / (stock.numerator / stock.denumerator) - 1) *
+                      10000
+                  ) / 100
+                ).toFixed(2)}
+                %
               </td>
               <td className={"p-3 text-sm"}>{stock.pe}</td>
               <td className={"p-3 text-sm"}>{stock.eps}</td>
