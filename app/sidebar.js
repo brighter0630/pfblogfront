@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import React from "react";
 import {
@@ -27,7 +25,7 @@ function Sidebar({ sidebarToggle, openSidebar }) {
       </div>
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <Link href="/dashboard" className="flex">
+          <Link href="/" className="flex">
             <BsPieChartFill className="icon" />
             대시보드
           </Link>

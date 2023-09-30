@@ -1,32 +1,76 @@
-import React from "react";
-import { getPfData } from "../apis/getPfData";
+"use client";
 
-export default async function Pfchart() {
-  const data = await getPfData();
-  // const [stockList, setStockList] = useState([]);
+import React, { PureComponent } from "react";
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const res = await fetch("http://127.0.0.1:5000/getpfdata", {
-  //       cache: "no-store",
-  //     });
-  //     const data = await res.json();
-  //     setStockList(data);
-  //   };
-  //   getData();
-  // }, []);
-  // console.log(stockList);
+export default function Pfchart({ data, currentPrices }) {
+  const chartData = [
+    { name: "Group A", value: 400 },
+    { name: "Group B", value: 300 },
+    { name: "Group C", value: 300 },
+    { name: "Group D", value: 200 },
+  ];
+
+  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+
+  const RADIAN = Math.PI / 180;
+
+  const renderCustomizedLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    percent,
+    index,
+  }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="white"
+        textAnchor={x > cx ? "start" : "end"}
+        dominantBaseline="central"
+      >
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+
+  const newData = data.map((stock) => {
+    return Object.assign(
+      ...currentPrices.filter((price) => price.symbol === stock._id),
+      stock
+    );
+  });
 
   return (
-    <div className="flex items-center">
-      <ul>
-        {console.log(data)}
-        {data.map((stock, index) => {
-          <li key={index}>
-            <span>{stock.ticker}</span>
-          </li>;
-        })}
-      </ul>
+    <div className="h-48">
+      <ResponsiveContainer width={"100%"} height={"99%"}>
+        <PieChart width={400} height={800} className="min-w-full">
+          <Pie
+            data={chartData}
+            cx="50%"
+            cy="50%"
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={80}
+            fill="#8884d8"
+            dataKey="value"
+          >
+            {chartData.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
     </div>
   );
 }

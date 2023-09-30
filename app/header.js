@@ -17,7 +17,7 @@ function Header() {
   };
   return (
     <>
-      <header className="header">
+      <header className={"header"}>
         <div className="menu-icon" onClick={openSidebar}>
           <BsJustify className="icon" id="open-sidebar-icon" />
         </div>

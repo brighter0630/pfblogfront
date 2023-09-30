@@ -13,19 +13,24 @@ function Admin() {
 
   const submitData = (e) => {
     e.preventDefault();
-    console.log(
+    alert(
       `입력된 ticker는 ${ticker}, 날짜는 ${dateOfTransaction} 거래타입은 ${typeofTransaction} 가격은 ${price} 수량은 ${quantity} 입니다.`
     );
-    postTA({
+    const res = postTA({
       ticker,
       dateOfTransaction,
       typeofTransaction,
       price,
       quantity,
     });
+    if (res) {
+      alert("성공적으로 전송됨.");
+    } else {
+      alert("글쎄...");
+    }
   };
   return (
-    <main className="db-contents-container bg-slate-200">
+    <main className="db-contents-container">
       <form
         method="post"
         className="items-center flex flex-col "
