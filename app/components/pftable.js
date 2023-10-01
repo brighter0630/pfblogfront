@@ -1,5 +1,3 @@
-"use client";
-
 export default function PfTable({ data, currentPrices }) {
   const newData = data.map((stock) => {
     return Object.assign(
@@ -8,45 +6,95 @@ export default function PfTable({ data, currentPrices }) {
     );
   });
 
+  let totalInvestedCapital = newData.reduce(
+    (prev, curr) =>
+      prev + (curr.totalHoldings * curr.numerator) / curr.denumerator,
+    0
+  );
+  let totalCurrentAsset = newData.reduce(
+    (prev, curr) => prev + curr.totalHoldings * curr.price,
+    0
+  );
+
   return (
-    <div className="flex overflow-auto rounded-lg shadow min-w-min max-w-4xl relative">
-      <table className="w-full border-gray-100 border-b-2">
-        <thead className="border-gray-200 border-b-2">
-          <tr className="">
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
-              티커
+    <div className=" justify-center m-auto overflow-auto min-w-min max-w-4xl ">
+      <table className=" m-8">
+        <thead>
+          <tr className="border-gray-400 border-b-2">
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+              }
+            >
+              <span>티커</span>
             </th>
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+              }
+            >
               회사
             </th>
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[100px]"
+              }
+            >
               보유주식수
             </th>
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[125px]"
+              }
+            >
               평균 매수 가격
             </th>
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[125px]"
+              }
+            >
               총 매수 금액
             </th>
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[100px]"
+              }
+            >
               현재 주가
             </th>
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+              }
+            >
               수익률
             </th>
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+              }
+            >
               PER
             </th>
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+              }
+            >
               EPS
             </th>
-            <th className={"p-3 text-sm font-semibold tracking-wide text-left"}>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+              }
+            >
               실적발표일
             </th>
           </tr>
         </thead>
         <tbody>
-          {newData.map((stock, i) => (
+          {newData?.map((stock, i) => (
             <tr key={i}>
               <td className={"p-3 text-sm"}>{stock._id}</td>
               <td className={"p-3 text-sm"}>{stock.name}</td>
@@ -54,19 +102,23 @@ export default function PfTable({ data, currentPrices }) {
               <td className={"p-3 text-sm"}>
                 {(
                   Math.round((stock.numerator / stock.denumerator) * 100) / 100
-                ).toFixed(2)}
+                ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
               </td>
+
               <td className={"p-3 text-sm"}>
+                {/* 총 매수 금액 */}
                 {(
                   Math.round(
                     ((stock.totalHoldings * stock.numerator) /
                       stock.denumerator) *
                       100
                   ) / 100
-                ).toFixed(2)}
+                ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
               </td>
               <td className={"p-3 text-sm"}>
-                {(Math.round(stock.price * 100) / 100).toFixed(2)}
+                {(Math.round(stock.price * 100) / 100)
+                  .toFixed(2)
+                  .toLocaleString("en-US")}
               </td>
               <td className={"p-3 text-sm"}>
                 {(
@@ -74,7 +126,7 @@ export default function PfTable({ data, currentPrices }) {
                     (stock.price / (stock.numerator / stock.denumerator) - 1) *
                       10000
                   ) / 100
-                ).toFixed(2)}
+                ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 %
               </td>
               <td className={"p-3 text-sm"}>{stock.pe}</td>

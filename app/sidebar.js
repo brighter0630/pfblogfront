@@ -31,9 +31,9 @@ function Sidebar({ sidebarToggle, openSidebar }) {
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link href="/philosophy" className="flex">
+          <Link href="/blog" className="flex">
             <BsJournalText className="icon" />
-            투자철학
+            투자생각
           </Link>
         </li>
         <li className="sidebar-list-item">

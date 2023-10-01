@@ -11,12 +11,12 @@ function Admin() {
   const [dateOfTransaction, setDateOfTransaction] = useState();
   const [typeofTransaction, setTypeofTransaction] = useState();
 
-  const submitData = (e) => {
+  const submitData = async (e) => {
     e.preventDefault();
     alert(
       `입력된 ticker는 ${ticker}, 날짜는 ${dateOfTransaction} 거래타입은 ${typeofTransaction} 가격은 ${price} 수량은 ${quantity} 입니다.`
     );
-    const res = postTA({
+    const res = await postTA({
       ticker,
       dateOfTransaction,
       typeofTransaction,
@@ -24,9 +24,7 @@ function Admin() {
       quantity,
     });
     if (res) {
-      alert("성공적으로 전송됨.");
-    } else {
-      alert("글쎄...");
+      alert(`성공적으로 전송됨. res: ${res}`);
     }
   };
   return (

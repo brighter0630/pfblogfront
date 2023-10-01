@@ -2,6 +2,7 @@ import Pfchart from "./components/pfchart";
 import PfTable from "./components/pftable";
 import { summarypf } from "./apis/pfAggregator";
 import axios from "axios";
+import PfDashboard from "./components/pfDashboard";
 const https = require("https");
 
 export default async function Home() {
@@ -21,17 +22,17 @@ export default async function Home() {
   ).data;
 
   return (
-    <div className="main-container p-5 overflow-y-auto text-opacity-90 text-white grid gap-5 grid-flow-row">
-      <div className={"m-4"}>
-        <span className={"m-4 font-extrabold underline underline-offset-4"}>
-          보유 종목 목록
-        </span>
+    <div className="main-container p-5 m-4 overflow-y-visible text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row font-['NanumBarunPen']  ">
+      <div className={"m-4 p-4 border-4"}>
+        <span className={"m-4 font-medium text-2xl"}>Portfolio 현황</span>
+        <PfDashboard data={summaryData} currentPrices={currentPrices} />
+      </div>
+      <div className={"m-4 p-4 border-4"}>
+        <span className={"m-4 font-medium text-2xl"}>보유 종목 목록</span>
         <PfTable data={summaryData} currentPrices={currentPrices} />
       </div>
-      <div className={"m-4 h-96"}>
-        <span className="m-4 font-extrabold underline underline-offset-4">
-          보유 종목 차트
-        </span>
+      <div className={"m-4 p-4 border-4"}>
+        <span className="m-4 font-medium text-2xl">보유 종목 차트</span>
         <Pfchart data={summaryData} currentPrices={currentPrices} />
       </div>
     </div>
