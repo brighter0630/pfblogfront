@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 export default function page({ params }) {
   const { slug } = params;
-  const decodedSlug = decodeURI(decodeURIComponent(slug));
+  const decodedSlug = decodeURIComponent(slug);
   const fileName = fs.readFileSync(`app/posts/${decodedSlug}.md`, "utf-8");
   const { data: frontmatter, content } = matter(fileName);
 

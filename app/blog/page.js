@@ -33,7 +33,7 @@ function Blog() {
           key={slug}
           className="m-4 rounded-sm border-b-2 border-b-stone-300"
         >
-          <Link href={`/blog/${slug}`}>
+          <Link href={`/blog/${encodeURIComponent(slug)}`}>
             <h1 className="p-4 font-bold text-lg text-gray-900">
               {frontmatter.title} <span className="text-sm"></span>
             </h1>

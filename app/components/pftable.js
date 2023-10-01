@@ -6,16 +6,6 @@ export default function PfTable({ data, currentPrices }) {
     );
   });
 
-  let totalInvestedCapital = newData.reduce(
-    (prev, curr) =>
-      prev + (curr.totalHoldings * curr.numerator) / curr.denumerator,
-    0
-  );
-  let totalCurrentAsset = newData.reduce(
-    (prev, curr) => prev + curr.totalHoldings * curr.price,
-    0
-  );
-
   return (
     <div className=" justify-center m-auto overflow-auto min-w-min max-w-4xl ">
       <table className=" m-8">
