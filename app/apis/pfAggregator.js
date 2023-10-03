@@ -3,7 +3,7 @@ import axios from "axios";
 
 export async function summarypf(data) {
   try {
-    return (await axios.get("http://127.0.0.1:5000/summarypf")).data;
+    return (await axios.get(`${process.env.LOCALHOSTBACK}/summarypf`)).data;
   } catch (error) {
     console.log(error);
   }

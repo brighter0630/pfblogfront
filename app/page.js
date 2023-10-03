@@ -10,9 +10,7 @@ export default async function Home() {
   const tickers = summaryData.map((stock) => stock._id);
   const currentPrices = (
     await axios.get(
-      `${process.env.stockAPIURL_quote}${tickers.toString()}?apikey=${
-        process.env.stockAPIKEY
-      }`,
+      `${process.env.stockAPIURL_quote}/${tickers}?apikey=${process.env.stockAPIKEY}`,
       {
         httpsAgent: new https.Agent({
           rejectUnauthorized: false, //허가되지 않은 인증을 reject하지 않겠다!

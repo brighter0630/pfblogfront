@@ -37,7 +37,7 @@ function Sidebar({ sidebarToggle, openSidebar }) {
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link href="/analysis" className="flex">
+          <Link href="/analysis/AAPL" className="flex">
             <BsFillGrid3X3GapFill className="icon" />
             기업분석
           </Link>

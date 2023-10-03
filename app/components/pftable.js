@@ -110,7 +110,13 @@ export default function PfTable({ data, currentPrices }) {
                   .toFixed(2)
                   .toLocaleString("en-US")}
               </td>
-              <td className={"p-3 text-sm"}>
+              <td
+                className={`p-3 text-sm ${
+                  stock.price / (stock.numerator / stock.denumerator) - 1 >= 0
+                    ? "text-red-700"
+                    : "text-blue-700"
+                }`}
+              >
                 {(
                   Math.round(
                     (stock.price / (stock.numerator / stock.denumerator) - 1) *
