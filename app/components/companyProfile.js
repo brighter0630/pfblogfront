@@ -1,7 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function CompanyProfile({ profile }) {
+  const route = useRouter();
+  if (profile === undefined) {
+    route.push("/ticker-not-found");
+    return false;
+  }
   return (
     <div className="grid grid-cols-4 text-black text-opacity-80">
       <div className="mx-auto my-4 p-0 col-span-2">

@@ -21,7 +21,7 @@ function Header() {
   const router = useRouter();
   const searchHandler = (e) => {
     if (e.key === "Enter") {
-      router.push(`/analysis/${ticker}`);
+      router.push(`/analysis/${ticker}/bs`);
     }
   };
   return (

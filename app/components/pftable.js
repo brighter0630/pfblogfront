@@ -7,7 +7,7 @@ export default function PfTable({ data, currentPrices }) {
   });
 
   return (
-    <div className=" justify-center m-auto overflow-auto min-w-min max-w-4xl ">
+    <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl">
       <table className=" m-8">
         <thead>
           <tr className="border-gray-400 border-b-2">
