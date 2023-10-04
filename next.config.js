@@ -6,11 +6,13 @@ const nextConfig = {
   reactStrictMode: false,
   env: {
     stockAPIURL_profile: "https://financialmodelingprep.com/api/v3/profile",
-    stockAPIHISTPRICE:
+    stockPHURL:
       "https://financialmodelingprep.com/api/v3/historical-price-full",
     stockAPIURL_quote: "https://financialmodelingprep.com/api/v3/quote",
     stockAPIURL_realtime:
       "https://financialmodelingprep.com/api/v3/quote-short",
+    stockMinPriceURL:
+      "https://financialmodelingprep.com/api/v3/historical-chart/1min",
     stockBSURL: "https://financialmodelingprep.com/api/v3/income-statement",
     stockISURL:
       "https://financialmodelingprep.com/api/v3/balance-sheet-statement",

@@ -1,10 +1,10 @@
-import React from "react";
 import { getRatioData, getDVData } from "@/app/apis/getFinancialData";
+import DividendChart from "@/app/components/dividendChart";
 import { EntoKo } from "@/translation";
 
 async function DVPage({ params }) {
-  const { ticker } = params;
-  const chartData = await getDVData(ticker);
+  const { ticker, charttype } = params;
+  const { symbol, historical } = await getDVData(ticker);
   const yearsData = await getRatioData(ticker);
   const selectedCols = [
     "payoutRatio",
@@ -19,9 +19,11 @@ async function DVPage({ params }) {
     "interestCoverage",
   ];
   return (
-    <div>
-      <div>배당 차트가 들어갈 자리</div>
-      <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl ">
+    <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl grid grid-flow-row ">
+      <div>
+        <DividendChart historical={historical} charttype={charttype} />
+      </div>
+      <div>
         <table className="my-8 mx-auto">
           <thead>
             <tr className="border-gray-400 border-b-2">
@@ -62,6 +64,8 @@ async function DVPage({ params }) {
                       ? Math.round(yearData[col] / 1000000).toLocaleString(
                           "en-US"
                         )
+                      : EntoKo[col].days === true
+                      ? yearData[col].toFixed(1)
                       : ""}
                   </td>
                 ))}

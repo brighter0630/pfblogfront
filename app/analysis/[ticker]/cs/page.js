@@ -1,4 +1,3 @@
-import React from "react";
 import { getCSData } from "@/app/apis/getFinancialData";
 import { EntoKo } from "@/translation";
 

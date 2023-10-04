@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function PfTable({ data, currentPrices }) {
   const newData = data.map((stock) => {
     return Object.assign(
@@ -8,7 +10,7 @@ export default function PfTable({ data, currentPrices }) {
 
   return (
     <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl">
-      <table className=" m-8">
+      <table className="m-8">
         <thead>
           <tr className="border-gray-400 border-b-2">
             <th
@@ -86,8 +88,15 @@ export default function PfTable({ data, currentPrices }) {
         <tbody>
           {newData?.map((stock, i) => (
             <tr key={i}>
-              <td className={"p-3 text-sm"}>{stock._id}</td>
-              <td className={"p-3 text-sm"}>{stock.name}</td>
+              <td className={"p-3 text-sm"}>
+                <Link href={`/analysis/${stock._id}/pc/year`}>{stock._id}</Link>
+              </td>
+
+              <td className={"p-3 text-sm"}>
+                <Link href={`/analysis/${stock._id}/pc/year`}>
+                  {stock.name}
+                </Link>
+              </td>
               <td className={"p-3 text-sm"}>{stock.totalHoldings}</td>
               <td className={"p-3 text-sm"}>
                 {(

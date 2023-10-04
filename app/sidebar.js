@@ -16,9 +16,11 @@ function Sidebar({ sidebarToggle, openSidebar }) {
       className={sidebarToggle === true ? "sidebar-responsive" : ""}
     >
       <div className="sidebar-title">
-        <div className="sidebar-brand flex">
-          <span>이웃집백만장자의 배당성장주 투자</span>
-        </div>
+        <Link href="/">
+          <div className="sidebar-brand flex">
+            <span>이웃집백만장자의 배당성장주 투자</span>
+          </div>
+        </Link>
         <span className="icon close-icon" onClick={openSidebar}>
           <AiOutlineClose className="icon" />
         </span>
@@ -37,7 +39,7 @@ function Sidebar({ sidebarToggle, openSidebar }) {
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link href="/analysis/AAPL/bs" className="flex">
+          <Link href="/analysis/AAPL/pc/3months" className="flex">
             <BsFillGrid3X3GapFill className="icon" />
             기업분석
           </Link>
@@ -49,9 +51,9 @@ function Sidebar({ sidebarToggle, openSidebar }) {
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link href="posts" className="flex">
+          <Link href="/record" className="flex">
             <BsBarChart className="icon" />
-            배당성장주
+            거래내역
           </Link>
         </li>
         <li className="sidebar-list-item">

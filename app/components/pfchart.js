@@ -18,7 +18,16 @@ export default function Pfchart({ data, currentPrices }) {
     };
   });
 
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  const COLORS = [
+    "#0088FE",
+    "#00C49F",
+    "#FFBB28",
+    "#FF8042",
+    "#a83285",
+    "#120d29",
+    "#73402c",
+    "#e5ff00",
+  ];
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
     cx,
@@ -61,7 +70,6 @@ export default function Pfchart({ data, currentPrices }) {
             label={renderCustomizedLabel}
             labelLine={false}
             outerRadius={160}
-            fill="#8884d8"
             dataKey="value"
           >
             {chartData.map((entry, index) => (
@@ -74,32 +82,6 @@ export default function Pfchart({ data, currentPrices }) {
           <Legend />
         </PieChart>
       </ResponsiveContainer>
-      {/* <ResponsiveContainer
-        width={"100%"}
-        height={"99%"}
-        className={"grid-cols-2"}
-      >
-        <PieChart width={400} height={800} className="min-w-full">
-          <Pie
-            data={chartData}
-            cx="50%"
-            cy="50%"
-            label={renderCustomizedLabel}
-            labelLine={false}
-            outerRadius={160}
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {chartData.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-          <Legend />
-        </PieChart>
-      </ResponsiveContainer> */}
     </div>
   );
 }
