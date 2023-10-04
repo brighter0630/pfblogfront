@@ -1,8 +1,18 @@
 /** @type {import('next').NextConfig} */
 
 const APIKEY = process.env.APIKEY;
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+/** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  // Configure `pageExtensions`` to include MDX files
   reactStrictMode: false,
   env: {
     stockAPIURL_profile: "https://financialmodelingprep.com/api/v3/profile",
@@ -29,3 +39,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+module.exports = withMDX(nextConfig);

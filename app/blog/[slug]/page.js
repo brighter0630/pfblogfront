@@ -1,31 +1,25 @@
-import fs from "fs";
-import matter from "gray-matter";
-import md from "markdown-it";
+import { getPostBySlug } from "@/app/apis/getPosts";
 
-export async function getStaticPaths() {
-  const files = fs.readdirSync("app/posts").filter((file) => file !== "images");
-  const paths = files.map((fileName) => ({
-    params: {
-      slug: fileName.replace(".md", ""),
-    },
-  }));
+const getPageContent = async (slug) => {
+  const { meta, content } = await getPostBySlug(decodeURIComponent(slug));
+  return { meta, content };
+};
 
-  return {
-    paths,
-    fallback: false,
-  };
+export async function generateMetadata({ params }) {
+  const { meta } = await getPageContent(decodeURIComponent(params.slug));
+
+  return { title: meta.title };
 }
 
-export default function page({ params }) {
-  const { slug } = params;
-  const decodedSlug = decodeURIComponent(slug);
-  const fileName = fs.readFileSync(`app/posts/${decodedSlug}.md`, "utf-8");
-  const { data: frontmatter, content } = matter(fileName);
+async function Page({ params }) {
+  // const { title } = await generateMetadata(decodeURIComponent(params));
+  const { content } = await getPageContent(decodeURIComponent(params.slug));
 
   return (
-    <div className="prose my-12 mx-auto">
-      <h1>{frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: md().render(content) }}></div>
-    </div>
+    <section className="p-24 mx-52">
+      <div className="container py-4 prose">{content}</div>
+    </section>
   );
 }
+
+export default Page;
