@@ -27,7 +27,6 @@ function AnalysisNavBar({ ticker }) {
       path: `/analysis/${ticker}/dv/10years`,
     },
   ];
-
   const pathName = usePathname();
 
   return (
@@ -36,7 +35,11 @@ function AnalysisNavBar({ ticker }) {
         <Link key={i} href={navLink.path} replace={true}>
           <li
             className={`border-2 p-2 px-6 min-w-[200px] text-center transition ease-in-out delay-150 bg-gray-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-200 duration-500
-          ${navLink.path === pathName ? "bg-indigo-300 text-white" : ""}`}
+          ${
+            navLink.path.split("/")[3] === pathName.split("/")[3]
+              ? "bg-indigo-300 text-white"
+              : ""
+          }`}
           >
             {navLink.title}
           </li>
