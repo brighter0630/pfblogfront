@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { postTA } from "../apis/postTA";
+import { postTA } from "../../lib/postTA";
 
 function Admin() {
   const [ticker, setTicker] = useState("");

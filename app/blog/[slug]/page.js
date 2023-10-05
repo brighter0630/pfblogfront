@@ -1,4 +1,4 @@
-import { getPostBySlug } from "@/app/apis/getPosts";
+import { getPostBySlug } from "@/lib/getPosts";
 
 const getPageContent = async (slug) => {
   const { meta, content } = await getPostBySlug(decodeURIComponent(slug));

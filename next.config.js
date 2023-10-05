@@ -32,6 +32,7 @@ const nextConfig = {
     stockRatioURL: "https://financialmodelingprep.com/api/v3/ratios",
     stockAPIKEY: APIKEY,
     LOCALHOSTBACK: "http://127.0.0.1:5000",
+    POSTSPERPAGE: 2,
   },
   images: {
     domains: ["financialmodelingprep.com"],

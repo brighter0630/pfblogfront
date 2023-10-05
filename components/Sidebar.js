@@ -33,7 +33,7 @@ function Sidebar({ sidebarToggle, openSidebar }) {
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link href="/blog" className="flex">
+          <Link href="/postlist/1" className="flex">
             <BsJournalText className="icon" />
             투자생각
           </Link>

@@ -1,4 +1,4 @@
-import { getCSData } from "@/app/apis/getFinancialData";
+import { getCSData } from "@/lib/getFinancialData";
 import { EntoKo } from "@/translation";
 
 async function CSPage({ params }) {

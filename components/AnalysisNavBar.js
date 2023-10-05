@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 
 function AnalysisNavBar({ ticker }) {
   const navLinks = [
@@ -27,25 +28,15 @@ function AnalysisNavBar({ ticker }) {
     },
   ];
 
-  const [isActive, setIsActive] = useState([false, false, false, false, false]);
-  const toggleIsActive = (array, i) => {
-    array = [false, false, false, false, false];
-    array[i] = true;
-    setIsActive(array);
-  };
+  const pathName = usePathname();
 
   return (
     <ul className="grid grid-flow-col justify-evenly">
       {navLinks.map((navLink, i) => (
-        <Link
-          key={i}
-          href={navLink.path}
-          replace={true}
-          onClick={() => toggleIsActive(isActive, i)}
-        >
+        <Link key={i} href={navLink.path} replace={true}>
           <li
             className={`border-2 p-2 px-6 min-w-[200px] text-center transition ease-in-out delay-150 bg-gray-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-200 duration-500
-          ${isActive[i] === true ? "bg-indigo-300 text-white" : ""}`}
+          ${navLink.path === pathName ? "bg-indigo-300 text-white" : ""}`}
           >
             {navLink.title}
           </li>

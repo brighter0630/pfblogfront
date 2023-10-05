@@ -1,7 +1,7 @@
 import Link from "next/link";
 import CompanyProfile from "@/components/companyProfile";
-import { getCompanyProfile } from "@/app/apis/getCompanyProfile";
-import getMinPrice from "@/app/apis/getMinPrice";
+import { getCompanyProfile } from "@/lib/getCompanyProfile";
+import getMinPrice from "@/lib/getMinPrice";
 import AnalysisNavBar from "@/components/AnalysisNavBar";
 
 export default async function AnalysisLayout({ children, params }) {

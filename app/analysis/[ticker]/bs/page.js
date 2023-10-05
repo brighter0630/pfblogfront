@@ -1,4 +1,4 @@
-import { getBSData } from "@/app/apis/getFinancialData";
+import { getBSData } from "@/lib/getFinancialData";
 import { EntoKo } from "@/translation";
 
 async function BSPage({ params }) {

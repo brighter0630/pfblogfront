@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 function CompanyProfile({ profile, minPrice }) {
   const route = useRouter();
 
-  if (profile === undefined) {
+  if (profile === undefined || minPrice === undefined) {
     route.push("/ticker-not-found");
     return false;
   } else {

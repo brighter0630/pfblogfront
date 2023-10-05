@@ -1,14 +1,9 @@
-import { getAllPostsMeta } from "../apis/getPosts";
 import Link from "next/link";
 
-const PagesPerView = 3;
-
-async function Blog() {
-  const posts = await getAllPostsMeta();
-
+function PostListing({ postsMeta }) {
   return (
-    <div className="grid grid-cols-1 mx-auto max-w-3xl p-4 md:p-0 min-w-[720px]">
-      {posts?.map((post) => (
+    <div className="grid mx-auto my-4 max-w-3xl p-4 md:p-0 min-w-[720px]">
+      {postsMeta?.map((post) => (
         <div
           key={post.slug}
           className="m-4 rounded-sm border-b-2 border-b-stone-300"
@@ -28,14 +23,13 @@ async function Blog() {
             </div>
             <h3 className="p-6 font-sm text-sm">{post.metaDesc}</h3>
           </Link>
-          <div className="flex flex-row">
+          <div className="flex flex-row mb-1">
             {post.tags.map((tag, i) => (
-              <span
-                key={i}
-                className="p-1 text-sm text-gray-300 bg-slate-900 rounded-md m-1"
-              >
-                {tag}
-              </span>
+              <Link key={i} href={`/postlist/tag/${tag}/1`} replace={true}>
+                <span className="p-1 text-sm text-gray-300 bg-slate-900 rounded-md m-1">
+                  {tag}
+                </span>
+              </Link>
             ))}
           </div>
         </div>
@@ -44,4 +38,4 @@ async function Blog() {
   );
 }
 
-export default Blog;
+export default PostListing;

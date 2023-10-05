@@ -1,4 +1,4 @@
-import { getRatioData, getDVData } from "@/app/apis/getFinancialData";
+import { getRatioData, getDVData } from "@/lib/getFinancialData";
 import DividendChart from "@/components/dividendChart";
 import { EntoKo } from "@/translation";
 

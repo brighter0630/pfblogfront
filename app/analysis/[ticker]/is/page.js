@@ -1,4 +1,4 @@
-import { getISData } from "@/app/apis/getFinancialData";
+import { getISData } from "@/lib/getFinancialData";
 import { EntoKo } from "@/translation";
 
 async function ISPage({ params }) {

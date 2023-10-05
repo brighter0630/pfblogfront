@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 function NavBar({ ticker }) {
+  const pathName = usePathname();
   const navLinks = [
     {
       title: "1주일",
@@ -30,28 +32,14 @@ function NavBar({ ticker }) {
       path: `/analysis/${ticker}/pc/max`,
     },
   ];
-  const [isActive, setIsActive] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
-  const toggleIsActive = (array, i) => {
-    array = [false, false, false, false, false, false];
-    array[i] = true;
-    setIsActive(array);
-  };
 
   return (
     <ul className="grid grid-flow-col w-5/12 justify-end gap-5 mx-auto">
       {navLinks.map((navLink, i) => (
         <Link key={i} href={navLink.path}>
           <li
-            onClick={() => toggleIsActive(isActive, i)}
             className={`min-w-[50px] text-center rounded-md p-1 ${
-              isActive[i] === true
+              pathName === navLink.path
                 ? "bg-slate-400 text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
                 : ""
             }`}
