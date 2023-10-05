@@ -1,5 +1,4 @@
-import Link from "next/link";
-import CompanyProfile from "@/components/companyProfile";
+import CompanyProfile from "@/components/CompanyProfile";
 import { getCompanyProfile } from "@/lib/getCompanyProfile";
 import getMinPrice from "@/lib/getMinPrice";
 import AnalysisNavBar from "@/components/AnalysisNavBar";

@@ -1,5 +1,5 @@
 import React from "react";
-import PriceChart from "@/components/priceChart";
+import PriceChart from "@/components/PriceChart";
 import { getPriceHistory } from "@/lib/getPriceHistory";
 
 async function PriceChartTemplete({ params }) {

@@ -1,5 +1,5 @@
 import { getRatioData, getDVData } from "@/lib/getFinancialData";
-import DividendChart from "@/components/dividendChart";
+import DividendChart from "@/components/DividendChart";
 import { EntoKo } from "@/translation";
 
 async function DVPage({ params }) {
