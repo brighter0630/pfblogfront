@@ -1,6 +1,8 @@
 import { getAllPostsMeta } from "../apis/getPosts";
 import Link from "next/link";
 
+const PagesPerView = 3;
+
 async function Blog() {
   const posts = await getAllPostsMeta();
 

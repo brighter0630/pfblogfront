@@ -7,7 +7,6 @@ const rootDirectory = path.join(process.cwd(), "app", "posts");
 export const getPostBySlug = async (slug) => {
   const realSlug = decodeURIComponent(slug).replace(/\.mdx$/, "");
   const filePath = path.join(rootDirectory, `${realSlug}.mdx`);
-  console.log(`${filePath}으로 파일을 찾을 겁니다...`);
 
   const fileContent = fs.readFileSync(filePath, { encoding: "utf8" });
 

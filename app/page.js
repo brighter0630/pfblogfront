@@ -1,8 +1,8 @@
-import Pfchart from "./components/pfchart";
-import PfTable from "./components/pftable";
+import Pfchart from "../components/pfchart";
+import PfTable from "../components/pftable";
 import { summarypf } from "./apis/pfAggregator";
 import getCurrentPrice from "./apis/getCurrentPrice";
-import PfDashboard from "./components/pfDashboard";
+import PfDashboard from "../components/pfDashboard";
 import getMinPrice from "./apis/getMinPrice";
 
 export default async function Home() {

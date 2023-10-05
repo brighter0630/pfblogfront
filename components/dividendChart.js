@@ -12,7 +12,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { getDeltaDays } from "../apis/filterChartDataByDate";
+import { getDeltaDays } from "../app/apis/filterChartDataByDate";
 
 function DividendChart({ charttype, historical }) {
   if (historical.length !== 0) {
