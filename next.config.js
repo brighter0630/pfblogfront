@@ -35,7 +35,7 @@ const nextConfig = {
     POSTSPERPAGE: 2,
   },
   images: {
-    domains: ["financialmodelingprep.com"],
+    domains: ["financialmodelingprep.com", "https://financialmodelingprep.com"],
   },
 };
 

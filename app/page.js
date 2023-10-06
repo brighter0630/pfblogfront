@@ -4,6 +4,7 @@ import { summarypf } from "../lib/pfAggregator";
 import getCurrentPrice from "../lib/getCurrentPrice";
 import PfDashboard from "../components/PfDashboard";
 import getMinPrice from "../lib/getMinPrice";
+import BasicFrame from "@/components/BasicFrame";
 
 export default async function Home() {
   const summaryData = await summarypf();
@@ -13,7 +14,7 @@ export default async function Home() {
 
   return (
     <div className="main-container p-5 m-4 overflow-y-visible text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row font-['NanumBarunPen']">
-      <div className={"m-4 p-4 border-4"}>
+      <BasicFrame>
         <span className={"m-4 font-medium text-2xl"}>Portfolio 현황</span>
         <span>{minPrice[0].date.substring(0, 4)}년 </span>
         <span>{minPrice[0].date.substring(5, 7)}월 </span>
@@ -21,17 +22,17 @@ export default async function Home() {
         <span>{minPrice[0].date.substring(11, 13)}시 </span>
         <span>{minPrice[0].date.substring(14, 16)}분 기준 </span>
         <PfDashboard data={summaryData} currentPrices={currentPrices} />
-      </div>
-      <div className={"m-4 p-4 border-4"}>
+      </BasicFrame>
+      <BasicFrame>
         <span className={"m-4 font-medium text-2xl"}>
           보유 종목 목록 <span className="text-sm">(화폐 단위: $) </span>
         </span>
         <PfTable data={summaryData} currentPrices={currentPrices} />
-      </div>
-      <div className={"m-4 p-4 border-4"}>
+      </BasicFrame>
+      <BasicFrame>
         <span className="m-4 font-medium text-2xl">보유 종목 차트</span>
         <Pfchart data={summaryData} currentPrices={currentPrices} />
-      </div>
+      </BasicFrame>
     </div>
   );
 }

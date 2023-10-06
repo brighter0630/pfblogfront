@@ -2,6 +2,7 @@ import CompanyProfile from "@/components/CompanyProfile";
 import { getCompanyProfile } from "@/lib/getCompanyProfile";
 import getMinPrice from "@/lib/getMinPrice";
 import AnalysisNavBar from "@/components/AnalysisNavBar";
+import BasicFrame from "@/components/BasicFrame";
 
 export default async function AnalysisLayout({ children, params }) {
   const { ticker } = params;
@@ -10,10 +11,10 @@ export default async function AnalysisLayout({ children, params }) {
 
   return (
     <div className="p-5 m-4 overflow-y-visible text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row font-['NanumBarunPen']">
-      <div className="m-4 p-4 border-4 ">
+      <BasicFrame>
         <span className={"m-4 font-medium text-2xl"}>요약 정보</span>
         <CompanyProfile profile={profile} minPrice={minPrice} />
-      </div>
+      </BasicFrame>
       <div>
         <AnalysisNavBar ticker={ticker} />
       </div>

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 function CompanyProfile({ profile, minPrice }) {
   const route = useRouter();

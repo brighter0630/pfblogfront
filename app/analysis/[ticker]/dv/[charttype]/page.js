@@ -1,6 +1,8 @@
 import FinancialTable from "@/components/FinancialTable";
 import { getRatioData, getDVData } from "@/lib/getFinancialData";
 import DividendChart from "@/components/DividendChart";
+import DividendCard from "@/components/DividendCard";
+import BasicFrame from "@/components/BasicFrame";
 
 async function DVPage({ params }) {
   const { ticker, charttype } = params;
@@ -18,10 +20,16 @@ async function DVPage({ params }) {
     "debtEquityRatio",
     "interestCoverage",
   ];
+
   return (
     <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl grid grid-flow-row ">
-      <div>
-        <DividendChart historical={historical} charttype={charttype} />
+      <div className="grid grid-flow-col">
+        <div>
+          <DividendChart historical={historical} charttype={charttype} />
+        </div>
+        <BasicFrame>
+          <DividendChart></DividendChart>
+        </BasicFrame>
       </div>
       <div>
         <FinancialTable yearsData={yearsData} selectedCols={selectedCols} />

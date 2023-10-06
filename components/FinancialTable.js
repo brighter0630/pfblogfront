@@ -67,7 +67,9 @@ function FinancialTable({ yearsData, selectedCols }) {
               </td>
               {yearsData.map((yearData, i) => (
                 <td key={i} className="text-right pr-5">
-                  {EntoKo[col].money === true
+                  {yearData[col] === 0
+                    ? "-"
+                    : EntoKo[col].money === true
                     ? Math.round(yearData[col] / 1000000).toLocaleString(
                         "en-US"
                       )
