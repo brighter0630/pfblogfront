@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 function CustomModal({ open, title, onClose, x, y, children }) {
-  console.log(`from child, ${x}, ${y}`);
   return (
     <div
       className={`absolute ${y} left-[35%] z-50 p-4 grid grid-flow-row min-w-[500px] min-h-[250px] bg-slate-500 ${

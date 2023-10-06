@@ -24,12 +24,15 @@ async function DVPage({ params }) {
   return (
     <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl grid grid-flow-row ">
       <div className="grid grid-flow-col">
-        <div>
+        <div className="min-w-[700px]">
           <DividendChart historical={historical} charttype={charttype} />
         </div>
-        <BasicFrame>
-          <DividendChart></DividendChart>
-        </BasicFrame>
+        <div className="min-w-[300px]">
+          <h1 className="text-center text-xl font-medium">배당 정보</h1>
+          <BasicFrame>
+            <DividendCard historical={historical}></DividendCard>
+          </BasicFrame>
+        </div>
       </div>
       <div>
         <FinancialTable yearsData={yearsData} selectedCols={selectedCols} />
