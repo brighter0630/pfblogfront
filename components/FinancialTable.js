@@ -26,8 +26,8 @@ function FinancialTable({ yearsData, selectedCols }) {
         open={modalOpen}
         onClose={(e) => setModalOpen(false)}
         title="타이틀"
-        x={x}
-        y={y}
+        x={() => x}
+        y={() => y}
       >
         내용들
       </CustomModal>

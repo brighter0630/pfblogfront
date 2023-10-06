@@ -13,8 +13,8 @@ async function EachPageByTag({ params }) {
 
   return (
     <div>
-      <div className="text-center">
-        <h1>Tag {decodeURIComponent(tag)}</h1>
+      <div className="text-center text-xl font-extrabold underline underline-offset-4 my-5">
+        <span>Tag {decodeURIComponent(tag)}</span>
       </div>
       <div>
         <PostListing postsMeta={postsMeta} />;

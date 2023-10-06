@@ -1,23 +1,23 @@
 import FinancialTable from "@/components/FinancialTable";
-import { getISData } from "@/lib/getFinancialData";
+import { getBSData } from "@/lib/getFinancialData";
 
 async function ISPage({ params }) {
   const { ticker } = params;
-  const yearsData = await getISData(ticker);
+  const yearsData = await getBSData(ticker);
   const selectedCols = [
-    "cashAndCashEquivalents",
-    "cashAndShortTermInvestments",
-    "netReceivables",
-    "inventory",
-    "propertyPlantEquipmentNet",
-    "longTermInvestments",
-    "accountPayables",
-    "shortTermDebt",
-    "longTermDebt",
-    "netDebt",
-    "totalLiabilities",
-    "totalEquity",
-    "totalAssets",
+    "revenue",
+    "costOfRevenue",
+    "grossProfit",
+    "sellingGeneralAndAdministrativeExpenses",
+    "interestIncome",
+    "interestExpense",
+    "depreciationAndAmortization",
+    "ebitda",
+    "operatingIncome",
+    "operatingIncomeRatio",
+    "netIncome",
+    "eps",
+    "weightedAverageShsOutDil",
   ];
   return (
     <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl ">

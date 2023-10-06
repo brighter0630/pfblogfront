@@ -9,7 +9,7 @@ import {
   BsSearch,
   BsJustify,
 } from "react-icons/bs";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 function Header() {
   const [sidebarToggle, setSidebarToggle] = useState(false);
@@ -18,14 +18,20 @@ function Header() {
   };
   const [ticker, setTicker] = useState("");
   const router = useRouter();
+  const pathName = usePathname();
   const searchHandler = (e) => {
     if (e.key === "Enter") {
-      router.push(`/analysis/${ticker}/pc/3months`);
+      const urlParticles = pathName.split("/");
+      urlParticles[2] = ticker;
+      router.push(`${urlParticles.join("/")}`);
     }
   };
   const searchClicked = () => {
     if (ticker) {
-      router.push(`/analysis/${ticker}/pc/3months`);
+      // 나중에 REGEX로 바꿔야하는데....
+      const urlParticles = pathName.split("/");
+      urlParticles[2] = ticker;
+      router.push(`${urlParticles.join("/")}`);
     }
   };
   return (

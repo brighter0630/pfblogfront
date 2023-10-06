@@ -11,12 +11,12 @@ function AnalysisNavBar({ ticker }) {
       path: `/analysis/${ticker}/pc/3months`,
     },
     {
-      title: "대차대조표",
-      path: `/analysis/${ticker}/bs`,
-    },
-    {
       title: "손익계산서",
       path: `/analysis/${ticker}/is`,
+    },
+    {
+      title: "대차대조표",
+      path: `/analysis/${ticker}/bs`,
     },
     {
       title: "현금흐름표",

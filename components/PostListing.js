@@ -27,7 +27,7 @@ function PostListing({ postsMeta }) {
             {post.tags.map((tag, i) => (
               <Link key={i} href={`/postlist/tag/${tag}/1`} replace={true}>
                 <span className="p-1 text-sm text-gray-300 bg-slate-900 rounded-md m-1">
-                  {tag}
+                  #{tag}
                 </span>
               </Link>
             ))}

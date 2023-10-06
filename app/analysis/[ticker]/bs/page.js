@@ -1,24 +1,23 @@
 import FinancialTable from "@/components/FinancialTable";
-import { getBSData } from "@/lib/getFinancialData";
-import { EntoKo } from "@/translation";
+import { getISData } from "@/lib/getFinancialData";
 
 async function BSPage({ params }) {
   const { ticker } = params;
-  const yearsData = await getBSData(ticker);
+  const yearsData = await getISData(ticker);
   const selectedCols = [
-    "revenue",
-    "costOfRevenue",
-    "grossProfit",
-    "sellingGeneralAndAdministrativeExpenses",
-    "interestIncome",
-    "interestExpense",
-    "depreciationAndAmortization",
-    "ebitda",
-    "operatingIncome",
-    "operatingIncomeRatio",
-    "netIncome",
-    "eps",
-    "weightedAverageShsOutDil",
+    "cashAndCashEquivalents",
+    "cashAndShortTermInvestments",
+    "netReceivables",
+    "inventory",
+    "propertyPlantEquipmentNet",
+    "longTermInvestments",
+    "accountPayables",
+    "shortTermDebt",
+    "longTermDebt",
+    "netDebt",
+    "totalLiabilities",
+    "totalEquity",
+    "totalAssets",
   ];
   return (
     <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl ">

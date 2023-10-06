@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 function CustomModal({ open, title, onClose, x, y, children }) {
   return (
     <div
