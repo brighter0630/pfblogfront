@@ -1,3 +1,4 @@
+import Pagination from "@/components/Pagination";
 import PostListing from "@/components/PostListing";
 import { getPostsByTag } from "@/lib/getPosts";
 
@@ -10,7 +11,19 @@ async function EachPageByTag({ params }) {
     process.env.POSTSPERPAGE * page
   );
 
-  return <PostListing postsMeta={postsMeta} />;
+  return (
+    <div>
+      <div className="text-center">
+        <h1>Tag {decodeURIComponent(tag)}</h1>
+      </div>
+      <div>
+        <PostListing postsMeta={postsMeta} />;
+      </div>
+      <div>
+        <Pagination numOfPosts={allPostMeta.length} />
+      </div>
+    </div>
+  );
 }
 
 export default EachPageByTag;

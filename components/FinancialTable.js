@@ -1,24 +1,41 @@
 "use client";
 
-import { EntoKo } from "@/translation";
-import HoverChart from "./HoverChart";
 import { useState } from "react";
+import { EntoKo } from "@/translation";
+import CustomModal from "./CustomModal";
 
 function FinancialTable({ yearsData, selectedCols }) {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [x, setX] = useState("left-[0px]");
+  const [y, setY] = useState("top-[0px]");
+
+  const toggleModalOpen = (e) => {
+    setModalOpen(true);
+    setX(`left-[${e.clientX}px]`);
+    setY(`top-[${e.clientY}px]`);
+    console.log(`${x} and ${y}`);
+  };
+
   const [hover, setHover] = useState(
     [...new Array(selectedCols.length)].map((_) => false)
   );
 
-  const toggleMouseEnter = (array, i) => {
-    array[i] = true;
-    setHover(array);
-  };
-  const toggleMouseLeave = (array, i) => {
-    array[i] = false;
-    setHover(array);
-  };
   return (
     <div>
+      <CustomModal
+        open={modalOpen}
+        onClose={(e) => setModalOpen(false)}
+        title="타이틀"
+        x={x}
+        y={y}
+      >
+        내용들
+      </CustomModal>
+      <div
+        className={`max-w-[60%] ${
+          hover.every((e) => e === false) ? "hidden" : "text-blue-600"
+        }`}
+      ></div>
       <table className="my-8 mx-auto">
         <thead>
           <tr className="border-gray-400 border-b-2">
@@ -42,19 +59,14 @@ function FinancialTable({ yearsData, selectedCols }) {
         <tbody>
           {selectedCols.map((col, i) => (
             <tr key={i}>
-              <div className="">
-                {/* 작업중 */}
-                {/* <HoverChart /> */}
-              </div>
               <td
                 className="p-3 text-sm text-center"
-                onMouseEnter={() => toggleMouseEnter(hover, i)}
-                onMouseLeave={() => toggleMouseLeave(hover, i)}
+                onMouseEnter={(e) => toggleModalOpen(e)}
               >
                 {EntoKo[col].ko}
               </td>
               {yearsData.map((yearData, i) => (
-                <td key={i} className="text-right pr-4">
+                <td key={i} className="text-right pr-5">
                   {EntoKo[col].money === true
                     ? Math.round(yearData[col] / 1000000).toLocaleString(
                         "en-US"
