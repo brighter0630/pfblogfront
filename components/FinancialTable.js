@@ -3,17 +3,20 @@
 import { useState } from "react";
 import { EntoKo } from "@/translation";
 import CustomModal from "./CustomModal";
+import { BiLineChart } from "react-icons/bi";
 
 function FinancialTable({ yearsData, selectedCols }) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [x, setX] = useState("left-[0px]");
-  const [y, setY] = useState("top-[0px]");
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
 
-  const toggleModalOpen = (e) => {
-    setModalOpen(true);
-    setX(`left-[${e.clientX}px]`);
-    setY(`top-[${e.clientY}px]`);
-    console.log(`${x} and ${y}`);
+  const toggleModalOpen = (i) => {
+    let newArray = [...new Array(selectedCols.length)].map((_) => false);
+    newArray[i] = true;
+    setHover(newArray);
+  };
+  const setModalClose = () => {
+    setHover([...new Array(selectedCols.length)].map((_) => false));
   };
 
   const [hover, setHover] = useState(
@@ -22,20 +25,6 @@ function FinancialTable({ yearsData, selectedCols }) {
 
   return (
     <div>
-      <CustomModal
-        open={modalOpen}
-        onClose={(e) => setModalOpen(false)}
-        title="타이틀"
-        x={() => x}
-        y={() => y}
-      >
-        내용들
-      </CustomModal>
-      <div
-        className={`max-w-[60%] ${
-          hover.every((e) => e === false) ? "hidden" : "text-blue-600"
-        }`}
-      ></div>
       <table className="my-8 mx-auto">
         <thead>
           <tr className="border-gray-400 border-b-2">
@@ -45,13 +34,15 @@ function FinancialTable({ yearsData, selectedCols }) {
             {yearsData.map((yearData, i) => (
               <th
                 key={i}
-                className="p-3 text-sm font-semibold tracking-wide text-left min-w-[110px]"
+                className="p-3 text-sm font-semibold tracking-wide text-left min-w-[100px]"
               >
-                <span className="text-lg">
+                <p className="text-lg text-center">
                   {" "}
-                  {yearData.date.substr(0, 4)}년{" "}
-                </span>
-                <span className="text-xs">{yearData.date.substr(5, 2)}월</span>
+                  {yearData.date.substr(0, 4)}년
+                </p>
+                <p className="text-xs text-right mr-4">
+                  {yearData.date.substr(5, 2)}월
+                </p>
               </th>
             ))}
           </tr>
@@ -59,11 +50,8 @@ function FinancialTable({ yearsData, selectedCols }) {
         <tbody>
           {selectedCols.map((col, i) => (
             <tr key={i}>
-              <td
-                className="p-3 text-sm text-center"
-                onMouseEnter={(e) => toggleModalOpen(e)}
-              >
-                {EntoKo[col].ko}
+              <td className="p-3 text-sm mx-auto text-center grid min-w-[150px]">
+                <span className="text-xs">{EntoKo[col].ko}</span>
               </td>
               {yearsData.map((yearData, i) => (
                 <td key={i} className="text-right pr-5">

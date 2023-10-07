@@ -63,7 +63,7 @@ function CompanyProfile({ profile, minPrice }) {
           </span>
         </div>
       </div>
-      <div className="grid grid-rows-3 text-center font-normal p-4 invisible lg:visible">
+      <div className="grid grid-rows-3 text-center font-normal gap-2 p-4 invisible lg:visible">
         <div className="grid grid-flow-row h-1/5">
           <span className="text-sm">섹터</span>
           <span className="text-2xl">{profile?.sector}</span>

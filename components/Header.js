@@ -34,6 +34,11 @@ function Header() {
       router.push(`${urlParticles.join("/")}`);
     }
   };
+  const moveToX0 = () => {
+    document.documentElement.scrollTop = 0;
+    document.documentElement.scrollLeft = 0;
+  };
+
   return (
     <>
       <header className={"header"}>
@@ -48,8 +53,8 @@ function Header() {
               onChange={(e) => setTicker(e.target.value)}
               onKeyDown={searchHandler}
               placeholder="티커를 입력하세요. (ex: AAPL)"
-              autoCapitalize="on"
               autoComplete="off"
+              onFocus={moveToX0}
               className="outline-0 rounded-md ml-5 w-96 h-10 opacity-80 p-4"
             />
           </label>

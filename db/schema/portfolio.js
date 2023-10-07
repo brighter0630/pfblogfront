@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const pfSchema = new mongoose.Schema({
   ticker: {
     type: String,
@@ -18,6 +17,14 @@ const pfSchema = new mongoose.Schema({
     required: true,
   },
   quantity: {
+    type: Number,
+    required: true,
+  },
+  nasdaqAtTr: {
+    type: Number,
+    required: true,
+  },
+  snpAtTr: {
     type: Number,
     required: true,
   },

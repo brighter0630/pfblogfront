@@ -13,7 +13,7 @@ function Sidebar({ sidebarToggle, openSidebar }) {
   return (
     <aside
       id="sidebar"
-      className={sidebarToggle === true ? "sidebar-responsive" : ""}
+      className={`${sidebarToggle === true ? "sidebar-responsive" : ""}`}
     >
       <div className="sidebar-title">
         <Link href="/">
