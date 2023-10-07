@@ -87,12 +87,12 @@ export default function PfTable({ data, currentPrices }) {
         </thead>
         <tbody>
           {newData?.map((stock, i) => (
-            <tr key={i}>
-              <td className={"p-3 text-sm"}>
+            <tr key={i} className="text-center">
+              <td className={"p-3 text-sm text-left"}>
                 <Link href={`/analysis/${stock._id}/pc/year`}>{stock._id}</Link>
               </td>
 
-              <td className={"p-3 text-sm"}>
+              <td className={"p-3 text-sm text-left"}>
                 <Link href={`/analysis/${stock._id}/pc/year`}>
                   {stock.name}
                 </Link>

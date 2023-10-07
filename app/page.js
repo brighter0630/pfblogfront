@@ -1,5 +1,5 @@
 import Pfchart from "../components/Pfchart";
-import PfTable from "../components/Pftable";
+import CurrentHoldings from "../components/CurrentHoldings";
 import getCurrentPrice from "../libs/getCurrentPrice";
 import PfDashboard from "../components/PfDashboard";
 import getMinPrice from "../libs/getMinPrice";
@@ -28,7 +28,7 @@ export default async function Home() {
         <span className={"m-4 font-medium text-2xl"}>
           보유 종목 목록 <span className="text-sm">(화폐 단위: $) </span>
         </span>
-        <PfTable data={summaryData} currentPrices={currentPrices} />
+        <CurrentHoldings data={summaryData} currentPrices={currentPrices} />
       </BasicFrame>
       <BasicFrame>
         <span className="m-4 font-medium text-2xl">보유 종목 차트</span>
