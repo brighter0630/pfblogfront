@@ -1,13 +1,14 @@
 import Pfchart from "../components/Pfchart";
 import PfTable from "../components/Pftable";
-import { summarypf } from "../lib/pfAggregator";
-import getCurrentPrice from "../lib/getCurrentPrice";
+import getCurrentPrice from "../libs/getCurrentPrice";
 import PfDashboard from "../components/PfDashboard";
-import getMinPrice from "../lib/getMinPrice";
+import getMinPrice from "../libs/getMinPrice";
 import BasicFrame from "@/components/BasicFrame";
 
+import summarisePortfolio from "@/libs/db/summarisePortfolio";
+
 export default async function Home() {
-  const summaryData = await summarypf();
+  const { summaryData } = await summarisePortfolio();
   const tickers = summaryData.map((stock) => stock._id);
   const currentPrices = await getCurrentPrice(tickers);
   const minPrice = await getMinPrice("AAPL");

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const pfSchema = new mongoose.Schema({
   ticker: {
     type: String,
@@ -30,4 +31,5 @@ const pfSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Pf", pfSchema);
+// 아래 부분을 추가해야 model overwrite 에러가 발생하지 않음.
+module.exports = mongoose.model.pf ?? mongoose.model("Pf", pfSchema);

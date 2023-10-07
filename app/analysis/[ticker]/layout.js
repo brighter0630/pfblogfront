@@ -1,6 +1,6 @@
 import CompanyProfile from "@/components/CompanyProfile";
-import { getCompanyProfile } from "@/lib/getCompanyProfile";
-import getMinPrice from "@/lib/getMinPrice";
+import { getCompanyProfile } from "@/libs/getCompanyProfile";
+import getMinPrice from "@/libs/getMinPrice";
 import AnalysisNavBar from "@/components/AnalysisNavBar";
 import BasicFrame from "@/components/BasicFrame";
 

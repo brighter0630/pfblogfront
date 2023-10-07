@@ -1,5 +1,5 @@
 import Pagination from "@/components/Pagination";
-import { countAllPosts } from "@/lib/getPosts";
+import { countAllPosts } from "@/libs/getPosts";
 
 async function BlogLayout({ children }) {
   const numOfPosts = await countAllPosts();

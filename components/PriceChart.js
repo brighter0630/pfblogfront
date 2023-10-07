@@ -9,7 +9,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import filterChartDataByDate from "../lib/filterChartDataByDate";
+import filterChartDataByDate from "../libs/filterChartDataByDate";
 
 function PriceChart({ symbol, historical, charttype }) {
   const chartData = filterChartDataByDate(charttype, historical);

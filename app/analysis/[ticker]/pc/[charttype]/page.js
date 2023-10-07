@@ -1,6 +1,6 @@
 import React from "react";
 import PriceChart from "@/components/PriceChart";
-import { getPriceHistory } from "@/lib/getPriceHistory";
+import { getPriceHistory } from "@/libs/getPriceHistory";
 
 async function PriceChartTemplete({ params }) {
   const { ticker, charttype } = params;

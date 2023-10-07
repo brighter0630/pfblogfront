@@ -1,5 +1,5 @@
 import FinancialTable from "@/components/FinancialTable";
-import { getCSData } from "@/lib/getFinancialData";
+import { getCSData } from "@/libs/getFinancialData";
 
 async function CSPage({ params }) {
   const { ticker } = params;

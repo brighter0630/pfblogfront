@@ -30,10 +30,10 @@ const nextConfig = {
     stockDVURL:
       "https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend",
     stockRatioURL: "https://financialmodelingprep.com/api/v3/ratios",
-    stockAPIKEY: APIKEY,
     LOCALHOSTBACK: "http://127.0.0.1:5000",
     MONGO_URI: "mongodb://127.0.0.1:27017/pfwebsite",
     POSTSPERPAGE: 2,
+    stockAPIKEY: process.env.stockAPIKEY,
   },
   images: {
     domains: ["financialmodelingprep.com", "https://financialmodelingprep.com"],

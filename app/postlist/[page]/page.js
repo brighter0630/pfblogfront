@@ -1,6 +1,6 @@
 import Pagination from "@/components/Pagination";
 import PostListing from "@/components/PostListing";
-import { getAllPostsMeta } from "@/lib/getPosts";
+import { getAllPostsMeta } from "@/libs/getPosts";
 
 async function EachPage({ params }) {
   const allPostMeta = await getAllPostsMeta();

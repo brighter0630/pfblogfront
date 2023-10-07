@@ -1,5 +1,5 @@
 import FinancialTable from "@/components/FinancialTable";
-import { getRatioData, getDVData } from "@/lib/getFinancialData";
+import { getRatioData, getDVData } from "@/libs/getFinancialData";
 import DividendChart from "@/components/DividendChart";
 import DividendCard from "@/components/DividendCard";
 import BasicFrame from "@/components/BasicFrame";

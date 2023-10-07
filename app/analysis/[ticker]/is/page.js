@@ -1,5 +1,5 @@
 import FinancialTable from "@/components/FinancialTable";
-import { getBSData } from "@/lib/getFinancialData";
+import { getBSData } from "@/libs/getFinancialData";
 
 async function ISPage({ params }) {
   const { ticker } = params;
