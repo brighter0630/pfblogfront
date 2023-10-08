@@ -17,7 +17,7 @@ export default async function Home() {
   const minPrice = await getMinPrice("AAPL");
 
   return (
-    <div className="p-5 m-4 text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row max-w-3xl font-['NanumBarunPen']">
+    <div className="p-5 my-4 mx-auto text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row max-w-3xl font-['NanumBarunPen']">
       <BasicFrame>
         <span className={"m-4 font-medium text-2xl"}>Portfolio 현황</span>
         <span>{minPrice[0].date.substring(0, 4)}년 </span>

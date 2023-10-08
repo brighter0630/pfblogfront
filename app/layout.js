@@ -1,6 +1,5 @@
 import "./globals.css";
 import Header from "../components/Header";
-import Footer from "./footer";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata = {
@@ -11,18 +10,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <body className="grid grid-cols-5 min-w-[1024px] max-w-[1024px]">
-        <div className="col-span-1">
+      <body className="min-w-[1024px] grid grid-cols-5">
+        <aside className="h-screen sticky top-0 col-span-1">
           <Sidebar />
-        </div>
-        <div className="col-span-4 grid grid-flow-row pt-5">
+        </aside>
+        <div className="col-span-4 flex flex-col">
           <Header />
-          <main>{children}</main>
-          <footer className="text-blue-50 font-semibold max-h-52 mt-10 bg-slate-400 w-screen h-16">
-            <div className="my-auto pl-30">
+          <main className="max-w-5xl">{children}</main>
+          <footer className="text-slate-700 py-10 font-semibold max-h-52 mt-10 bg-slate-200 overflow-x-hidden">
+            <div className="my-auto p-4 text-center">
               <p className="">
                 <span dangerouslySetInnerHTML={{ __html: "&copy;" }} />{" "}
-                배당성장투자. All rights reserved.
+                배당성장주투자. All rights reserved.
               </p>
               <p>Contact: brighter87@gmail.com</p>
             </div>

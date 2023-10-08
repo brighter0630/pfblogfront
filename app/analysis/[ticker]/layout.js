@@ -10,11 +10,13 @@ export default async function AnalysisLayout({ children, params }) {
   const minPrice = (await getMinPrice(ticker))[0];
 
   return (
-    <div className="py-5 m-4 overflow-y-visible text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row font-['NanumBarunPen']">
-      <BasicFrame>
-        <span className={"m-4 font-medium text-2xl"}>요약 정보</span>
-        <CompanyProfile profile={profile} minPrice={minPrice} />
-      </BasicFrame>
+    <div className="p-5 py-2 my-2 mx-auto text-opacity-90 font-semibold text-black grid gap-3 grid-flow-row font-['NanumBarunPen']">
+      <div className="mx-auto">
+        <BasicFrame>
+          <span className={"m-4 font-medium text-2xl"}>요약 정보</span>
+          <CompanyProfile profile={profile} minPrice={minPrice} />
+        </BasicFrame>
+      </div>
       <div>
         <AnalysisNavBar ticker={ticker} />
       </div>

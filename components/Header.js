@@ -34,8 +34,8 @@ function Header() {
   };
 
   return (
-    <div className="flex my-3 px-5 gap-3 justify-stretch">
-      <div className="flex flex-row ">
+    <div className="flex mx-auto my-3 px-5 gap-3 justify-center h-14">
+      <div className="flex flex-row my-auto">
         <label htmlFor="searchTicker">
           <input
             type="search"

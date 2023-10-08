@@ -28,15 +28,15 @@ function FinancialTable({ yearsData, selectedCols }) {
       <table className="my-8 mx-auto">
         <thead>
           <tr className="border-gray-400 border-b-2">
-            <th className="p-3 text-sm font-semibold tracking-wide text-center min-w-[150px]">
+            <th className="p-3 text-sm font-semibold tracking-wide text-center min-w-[100px]">
               (단위: 백만)
             </th>
             {yearsData.map((yearData, i) => (
               <th
                 key={i}
-                className="p-3 text-sm font-semibold tracking-wide text-left min-w-[100px]"
+                className="p-3 text-sm font-semibold tracking-wide text-left min-w-[80px]"
               >
-                <p className="text-lg text-center">
+                <p className="text-base text-center">
                   {" "}
                   {yearData.date.substr(0, 4)}년
                 </p>
@@ -50,7 +50,7 @@ function FinancialTable({ yearsData, selectedCols }) {
         <tbody>
           {selectedCols.map((col, i) => (
             <tr key={i}>
-              <td className="p-3 text-sm mx-auto text-center grid min-w-[150px]">
+              <td className="p-3 text-sm mx-auto text-center grid min-w-[80px]">
                 <span className="text-xs">{EntoKo[col].ko}</span>
               </td>
               {yearsData.map((yearData, i) => (

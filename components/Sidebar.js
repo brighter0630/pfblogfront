@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
 import {
   BsBarChart,
   BsJournalText,
@@ -9,37 +8,18 @@ import {
   BsPeopleFill,
   BsPieChartFill,
   BsFillGearFill,
-  BsJustify,
 } from "react-icons/bs";
-import { AiOutlineClose } from "react-icons/ai";
 function Sidebar() {
-  const [sidebar, setSidebar] = useState(true);
   return (
-    <div
-      className={`md:flex flex-col h-full overflow-y-auto min-w-[150px] bg-[--sidebar-color] ${
-        !sidebar && "min-w-[50px]"
-      }`}
-    >
+    <div className={`flex flex-col h-full bg-[--sidebar-color] `}>
       <div className={`flex py-5 pl-3 pr-0 mb-5 max-h-[300px]`}>
         <Link href="/">
-          <div className={`mt-2 p-2 text-xl font-bold ${!sidebar && "hidden"}`}>
+          <div className={`mt-2 p-2 text-xl font-bold`}>
             <span>이웃집백만장자의 배당성장주 투자</span>
           </div>
         </Link>
-        <span className={`my-auto cursor-pointer mx-3 ${!sidebar && "hidden"}`}>
-          <AiOutlineClose
-            className="text-xl"
-            onClick={() => setSidebar(!sidebar)}
-          />
-        </span>
-        <div
-          className="p-1 cursor-pointer"
-          onClick={() => setSidebar(!sidebar)}
-        >
-          <BsJustify className={`my-auto text-lg ${sidebar && "hidden"}`} />
-        </div>
       </div>
-      <ul className={`grid grid-flow-row mt-0 ${!sidebar && "hidden"}`}>
+      <ul className={`grid grid-flow-row mt-0`}>
         <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
           <Link href="/" className="flex text-xl">
             <BsPieChartFill className="mx-5 text-lg my-auto" />
