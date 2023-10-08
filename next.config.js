@@ -32,7 +32,7 @@ const nextConfig = {
     stockRatioURL: "https://financialmodelingprep.com/api/v3/ratios",
     LOCALHOSTBACK: "http://127.0.0.1:5000",
     MONGO_URI: "mongodb://127.0.0.1:27017/pfwebsite",
-    POSTSPERPAGE: 2,
+    POSTSPERPAGE: 5,
     stockAPIKEY: process.env.stockAPIKEY,
   },
   images: {

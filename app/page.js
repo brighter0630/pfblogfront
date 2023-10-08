@@ -6,11 +6,14 @@ import getMinPrice from "../libs/getMinPrice";
 import BasicFrame from "@/components/BasicFrame";
 
 import summarisePortfolio from "@/libs/db/summarisePortfolio";
+import { getNasdaqIndex, getSNPIndex } from "@/libs/getIndex";
 
 export default async function Home() {
   const { summaryData } = await summarisePortfolio();
-  const tickers = summaryData.map((stock) => stock._id);
+  const tickers = summaryData.map((stock) => stock.ticker);
   const currentPrices = await getCurrentPrice(tickers);
+  const nasdaqIndex = await getNasdaqIndex(1);
+  const snpIndex = await getSNPIndex(1);
   const minPrice = await getMinPrice("AAPL");
 
   return (
@@ -28,7 +31,12 @@ export default async function Home() {
         <span className={"m-4 font-medium text-2xl"}>
           보유 종목 목록 <span className="text-sm">(화폐 단위: $) </span>
         </span>
-        <CurrentHoldings data={summaryData} currentPrices={currentPrices} />
+        <CurrentHoldings
+          data={summaryData}
+          currentPrices={currentPrices}
+          nasdaqIndex={nasdaqIndex}
+          snpIndex={snpIndex}
+        />
       </BasicFrame>
       <BasicFrame>
         <span className="m-4 font-medium text-2xl">보유 종목 차트</span>

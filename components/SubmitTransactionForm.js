@@ -3,8 +3,9 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
 import { useRouter } from "next/navigation";
+import printDate from "@/libs/printDate";
+import { getNasdaqIndex, getSNPIndex } from "@/libs/getIndex";
 
 function SubmitTransactionForm() {
   const [ticker, setTicker] = useState("");
@@ -17,24 +18,18 @@ function SubmitTransactionForm() {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      const histNASDAQ = (
-        await axios.get(
-          `${process.env.stockPHURL}/%5EIXIC?apikey=${process.env.stockAPIKEY}`
-        )
-      ).data.historical.slice(0, 100);
-
-      const histSNP = (
-        await axios.get(
-          `${process.env.stockPHURL}/%5EGSPC?apikey=${process.env.stockAPIKEY}`
-        )
-      ).data.historical.slice(0, 100);
-
-      const snpAtTr = histSNP.filter(
-        (d) => d.date === String(dateOfTransaction.toJSON()).substring(0, 10)
+      console.log();
+      // const histNASDAQ = (
+      //   await axios.get(
+      //     `${process.env.stockPHURL}/%5EIXIC?apikey=${process.env.stockAPIKEY}`
+      //   )
+      // ).data.historical.slice(0, 100);
+      const nasdaqAtTr = (await getNasdaqIndex(100)).filter(
+        (d) => d.date === printDate(dateOfTransaction)
       )[0].open;
 
-      const nasdaqAtTr = histNASDAQ.filter(
-        (d) => d.date === String(dateOfTransaction.toJSON()).substring(0, 10)
+      const snpAtTr = (await getSNPIndex(100)).filter(
+        (d) => d.date === printDate(dateOfTransaction)
       )[0].open;
 
       const res = await fetch("http://localhost:3000/api/addtransaction", {
@@ -44,10 +39,7 @@ function SubmitTransactionForm() {
         },
         body: JSON.stringify({
           ticker,
-          dateOfTransaction: String(dateOfTransaction.toJSON()).substring(
-            0,
-            10
-          ),
+          dateOfTransaction: printDate(dateOfTransaction),
           typeofTransaction,
           price,
           quantity,
@@ -57,7 +49,7 @@ function SubmitTransactionForm() {
       });
       if (res.ok) {
         console.log("done!!!");
-        route.push(`/`);
+        route.push(`/admin`);
       } else {
         throw new Error("Failed to create a Document");
         console.error(res.statusText);

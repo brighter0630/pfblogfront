@@ -3,17 +3,16 @@ import React from "react";
 function PfDashboard({ data, currentPrices }) {
   const newData = data.map((stock) => {
     return Object.assign(
-      ...currentPrices.filter((price) => price.symbol === stock._id),
+      ...currentPrices.filter((price) => price.symbol === stock.ticker),
       stock
     );
   });
   let totalInvestedCapital = newData.reduce(
-    (prev, curr) =>
-      prev + (curr.totalHoldings * curr.numerator) / curr.denumerator,
+    (prev, curr) => prev + curr.numerator,
     0
   );
   let totalCurrentAsset = newData.reduce(
-    (prev, curr) => prev + curr.totalHoldings * curr.price,
+    (prev, curr) => prev + curr.denumerator * curr.price,
     0
   );
   return (

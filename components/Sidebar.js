@@ -11,13 +11,13 @@ import {
 import { AiOutlineClose } from "react-icons/ai";
 function Sidebar({ sidebarToggle, openSidebar }) {
   return (
-    <aside
+    <div
       id="sidebar"
-      className={`${sidebarToggle === true ? "sidebar-responsive" : ""}`}
+      className={` ${sidebarToggle === true ? "sidebar-responsive" : ""}`}
     >
-      <div className="sidebar-title">
+      <div className="flex content-between py-5 pl-3 pr-0 mb-5">
         <Link href="/">
-          <div className="sidebar-brand flex">
+          <div className="mt-3 text-xl font-bold flex">
             <span>이웃집백만장자의 배당성장주 투자</span>
           </div>
         </Link>
@@ -63,7 +63,7 @@ function Sidebar({ sidebarToggle, openSidebar }) {
           </Link>
         </li>
       </ul>
-    </aside>
+    </div>
   );
 }
 

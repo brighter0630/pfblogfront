@@ -1,9 +1,14 @@
 import Link from "next/link";
 
-export default function PfTable({ data, currentPrices }) {
+export default function PfTable({
+  data,
+  currentPrices,
+  nasdaqIndex,
+  snpIndex,
+}) {
   const newData = data.map((stock) => {
     return Object.assign(
-      ...currentPrices.filter((price) => price.symbol === stock._id),
+      ...currentPrices.filter((price) => price.symbol === stock.ticker),
       stock
     );
   });
@@ -67,6 +72,20 @@ export default function PfTable({ data, currentPrices }) {
                 "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
               }
             >
+              NASDAQ대비
+            </th>
+            <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+              }
+            >
+              S&P500대비
+            </th>
+            {/* <th
+              className={
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+              }
+            >
               PER
             </th>
             <th
@@ -75,10 +94,10 @@ export default function PfTable({ data, currentPrices }) {
               }
             >
               EPS
-            </th>
+            </th> */}
             <th
               className={
-                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+                "p-3 text-sm font-semibold tracking-wide text-left min-w-[100px]"
               }
             >
               실적발표일
@@ -89,15 +108,17 @@ export default function PfTable({ data, currentPrices }) {
           {newData?.map((stock, i) => (
             <tr key={i} className="text-center">
               <td className={"p-3 text-sm text-left"}>
-                <Link href={`/analysis/${stock._id}/pc/year`}>{stock._id}</Link>
+                <Link href={`/analysis/${stock.ticker}/pc/year`}>
+                  {stock.ticker}
+                </Link>
               </td>
 
               <td className={"p-3 text-sm text-left"}>
-                <Link href={`/analysis/${stock._id}/pc/year`}>
+                <Link href={`/analysis/${stock.ticker}/pc/year`}>
                   {stock.name}
                 </Link>
               </td>
-              <td className={"p-3 text-sm"}>{stock.totalHoldings}</td>
+              <td className={"p-3 text-sm"}>{stock.denumerator}</td>
               <td className={"p-3 text-sm"}>
                 {(
                   Math.round((stock.numerator / stock.denumerator) * 100) / 100
@@ -106,13 +127,10 @@ export default function PfTable({ data, currentPrices }) {
 
               <td className={"p-3 text-sm"}>
                 {/* 총 매수 금액 */}
-                {(
-                  Math.round(
-                    ((stock.totalHoldings * stock.numerator) /
-                      stock.denumerator) *
-                      100
-                  ) / 100
-                ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                {(Math.round(stock.numerator * 100) / 100).toLocaleString(
+                  undefined,
+                  { minimumFractionDigits: 2 }
+                )}
               </td>
               <td className={"p-3 text-sm"}>
                 {(Math.round(stock.price * 100) / 100)
@@ -134,8 +152,48 @@ export default function PfTable({ data, currentPrices }) {
                 ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 %
               </td>
-              <td className={"p-3 text-sm"}>{stock.pe}</td>
-              <td className={"p-3 text-sm"}>{stock.eps}</td>
+              <td
+                className={`p-3 text-sm ${
+                  stock.numerator /
+                    (stock.denumeratorOfNASDAQ * nasdaqIndex[0].close) -
+                    1 >=
+                  0
+                    ? "text-red-700"
+                    : "text-blue-700"
+                }`}
+              >
+                {(
+                  Math.round(
+                    (stock.numerator /
+                      (stock.denumeratorOfNASDAQ * nasdaqIndex[0].close) -
+                      1) *
+                      10000
+                  ) / 100
+                ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                %
+              </td>
+              <td
+                className={`p-3 text-sm ${
+                  stock.numerator /
+                    (stock.denumeratorOfSNP * snpIndex[0].close) -
+                    1 >=
+                  0
+                    ? "text-red-700"
+                    : "text-blue-700"
+                }`}
+              >
+                {(
+                  Math.round(
+                    (stock.numerator /
+                      (stock.denumeratorOfSNP * snpIndex[0].close) -
+                      1) *
+                      10000
+                  ) / 100
+                ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                %
+              </td>
+              {/* <td className={"p-3 text-sm"}>{stock.pe}</td>
+              <td className={"p-3 text-sm"}>{stock.eps}</td> */}
               <td className={"p-3 text-sm"}>
                 {stock.earningsAnnouncement.substr(0, 4)}/
                 {stock.earningsAnnouncement.substr(5, 2)}/

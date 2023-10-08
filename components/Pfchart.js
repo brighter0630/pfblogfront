@@ -6,7 +6,7 @@ import { PieChart, Pie, Legend, Cell, ResponsiveContainer } from "recharts";
 export default function Pfchart({ data, currentPrices }) {
   const newData = data.map((stock) => {
     return Object.assign(
-      ...currentPrices.filter((price) => price.symbol === stock._id),
+      ...currentPrices.filter((price) => price.symbol === stock.ticker),
       stock
     );
   });
@@ -14,7 +14,7 @@ export default function Pfchart({ data, currentPrices }) {
   const chartData = newData.map((stock) => {
     return {
       name: stock.symbol,
-      value: stock.totalHoldings * stock.price,
+      value: stock.denumerator * stock.price,
     };
   });
 

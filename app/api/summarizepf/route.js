@@ -1,17 +1,13 @@
+import executeQuery from "@/libs/mariadb/excuteQuery";
 import { NextResponse } from "next/server";
-import connectDB from "@/libs/db/mongodb";
 
-const pipeline = require("@/libs/db/aggregateSummaryPipepline");
-
-export async function GET() {
+export async function GET(request) {
+  const query =
+    "SELECT ticker, CAST(SUM(CASE WHEN typeOfTransaction = 'buy' THEN quantity*price WHEN typeOfTransaction = 'sell' THEN -quantity*price END) AS FLOAT) AS numerator, CAST(SUM(CASE WHEN typeOfTransaction = 'buy' THEN quantity END) AS FLOAT) AS denumerator, CAST(SUM(CASE WHEN typeOfTransaction = 'buy' THEN price*quantity/snpAtTr END) AS FLOAT) AS denumeratorOfSNP, CAST(SUM(CASE WHEN typeOfTransaction = 'buy' THEN price*quantity/nasdaqAtTr END) AS FLOAT) AS denumeratorOfNASDAQ FROM transactionHistory GROUP BY ticker;";
   try {
-    await connectDB();
-    const Pf = require("@/libs/db/models/portfolio");
-    const summaryData = await Pf.aggregate(pipeline);
-
+    const summaryData = await executeQuery(query);
     return NextResponse.json({ summaryData });
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ message: "Error" }, { status: 501 });
+    return NextResponse.json({ message: "failed" }, { status: 401 });
   }
 }
