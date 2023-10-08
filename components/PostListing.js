@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function PostListing({ postsMeta }) {
   return (
-    <div className="grid mx-auto my-4 max-w-3xl p-4 md:p-0 min-w-[720px]">
+    <div className="grid mx-auto my-4 max-w-3xl p-4 md:p-0 min-w-[480px]">
       {postsMeta?.map((post) => (
         <div
           key={post.slug}

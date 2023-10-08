@@ -39,13 +39,13 @@ export default function PfTable({
             >
               보유주식수
             </th>
-            <th
+            {/* <th
               className={
                 "p-3 text-sm font-semibold tracking-wide text-left min-w-[125px]"
               }
             >
               평균 매수 가격
-            </th>
+            </th> */}
             <th
               className={
                 "p-3 text-sm font-semibold tracking-wide text-left min-w-[125px]"
@@ -53,13 +53,13 @@ export default function PfTable({
             >
               총 매수 금액
             </th>
-            <th
+            {/* <th
               className={
                 "p-3 text-sm font-semibold tracking-wide text-left min-w-[100px]"
               }
             >
               현재 주가
-            </th>
+            </th> */}
             <th
               className={
                 "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
@@ -67,13 +67,13 @@ export default function PfTable({
             >
               수익률
             </th>
-            <th
+            {/* <th
               className={
                 "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
               }
             >
               NASDAQ대비
-            </th>
+            </th> */}
             <th
               className={
                 "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
@@ -119,11 +119,12 @@ export default function PfTable({
                 </Link>
               </td>
               <td className={"p-3 text-sm"}>{stock.denumerator}</td>
-              <td className={"p-3 text-sm"}>
+              {/* 평균매수가격 */}
+              {/* <td className={"p-3 text-sm"}>
                 {(
                   Math.round((stock.numerator / stock.denumerator) * 100) / 100
                 ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
-              </td>
+              </td> */}
 
               <td className={"p-3 text-sm"}>
                 {/* 총 매수 금액 */}
@@ -132,11 +133,12 @@ export default function PfTable({
                   { minimumFractionDigits: 2 }
                 )}
               </td>
-              <td className={"p-3 text-sm"}>
+              {/* 현재 주가 */}
+              {/* <td className={"p-3 text-sm"}>
                 {(Math.round(stock.price * 100) / 100)
                   .toFixed(2)
                   .toLocaleString("en-US")}
-              </td>
+              </td> */}
               <td
                 className={`p-3 text-sm ${
                   stock.price / (stock.numerator / stock.denumerator) - 1 >= 0
@@ -152,7 +154,8 @@ export default function PfTable({
                 ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 %
               </td>
-              <td
+              {/* 나스닥과 비교한 수익률 */}
+              {/* <td
                 className={`p-3 text-sm ${
                   stock.numerator /
                     (stock.denumeratorOfNASDAQ * nasdaqIndex[0].close) -
@@ -171,7 +174,7 @@ export default function PfTable({
                   ) / 100
                 ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 %
-              </td>
+              </td> */}
               <td
                 className={`p-3 text-sm ${
                   stock.numerator /

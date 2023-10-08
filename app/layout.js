@@ -11,14 +11,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <body className="grid grid-flow-col h-full max-w-screen-xl">
-        <div className="w-1/6">
+      <body className="grid grid-cols-5 min-w-[1024px] max-w-[1024px]">
+        <div className="col-span-1">
           <Sidebar />
         </div>
-        <div className="w-5/6">
+        <div className="col-span-4 grid grid-flow-row pt-5">
           <Header />
           <main>{children}</main>
-          <Footer />
+          <footer className="text-blue-50 font-semibold max-h-52 mt-10 bg-slate-400 w-screen h-16">
+            <div className="my-auto pl-30">
+              <p className="">
+                <span dangerouslySetInnerHTML={{ __html: "&copy;" }} />{" "}
+                배당성장투자. All rights reserved.
+              </p>
+              <p>Contact: brighter87@gmail.com</p>
+            </div>
+          </footer>
         </div>
       </body>
     </html>

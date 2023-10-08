@@ -13,6 +13,6 @@ export default async function executeQuery(query) {
     console.log("Query Succeeded!!");
     return res;
   } catch (error) {
-    throw new Error(error);
+    throw new Error("Query Failed");
   }
 }

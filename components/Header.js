@@ -6,7 +6,6 @@ import {
   BsFillEnvelopeFill,
   BsPersonCircle,
   BsSearch,
-  BsJustify,
 } from "react-icons/bs";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -35,11 +34,8 @@ function Header() {
   };
 
   return (
-    <div className="grid grid-flow-col w-auto my-3">
-      <div className="hidden">
-        <BsJustify className="icon" id="open-sidebar-icon" />
-      </div>
-      <div className="header-left flex flex-row gap-3">
+    <div className="flex my-3 px-5 gap-3 justify-stretch">
+      <div className="flex flex-row ">
         <label htmlFor="searchTicker">
           <input
             type="search"
@@ -53,14 +49,14 @@ function Header() {
           />
         </label>
         <BsSearch
-          className="icon my-auto cursor-pointer"
+          className="icon my-auto cursor-pointer mx-3"
           onClick={() => searchClicked()}
         />
       </div>
-      <div className="grid grid-flow-col gap-0 justify-items-end cursor-pointer">
-        <BsFillBellFill className="my-auto" />
-        <BsFillEnvelopeFill className="my-auto" />
-        <BsPersonCircle className="my-auto" />
+      <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
+        <BsFillBellFill className="m-auto" />
+        <BsFillEnvelopeFill className="m-auto" />
+        <BsPersonCircle className="m-auto" />
       </div>
     </div>
   );

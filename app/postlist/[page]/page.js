@@ -11,13 +11,9 @@ async function EachPage({ params }) {
   );
 
   return (
-    <div>
-      <div>
-        <PostListing postsMeta={postsMeta} />
-      </div>
-      <div>
-        <Pagination numOfPosts={allPostMeta.length} />
-      </div>
+    <div className="">
+      <PostListing postsMeta={postsMeta} />
+      <Pagination numOfPosts={allPostMeta.length} />
     </div>
   );
 }
