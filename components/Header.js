@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Sidebar from "./Sidebar";
 import {
   BsFillBellFill,
   BsFillEnvelopeFill,
@@ -12,10 +11,6 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 
 function Header() {
-  const [sidebarToggle, setSidebarToggle] = useState(false);
-  const openSidebar = () => {
-    setSidebarToggle(!sidebarToggle);
-  };
   const [ticker, setTicker] = useState("");
   const router = useRouter();
   const pathName = usePathname();
@@ -40,37 +35,34 @@ function Header() {
   };
 
   return (
-    <>
-      <header className={"header"}>
-        <div className="menu-icon" onClick={openSidebar}>
-          <BsJustify className="icon" id="open-sidebar-icon" />
-        </div>
-        <div className="header-left flex flex-row gap-3">
-          <label htmlFor="searchTicker">
-            <input
-              type="search"
-              id="searchTicker"
-              onChange={(e) => setTicker(e.target.value)}
-              onKeyDown={searchHandler}
-              placeholder="티커를 입력하세요. (ex: AAPL)"
-              autoComplete="off"
-              onFocus={moveToX0}
-              className="outline-0 rounded-md ml-5 w-96 h-10 opacity-80 p-4"
-            />
-          </label>
-          <BsSearch
-            className="icon my-auto cursor-pointer"
-            onClick={() => searchClicked()}
+    <div className="grid grid-flow-col w-auto my-3">
+      <div className="hidden">
+        <BsJustify className="icon" id="open-sidebar-icon" />
+      </div>
+      <div className="header-left flex flex-row gap-3">
+        <label htmlFor="searchTicker">
+          <input
+            type="search"
+            id="searchTicker"
+            onChange={(e) => setTicker(e.target.value)}
+            onKeyDown={searchHandler}
+            placeholder="티커를 입력하세요. (ex: AAPL)"
+            autoComplete="off"
+            onFocus={moveToX0}
+            className="outline-0 rounded-md ml-5 w-96 h-10 opacity-80 p-4"
           />
-        </div>
-        <div className="header-right">
-          <BsFillBellFill className="icon" />
-          <BsFillEnvelopeFill className="icon" />
-          <BsPersonCircle className="icon" />
-        </div>
-      </header>
-      <Sidebar sidebarToggle={sidebarToggle} openSidebar={openSidebar} />
-    </>
+        </label>
+        <BsSearch
+          className="icon my-auto cursor-pointer"
+          onClick={() => searchClicked()}
+        />
+      </div>
+      <div className="grid grid-flow-col gap-0 justify-items-end cursor-pointer">
+        <BsFillBellFill className="my-auto" />
+        <BsFillEnvelopeFill className="my-auto" />
+        <BsPersonCircle className="my-auto" />
+      </div>
+    </div>
   );
 }
 
