@@ -33,23 +33,21 @@ function NavBar({ ticker }) {
   ];
 
   return (
-    <div className="">
-      <ul className="grid grid-flow-col w-5/12 justify-end gap-5 mx-auto">
-        {navLinks.map((navLink, i) => (
-          <Link key={i} href={navLink.path}>
-            <li
-              className={`min-w-[50px] text-center rounded-md p-1 ${
-                pathName === navLink.path
-                  ? "bg-slate-400 text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
-                  : ""
-              }`}
-            >
-              {navLink.title}
-            </li>
-          </Link>
-        ))}
-      </ul>
-    </div>
+    <ul className="grid grid-flow-col gap-5 mx-auto">
+      {navLinks.map((navLink, i) => (
+        <Link key={i} href={navLink.path}>
+          <li
+            className={`min-w-[50px] text-center rounded-md p-1 ${
+              pathName === navLink.path
+                ? "bg-slate-400 text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
+                : ""
+            }`}
+          >
+            {navLink.title}
+          </li>
+        </Link>
+      ))}
+    </ul>
   );
 }
 

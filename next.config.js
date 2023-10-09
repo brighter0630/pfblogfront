@@ -34,9 +34,17 @@ const nextConfig = {
     MONGO_URI: "mongodb://127.0.0.1:27017/pfwebsite",
     POSTSPERPAGE: 5,
     stockAPIKEY: process.env.stockAPIKEY,
+    GoogleClientID: process.env.GoogleClientID,
+    GoogleClientSecret: process.env.GoogleClientSecret,
+    NaverClientID: process.env.NaverClientID,
+    NaverClientSecret: process.env.NaverClientSecret,
   },
   images: {
-    domains: ["financialmodelingprep.com", "https://financialmodelingprep.com"],
+    domains: [
+      "financialmodelingprep.com",
+      "https://financialmodelingprep.com",
+      "lh3.googleusercontent.com",
+    ],
   },
 };
 

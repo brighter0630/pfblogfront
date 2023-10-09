@@ -1,18 +1,20 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  BsFillBellFill,
-  BsFillEnvelopeFill,
-  BsPersonCircle,
-  BsSearch,
-} from "react-icons/bs";
+import { BsFillBellFill, BsFillEnvelopeFill, BsSearch } from "react-icons/bs";
+import { GrLogout } from "react-icons/gr";
 import { usePathname, useRouter } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
+import LoginButtonNaver from "./LoginButtonNaver";
+import LoginButtonGoogle from "./LoginButtonGoogle";
+import UserGreeting from "./UserGreeting";
 
 function Header() {
   const [ticker, setTicker] = useState("");
   const router = useRouter();
   const pathName = usePathname();
+  const { data: session } = useSession();
+
   const searchHandler = (e) => {
     if (e.key === "Enter") {
       const urlParticles = pathName.split("/");
@@ -34,7 +36,7 @@ function Header() {
   };
 
   return (
-    <div className="flex mx-auto my-3 px-5 gap-3 justify-center h-14">
+    <div className="flex my-3 mx-auto px-5 gap-3 h-14">
       <div className="flex flex-row my-auto">
         <label htmlFor="searchTicker">
           <input
@@ -53,11 +55,22 @@ function Header() {
           onClick={() => searchClicked()}
         />
       </div>
-      <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
-        <BsFillBellFill className="m-auto" />
-        <BsFillEnvelopeFill className="m-auto" />
-        <BsPersonCircle className="m-auto" />
-      </div>
+      {!session ? (
+        <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
+          <LoginButtonNaver />
+          <LoginButtonGoogle />
+        </div>
+      ) : (
+        <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
+          <BsFillBellFill className="m-auto" />
+          <BsFillEnvelopeFill className="m-auto" />
+          <UserGreeting session={session} />
+          <div className="m-auto flex gap-2 border-4" onClick={() => signOut()}>
+            <span className="text-bold  p-1 rounded-lg">로그아웃</span>
+            <GrLogout className="text-xl m-auto" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

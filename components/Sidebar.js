@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import {
   BsBarChart,
@@ -9,6 +7,7 @@ import {
   BsPieChartFill,
   BsFillGearFill,
 } from "react-icons/bs";
+
 function Sidebar() {
   return (
     <div className={`flex flex-col h-full bg-[--sidebar-color] `}>
@@ -19,7 +18,7 @@ function Sidebar() {
           </div>
         </Link>
       </div>
-      <ul className={`grid grid-flow-row mt-0`}>
+      <ul className={`grid grid-flow-row mt-0 pl-5`}>
         <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
           <Link href="/" className="flex text-xl">
             <BsPieChartFill className="mx-5 text-lg my-auto" />

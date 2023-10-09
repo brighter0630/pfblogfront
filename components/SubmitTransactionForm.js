@@ -18,12 +18,6 @@ function SubmitTransactionForm() {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      console.log();
-      // const histNASDAQ = (
-      //   await axios.get(
-      //     `${process.env.stockPHURL}/%5EIXIC?apikey=${process.env.stockAPIKEY}`
-      //   )
-      // ).data.historical.slice(0, 100);
       const nasdaqAtTr = (await getNasdaqIndex(100)).filter(
         (d) => d.date === printDate(dateOfTransaction)
       )[0].open;
