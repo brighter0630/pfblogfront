@@ -16,6 +16,8 @@ const nextConfig = {
   reactStrictMode: false,
   env: {
     stockAPIURL_profile: "https://financialmodelingprep.com/api/v3/profile",
+    stockAPIAfterMarket:
+      "https://financialmodelingprep.com/api/v4/pre-post-market-trade",
     stockPHURL:
       "https://financialmodelingprep.com/api/v3/historical-price-full",
     stockAPIURL_quote: "https://financialmodelingprep.com/api/v3/quote",
