@@ -20,42 +20,42 @@ export default function PfTable({
           <tr className="border-gray-400 border-b-2">
             <th
               className={
-                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+                "p-3 text-sm font-semibold tracking-wide text-center min-w-[75px]"
               }
             >
               <span>티커</span>
             </th>
             <th
               className={
-                "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+                "p-3 text-sm font-semibold tracking-wide text-center min-w-[75px]"
               }
             >
               회사
             </th>
             <th
               className={
-                "p-3 text-sm font-semibold tracking-wide text-left min-w-[100px]"
+                "p-3 text-sm font-semibold tracking-wide text-center min-w-[100px]"
               }
             >
               보유주식수
             </th>
             {/* <th
               className={
-                "p-3 text-sm font-semibold tracking-wide text-left min-w-[125px]"
+                "p-3 text-sm font-semibold tracking-wide text-center min-w-[125px]"
               }
             >
               평균 매수 가격
             </th> */}
             <th
               className={
-                "p-3 text-sm font-semibold tracking-wide text-left min-w-[125px]"
+                "p-3 text-sm font-semibold tracking-wide text-center min-w-[125px]"
               }
             >
-              총 매수 금액
+              총 매수 원금
             </th>
             {/* <th
               className={
-                "p-3 text-sm font-semibold tracking-wide text-left min-w-[100px]"
+                "p-3 text-sm font-semibold tracking-wide text-center min-w-[100px]"
               }
             >
               현재 주가
@@ -177,7 +177,7 @@ export default function PfTable({
               </td> */}
               <td
                 className={`p-3 text-sm ${
-                  stock.numerator /
+                  (stock.price * stock.denumerator) /
                     (stock.denumeratorOfSNP * snpIndex[0].close) -
                     1 >=
                   0
@@ -187,7 +187,7 @@ export default function PfTable({
               >
                 {(
                   Math.round(
-                    (stock.numerator /
+                    ((stock.price * stock.denumerator) /
                       (stock.denumeratorOfSNP * snpIndex[0].close) -
                       1) *
                       10000
