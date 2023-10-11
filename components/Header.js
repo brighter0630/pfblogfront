@@ -13,7 +13,7 @@ function Header() {
   const [ticker, setTicker] = useState("");
   const router = useRouter();
   const pathName = usePathname();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   const searchHandler = (e) => {
     if (e.key === "Enter") {
@@ -56,7 +56,7 @@ function Header() {
             onClick={() => searchClicked()}
           />
         </div>
-        {!session ? (
+        {status === "unauthenticated" ? (
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
             <LoginButtonNaver />
             <LoginButtonGoogle />

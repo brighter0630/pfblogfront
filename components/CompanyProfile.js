@@ -101,7 +101,7 @@ function CompanyProfile({ profile, minPrice, afterMarketPrice }) {
         </div>
         <div className="grid grid-flow-row h-1/5">
           <span className="text-sm">CEO</span>
-          <span className="text-sm">{profile?.ceo}</span>
+          <span className="text-sm font-bold">{profile?.ceo}</span>
         </div>
       </div>
     </div>

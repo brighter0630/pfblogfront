@@ -3,8 +3,8 @@ import { FaUserCheck } from "react-icons/fa";
 
 export default function UserGreeting({ session }) {
   return (
-    <div className="flex gap-4">
-      {session.user.hasOwnProperty("image") === true ? (
+    <div className="flex w-14">
+      {session?.user.hasOwnProperty("image") === true ? (
         <Image
           className="rounded-full"
           src={session.user.image}

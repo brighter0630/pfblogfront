@@ -40,6 +40,7 @@ const nextConfig = {
     GoogleClientSecret: process.env.GoogleClientSecret,
     NaverClientID: process.env.NaverClientID,
     NaverClientSecret: process.env.NaverClientSecret,
+    NEXTAUTH_SECRET: "brighter87",
   },
   images: {
     domains: [
