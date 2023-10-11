@@ -1,4 +1,5 @@
 import Link from "next/link";
+import printDateMonth from "@/libs/printDateMonth";
 import {
   BsBarChart,
   BsJournalText,
@@ -44,7 +45,12 @@ function Sidebar() {
           </Link>
         </li>
         <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
-          <Link href="/transactionhistory" className="flex text-xl">
+          <Link
+            href={`/transactionhistory/${printDateMonth(
+              new Date(new Date().getFullYear(), new Date().getMonth(), 1) - 1
+            )}`}
+            className="flex text-xl"
+          >
             <BsBarChart className="mx-5 text-lg my-auto" />
             거래내역
           </Link>

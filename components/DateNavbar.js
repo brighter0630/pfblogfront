@@ -15,25 +15,21 @@ export default function DateNavbar() {
   );
 
   return (
-    <div>
-      <div className="py-4">
-        <div className="flex">
-          <Link href={`/transactionhistory/${getMonthAgo(lastMonth)}`}>
-            <BiChevronLeft
-              className="my-auto text-2xl"
-              onClick={() => setLastMonth(getMonthAgo(lastMonth))}
-            />
-          </Link>
-          {printDateMonth(lastMonth).substring(0, 4)}년{" "}
-          {printDateMonth(lastMonth).substring(5, 7)}월
-          <Link href={`/transactionhistory/${getMonthLater(lastMonth)}`}>
-            <BiChevronRight
-              className="my-auto text-2xl"
-              onClick={() => setLastMonth(getMonthLater(lastMonth))}
-            />
-          </Link>
-        </div>
-      </div>
+    <div className="py-5 flex flex-row justify-center text-center">
+      <Link href={`/transactionhistory/${getMonthAgo(lastMonth)}`}>
+        <BiChevronLeft
+          className="my-auto text-2xl"
+          onClick={() => setLastMonth(getMonthAgo(lastMonth))}
+        />
+      </Link>
+      {printDateMonth(lastMonth).substring(0, 4)}년{" "}
+      {printDateMonth(lastMonth).substring(5, 7)}월
+      <Link href={`/transactionhistory/${getMonthLater(lastMonth)}`}>
+        <BiChevronRight
+          className="my-auto text-2xl"
+          onClick={() => setLastMonth(getMonthLater(lastMonth))}
+        />
+      </Link>
     </div>
   );
 }

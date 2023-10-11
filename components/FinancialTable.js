@@ -1,28 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { EntoKo } from "@/translation";
-import CustomModal from "./CustomModal";
-import { BiLineChart } from "react-icons/bi";
 
 function FinancialTable({ yearsData, selectedCols }) {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-
-  const toggleModalOpen = (i) => {
-    let newArray = [...new Array(selectedCols.length)].map((_) => false);
-    newArray[i] = true;
-    setHover(newArray);
-  };
-  const setModalClose = () => {
-    setHover([...new Array(selectedCols.length)].map((_) => false));
-  };
-
-  const [hover, setHover] = useState(
-    [...new Array(selectedCols.length)].map((_) => false)
-  );
-
   return (
     <div>
       <table className="my-8 mx-auto">

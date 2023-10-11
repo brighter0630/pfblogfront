@@ -9,11 +9,9 @@ export default async function getMonthTransaction(month, year) {
         year,
         month,
       }),
-      credentials: "include",
+      cache: "reload",
     });
-    if (!res.ok) {
-      throw new Error(res.ok);
-    }
+
     return res.json();
   } catch (error) {
     console.log("Error in Getting Month Transaction Data", error);

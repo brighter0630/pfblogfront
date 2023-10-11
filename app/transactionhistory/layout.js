@@ -2,7 +2,7 @@ import DateNavbar from "@/components/DateNavbar";
 
 function TransactionHistoryLayout({ children }) {
   return (
-    <div>
+    <div className="flex-row">
       <DateNavbar />
       <main>{children}</main>
     </div>

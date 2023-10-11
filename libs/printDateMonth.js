@@ -1,4 +1,4 @@
-export default function printDate(date) {
+export default function printDateMonth(date) {
   const year = new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
   });
