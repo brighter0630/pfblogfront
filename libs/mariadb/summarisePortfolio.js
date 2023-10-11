@@ -1,4 +1,4 @@
-import connectDB from "./mongodb";
+import connectDB from "../db/mongodb";
 
 export default async function summarisePortfolio() {
   try {
@@ -8,6 +8,7 @@ export default async function summarisePortfolio() {
     if (!res.ok) {
       throw new Error("Failed to load summary of data", res.ok);
     }
+
     return res.json();
   } catch (error) {
     console.log("error in summarizing portfolios", error);

@@ -5,7 +5,7 @@ import PfDashboard from "../components/PfDashboard";
 import getMinPrice from "../libs/getMinPrice";
 import BasicFrame from "@/components/BasicFrame";
 
-import summarisePortfolio from "@/libs/db/summarisePortfolio";
+import summarisePortfolio from "@/libs/mariadb/summarisePortfolio";
 import { getNasdaqIndex, getSNPIndex } from "@/libs/getIndex";
 
 export default async function Home() {
