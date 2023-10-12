@@ -1,6 +1,6 @@
 export default async function getMonthTransaction(month, year) {
   try {
-    const res = await fetch("http://127.0.0.1:3000/api/getmonthtransaction", {
+    const res = await fetch(`${process.env.BASE_URL}/api/getmonthtransaction`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

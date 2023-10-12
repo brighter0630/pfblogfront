@@ -1,9 +1,8 @@
-import connectDB from "../db/mongodb";
-
 export default async function summarisePortfolio() {
   try {
-    const res = await fetch("http://127.0.0.1:3000/api/summarizepf", {
-      cache: "no-store",
+    console.log(`${process.env.BASE_URL}/api/summarizepf`);
+    const res = await fetch(`${process.env.BASE_URL}/api/summarizepf`, {
+      cache: "reload",
     });
     if (!res.ok) {
       throw new Error("Failed to load summary of data", res.ok);

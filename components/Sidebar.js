@@ -46,7 +46,7 @@ function Sidebar() {
         </li>
         <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
           <Link
-            href={`/transactionhistory/${printDateMonth(
+            href={`/transactionhistory/bydate/${printDateMonth(
               new Date(new Date().getFullYear(), new Date().getMonth(), 1) - 1
             )}`}
             className="flex text-xl"

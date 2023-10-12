@@ -33,7 +33,6 @@ const nextConfig = {
       "https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend",
     stockRatioURL: "https://financialmodelingprep.com/api/v3/ratios",
     LOCALHOSTBACK: "http://127.0.0.1:5000",
-    MONGO_URI: "mongodb://127.0.0.1:27017/pfwebsite",
     POSTSPERPAGE: 5,
     stockAPIKEY: process.env.stockAPIKEY,
     GoogleClientID: process.env.GoogleClientID,
@@ -41,6 +40,8 @@ const nextConfig = {
     NaverClientID: process.env.NaverClientID,
     NaverClientSecret: process.env.NaverClientSecret,
     NEXTAUTH_SECRET: "brighter87",
+    MARIADBID: process.env.MARIADBID,
+    MARIADBPASSWD: process.env.MARIADBPASSWD,
   },
   images: {
     domains: [

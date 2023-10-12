@@ -5,7 +5,7 @@ export default function LoginButtonNaver({ buttonTitle = "네이버 로그인" }
   return (
     <div
       onClick={() => signIn("naver", { redirect: true, callbackUrl: "/" })}
-      className="h-10 min-w-[140px] px-2 bg-[#1EC800] text-white text-center my-auto table"
+      className="h-10 min-w-[140px] px-2 bg-[#1EC800] text-white text-center my-auto table cursor-pointer"
     >
       <span className="font-bold table-cell align-middle px-3">
         <SiNaver />
