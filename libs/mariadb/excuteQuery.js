@@ -1,8 +1,8 @@
 import { connectDB } from ".";
 
 export default async function executeQuery(query) {
-  const conn = await connectDB();
   try {
+    const conn = await connectDB();
     const res = await conn.query(query);
     console.log("Query Succeeded!!");
 

@@ -1,6 +1,5 @@
 export default async function summarisePortfolio() {
   try {
-    console.log(`${process.env.BASE_URL}/api/summarizepf`);
     const res = await fetch(`${process.env.BASE_URL}/api/summarizepf`, {
       cache: "reload",
     });
