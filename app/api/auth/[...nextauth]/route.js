@@ -9,14 +9,32 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GoogleClientID,
       clientSecret: process.env.GoogleClientSecret,
+      authorization: {
+        params: {
+          redirect_uri: `${process.env.BASE_URL}/api/auth/callback/google`,
+        },
+        response_types: ["code"],
+      },
     }),
     NaverProvider({
       clientId: process.env.NaverClientID,
       clientSecret: process.env.NaverClientSecret,
+      authorization: {
+        params: {
+          redirect_uri: `${process.env.BASE_URL}/api/auth/callback/naver`,
+        },
+        response_types: ["code"],
+      },
     }),
     KakaoProvider({
       clientId: process.env.KakaoClientID,
       clientSecret: process.env.KakaoClientSecret,
+      authorization: {
+        params: {
+          redirect_uri: `${process.env.BASE_URL}/api/auth/callback/kakao`,
+        },
+        response_types: ["code"],
+      },
     }),
   ],
   callbacks: {
@@ -26,6 +44,9 @@ const handler = NextAuth({
       if (res.length === 0) {
         const insertQuery = `INSERT INTO users (email, email_verified, picture, name, role) values ("${user.email}", false, "${user.image}", "${user.name}", 0);`;
         await executeQuery(insertQuery);
+      } else if (res.length === 1) {
+        const updateQuery = `UPDATE users SET picture="${user.image}", name="${user.name}" WHERE email = "${user.email}";`;
+        await executeQuery(updateQuery);
       }
       return true;
     },

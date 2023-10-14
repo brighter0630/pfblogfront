@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function middleware(req) {
   const token = await getToken({ req });
-  console.log("미들웨어가 보는 token을 출력함.", token);
 
   if (
     req.nextUrl.pathname.startsWith("/admin") &&

@@ -65,8 +65,8 @@ function Header() {
           </div>
         ) : (
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
-            <BsFillBellFill className="m-auto" />
-            <BsFillEnvelopeFill className="m-auto" />
+            {/* <BsFillBellFill className="m-auto" />
+            <BsFillEnvelopeFill className="m-auto" /> */}
             <UserGreeting session={session} />
             <div
               className="m-auto flex gap-2 border-4"
