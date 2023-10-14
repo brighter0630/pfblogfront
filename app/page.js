@@ -25,11 +25,8 @@ export default async function Home() {
           property="og:url"
           content="https://dividendgrowthinvesting.co.kr"
         />
-        <meta property="og:title" content="이웃집백만장자 대시보드" />
-        <meta
-          property="og:description"
-          content="배당성장주 투자의 실제 현황과 투자 수익률"
-        />
+        <meta property="og:title" content="이웃집백만장자의 배당성장주 투자" />
+        <meta property="og:description" content="배당성장주 투자의 실제 현황" />
       </Head>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-NHT517M9G5`}
