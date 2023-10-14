@@ -1,6 +1,7 @@
 import Pagination from "@/components/Pagination";
 import PostListing from "@/components/PostListing";
 import { getPostsByTag } from "@/libs/getPosts";
+import Head from "next/head";
 
 async function EachPageByTag({ params }) {
   const { tag, page } = params;

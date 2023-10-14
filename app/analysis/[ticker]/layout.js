@@ -4,6 +4,7 @@ import getMinPrice from "@/libs/getMinPrice";
 import AnalysisNavBar from "@/components/AnalysisNavBar";
 import BasicFrame from "@/components/BasicFrame";
 import { getAfterMarketPrice } from "@/libs/getAfterMarketPrice";
+import Head from "next/head";
 
 export default async function AnalysisLayout({ children, params }) {
   const { ticker } = params;

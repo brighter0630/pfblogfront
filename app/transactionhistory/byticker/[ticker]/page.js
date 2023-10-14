@@ -1,6 +1,7 @@
 import getTickerTransaction from "@/libs/mariadb/getTickerTransaction";
 import BasicFrame from "@/components/BasicFrame";
 import TransactionTable from "@/components/TransactionTable";
+import Head from "next/head";
 
 async function TransactionListByTicker({ params }) {
   const { tickerTransctionData } = await getTickerTransaction(params.ticker);
