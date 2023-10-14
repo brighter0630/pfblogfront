@@ -1,9 +1,7 @@
 import FinancialTable from "@/components/FinancialTable";
 import { getISData } from "@/libs/getFinancialData";
-import { useRouter } from "next/router";
 
 async function BSPage({ params }) {
-  const route = useRouter();
   const { ticker } = params;
   const yearsData = await getISData(ticker);
   const selectedCols = [
