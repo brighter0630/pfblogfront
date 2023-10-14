@@ -41,6 +41,7 @@ const nextConfig = {
     NaverClientSecret: process.env.NaverClientSecret,
     KakaoClientID: process.env.KakaoClientID,
     KakaoClientSecret: process.env.KakaoClientSecret,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_SECRET: "brighter87",
     MARIADBID: process.env.MARIADBID,
     MARIADBPASSWD: process.env.MARIADBPASSWD,
@@ -51,6 +52,17 @@ const nextConfig = {
       "financialmodelingprep.com",
       "https://financialmodelingprep.com",
       "lh3.googleusercontent.com",
+      "*",
+    ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
+      },
     ],
   },
 };

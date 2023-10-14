@@ -60,8 +60,8 @@ function Header() {
         {status === "unauthenticated" ? (
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
             <LoginButtonNaver />
-            {/* <LoginButtonGoogle />
-            <LoginButtonKakao /> */}
+            <LoginButtonGoogle />
+            <LoginButtonKakao />
           </div>
         ) : (
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">

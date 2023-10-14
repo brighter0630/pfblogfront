@@ -9,7 +9,7 @@ export default function UserGreeting({ session }) {
           className="rounded-full"
           src={session.user.image}
           width={50}
-          height={40}
+          height={50}
           alt="Profile"
         />
       ) : (
