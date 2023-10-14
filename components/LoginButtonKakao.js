@@ -1,7 +1,7 @@
 import { SiKakaotalk } from "react-icons/si";
 import { signIn } from "next-auth/react";
 
-export default function LoginButtonKakao({ title = "카카오 로그인" }) {
+export default function LoginButtonKakao({ title }) {
   const trySignIn = () => {
     try {
       signIn("kakao", { redirect: true, callbackUrl: "/" });

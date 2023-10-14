@@ -1,7 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
 
-export default function LoginButtonGoogle({ title = "구글 로그인" }) {
+export default function LoginButtonGoogle({ title }) {
   const trySignIn = () => {
     try {
       signIn("google", { callbackUrl: "/" });

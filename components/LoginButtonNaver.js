@@ -1,7 +1,7 @@
 import { SiNaver } from "react-icons/si";
 import { signIn } from "next-auth/react";
 
-export default function LoginButtonNaver({ title = "네이버 로그인" }) {
+export default function LoginButtonNaver({ title }) {
   const trySignIn = () => {
     try {
       signIn("naver", { redirect: true, callbackUrl: "/" });

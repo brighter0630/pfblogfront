@@ -1,3 +1,5 @@
+"use client";
+
 import BasicFrame from "@/components/BasicFrame";
 import LoginButtonGoogle from "@/components/LoginButtonGoogle";
 import LoginButtonKakao from "@/components/LoginButtonKakao";
