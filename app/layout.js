@@ -6,7 +6,7 @@ import AuthContext from "@/src/context/AuthContext";
 export const metadata = {
   title: "이웃집백만장자의 배당성장 포트폴리오",
   description:
-    "월 천만원 적립식 배당성장주 투자의 여정을 공유합니다. 10년 재무제표(대차대조표, 손익계산서, 현금흐름표) 및 장기간의 배당 정보를 제공합니다.",
+    "월 천만원 적립식 배당성장주 투자의 여정을 공유합니다. 10년 재무제표(대차대조표, 손익계산서, 현금흐름표) 및 배당 정보를 제공합니다.",
 };
 
 export default function RootLayout({ children }) {

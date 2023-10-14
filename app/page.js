@@ -7,6 +7,7 @@ import BasicFrame from "@/components/BasicFrame";
 import Script from "next/script";
 import summarisePortfolio from "@/libs/mariadb/summarisePortfolio";
 import { getNasdaqIndex, getSNPIndex } from "@/libs/getIndex";
+import Head from "next/head";
 
 export default async function Home() {
   const { summaryData } = await summarisePortfolio();
@@ -18,6 +19,12 @@ export default async function Home() {
 
   return (
     <div className="p-5 my-4 mx-auto text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row max-w-3xl font-['NanumBarunPen']">
+      <Head>
+        <meta
+          property="og:url"
+          content="https://dividendgrowthinvesting.co.kr"
+        />
+      </Head>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-NHT517M9G5`}
       />

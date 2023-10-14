@@ -24,12 +24,14 @@ async function Page({ params }) {
       <Head>
         <title>{meta.title}</title>
         <meta http-equiv="Title" content={meta.title} />
-        <meta name="description" content={meta.content} />
+        <meta name="description" content={meta.metaDesc} />
         <meta name="keywords" content={[...meta.tags]} />
         <meta name="robots" content="index, follow" />
         <meta charset="UTF-8" />
         <meta http-equiv="Copyright" content="배당성장주" />
         <meta http-equiv="Author" content="이웃집백만장자" />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.metaDesc} />
       </Head>
       <section className="my-4 p-4 mx-auto max-w-screen-sm">
         <h1 className="font-bold text-zinc-950 text-3xl pl-10 py-6 mx-auto ">
