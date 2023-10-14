@@ -20,9 +20,15 @@ export default async function Home() {
   return (
     <div className="p-5 my-4 mx-auto text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row max-w-3xl font-['NanumBarunPen']">
       <Head>
+        <meta property="og:type" content="website" />
         <meta
           property="og:url"
           content="https://dividendgrowthinvesting.co.kr"
+        />
+        <meta property="og:title" content="이웃집백만장자 대시보드" />
+        <meta
+          property="og:description"
+          content="배당성장주 투자의 실제 현황과 투자 수익률"
         />
       </Head>
       <Script

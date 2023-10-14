@@ -1,6 +1,7 @@
 import BasicFrame from "@/components/BasicFrame";
 import TransactionTable from "@/components/TransactionTable";
 import getMonthTransaction from "@/libs/mariadb/getMonthTransaction";
+import Head from "next/head";
 
 export default async function TransactionListByDate({ params }) {
   const { monthTransctionData } = await getMonthTransaction(
@@ -10,6 +11,18 @@ export default async function TransactionListByDate({ params }) {
 
   return (
     <div>
+      <Head>
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://dividendgrowthinvesting.co.kr"
+        />
+        <meta property="og:title" content="이웃집백만장자 거래 기록" />
+        <meta
+          property="og:description"
+          content="배당성장주 포트폴리오의 실제 거래 내역을 직접 확인하자."
+        />
+      </Head>
       <BasicFrame>
         <h1 className="text-center text-2xl font-bold">거래 기록</h1>
         {monthTransctionData === undefined ? (

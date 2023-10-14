@@ -13,6 +13,18 @@ async function EachPageByTag({ params }) {
 
   return (
     <div>
+      <Head>
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://dividendgrowthinvesting.co.kr"
+        />
+        <meta property="og:title" content="이웃집백만장자 투자 이야기" />
+        <meta
+          property="og:description"
+          content="배당성장주 투자에 대한 철학과 기업 이야기."
+        />
+      </Head>
       <div className="text-center text-xl font-extrabold underline underline-offset-4 my-5">
         <span>Tag {decodeURIComponent(tag)}</span>
       </div>
