@@ -13,12 +13,12 @@ export default function LoginButtonNaver({ buttonTitle = "네이버 로그인" }
   return (
     <div
       onClick={() => trySignIn()}
-      className="h-10 min-w-[140px] px-2 bg-[#1EC800] text-white text-center my-auto table cursor-pointer"
+      className="h-8 my-auto table rounded-md min-w-[80px] bg-[#1EC800] text-white text-center my-autocursor-pointer text-xs"
     >
-      <span className="font-bold table-cell align-middle px-3">
-        <SiNaver />
+      <span className="font-bold table-cell align-middle px-1">
+        <SiNaver className="mx-auto" />
       </span>
-      <span className="font-bold table-cell text-sm align-middle">
+      <span className="font-bold table-cell align-middle px-1">
         {buttonTitle}
       </span>
     </div>

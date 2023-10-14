@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import LoginButtonNaver from "./LoginButtonNaver";
 import LoginButtonGoogle from "./LoginButtonGoogle";
+import LoginButtonKakao from "./LoginButtonKakao";
 import UserGreeting from "./UserGreeting";
 
 function Header() {
@@ -59,7 +60,8 @@ function Header() {
         {status === "unauthenticated" ? (
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
             <LoginButtonNaver />
-            <LoginButtonGoogle />
+            {/* <LoginButtonGoogle />
+            <LoginButtonKakao /> */}
           </div>
         ) : (
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">

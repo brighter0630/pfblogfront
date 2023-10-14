@@ -39,9 +39,12 @@ const nextConfig = {
     GoogleClientSecret: process.env.GoogleClientSecret,
     NaverClientID: process.env.NaverClientID,
     NaverClientSecret: process.env.NaverClientSecret,
+    KakaoClientID: process.env.KakaoClientID,
+    KakaoClientSecret: process.env.KakaoClientSecret,
     NEXTAUTH_SECRET: "brighter87",
     MARIADBID: process.env.MARIADBID,
     MARIADBPASSWD: process.env.MARIADBPASSWD,
+    BASE_URL: process.env.BASE_URL,
   },
   images: {
     domains: [

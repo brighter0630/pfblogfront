@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^2.3.0",
     "@mdx-js/mdx": "^2.3.0",
     "@next/mdx": "^13.5.4",
     "@types/mdx": "^2.0.8",
@@ -19,6 +20,7 @@
     "markdown-it": "^13.0.2",
     "mongodb": "^6.1.0",
     "mongoose": "^7.6.0",
+    "monorepo": "github:mdx-js/mdx",
     "mysql": "^2.18.1",
     "next": "latest",
     "next-auth": "^4.23.2",

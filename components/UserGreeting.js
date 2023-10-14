@@ -2,8 +2,6 @@ import Image from "next/image";
 import { FaUserCheck } from "react-icons/fa";
 
 export default function UserGreeting({ session }) {
-  console.log(session);
-
   return (
     <div className="flex w-14">
       {session?.user?.hasOwnProperty("image") === true ? (
