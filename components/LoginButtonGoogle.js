@@ -9,13 +9,14 @@ export default function LoginButtonGoogle({ title }) {
       console.log(error);
     }
   };
+
   return (
     <div
       onClick={() => trySignIn()}
       className="h-8 my-auto table rounded-md min-w-[90px] bg-[#3F85F4] text-white text-center cursor-pointer text-xs"
     >
       <span className="font-bold table-cell align-middle px-1">
-        <FcGoogle />
+        <FcGoogle className="mx-auto" />
       </span>
 
       <span className="font-bold table-cell align-middle px-1 text-[.6rem]">
