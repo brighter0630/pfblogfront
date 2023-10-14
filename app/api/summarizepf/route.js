@@ -7,7 +7,6 @@ export async function GET(request) {
 
   try {
     const summaryData = await executeQuery(query);
-    console.log(summaryData);
     return NextResponse.json({ summaryData });
   } catch (error) {
     return NextResponse.json({ message: "failed" }, { status: 401 });

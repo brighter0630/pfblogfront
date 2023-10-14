@@ -9,32 +9,14 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GoogleClientID,
       clientSecret: process.env.GoogleClientSecret,
-      authorization: {
-        params: {
-          redirect_uri: `${process.env.BASE_URL}/api/auth/callback/google`,
-        },
-        response_types: ["code"],
-      },
     }),
     NaverProvider({
       clientId: process.env.NaverClientID,
       clientSecret: process.env.NaverClientSecret,
-      authorization: {
-        params: {
-          redirect_uri: `${process.env.BASE_URL}/api/auth/callback/naver`,
-        },
-        response_types: ["code"],
-      },
     }),
     KakaoProvider({
       clientId: process.env.KakaoClientID,
       clientSecret: process.env.KakaoClientSecret,
-      authorization: {
-        params: {
-          redirect_uri: `${process.env.BASE_URL}/api/auth/callback/kakao`,
-        },
-        response_types: ["code"],
-      },
     }),
   ],
   callbacks: {
@@ -42,7 +24,6 @@ const handler = NextAuth({
       const checkMemberQuery = `SELECT * FROM users WHERE email='${user.email}'`;
       const res = await executeQuery(checkMemberQuery);
       if (res.length === 0) {
-        console.log(res.length);
         const insertQuery = `INSERT INTO users (email, email_verified, picture, name, role) values ("${user.email}", false, "${user.image}", "${user.name}", 0);`;
         await executeQuery(insertQuery);
       }
@@ -53,7 +34,6 @@ const handler = NextAuth({
       session.accessToken = token.accessToken;
       session.accessTokenExpires = token.accessTokenExpires;
       session.error = token.error;
-      console.log("세션을 출력함", session);
       return session;
     },
     async jwt({ token, user, account }) {
@@ -68,8 +48,6 @@ const handler = NextAuth({
             user: { ...user, role: 0 },
           };
         }
-        console.log("유저를 출력함.", user);
-        console.log("res를 출력함.", res);
         return {
           accessToken: account.access_token,
           accessTokenExpires: account.expires_at,
@@ -83,5 +61,3 @@ const handler = NextAuth({
 });
 
 export { handler as GET, handler as POST };
-
-// https://www.dividendgrowthinvesting.co.kr/api/auth/callback/google
