@@ -4,7 +4,7 @@ import getCurrentPrice from "../libs/getCurrentPrice";
 import PfDashboard from "../components/PfDashboard";
 import getMinPrice from "../libs/getMinPrice";
 import BasicFrame from "@/components/BasicFrame";
-
+import Script from "next/script";
 import summarisePortfolio from "@/libs/mariadb/summarisePortfolio";
 import { getNasdaqIndex, getSNPIndex } from "@/libs/getIndex";
 
@@ -18,6 +18,18 @@ export default async function Home() {
 
   return (
     <div className="p-5 my-4 mx-auto text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row max-w-3xl font-['NanumBarunPen']">
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=G-NHT517M9G5`}
+      />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-NHT517M9G5');
+        `}
+      </Script>
       <BasicFrame>
         <span className={"m-4 font-medium text-2xl"}>Portfolio 현황</span>
         <span>{minPrice[0].date.substring(0, 4)}년 </span>

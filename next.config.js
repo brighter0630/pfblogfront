@@ -46,6 +46,7 @@ const nextConfig = {
     MARIADBID: process.env.MARIADBID,
     MARIADBPASSWD: process.env.MARIADBPASSWD,
     BASE_URL: process.env.BASE_URL,
+    NEXT_PUBLIC_GOOGLE_ANALYTICS: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
   },
   images: {
     domains: [

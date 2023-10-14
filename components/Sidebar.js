@@ -38,12 +38,12 @@ function Sidebar() {
             기업분석
           </Link>
         </li>
-        <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
+        {/* <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
           <Link href="/community" className="flex text-xl">
             <BsPeopleFill className="mx-5 text-lg my-auto" />
             커뮤니티
           </Link>
-        </li>
+        </li> */}
         <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
           <Link
             href={`/transactionhistory/bydate/${printDateMonth(
