@@ -1,16 +1,12 @@
-"use client";
-
 import PriceChart from "../../components/PriceChart";
 import getPriceHistory from "../../libs/getPriceHistory.js";
 
-async function PriceChartTemplete({ params }) {
-  const { ticker, charttype } = params;
-  console.log(ticker, charttype);
-  const { symbol, historical } = await getPriceHistory(ticker);
+async function PriceChartMDX() {
+  const { symbol, historical } = await getPriceHistory("AAPL");
 
   return (
-    <PriceChart symbol={symbol} historical={historical} charttype={charttype} />
+    <PriceChart symbol={symbol} historical={historical} charttype="1year" />
   );
 }
 
-export default PriceChartTemplete;
+export default PriceChartMDX;

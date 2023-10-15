@@ -10,7 +10,7 @@ function PostListing({ postsMeta }) {
             key={post.slug}
             className="m-4 rounded-sm border-b-2 border-b-stone-300"
           >
-            <Link href={`/blog/${encodeURIComponent(post.slug)}`}>
+            <Link href={`/post/${encodeURIComponent(post.slug)}`}>
               <h1 className="p-4 font-bold text-lg text-gray-900">
                 {post.title}
               </h1>
