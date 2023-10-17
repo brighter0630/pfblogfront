@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const APIKEY = process.env.APIKEY;
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
