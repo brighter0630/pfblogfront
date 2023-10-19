@@ -32,7 +32,7 @@ const nextConfig = {
       "https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend",
     stockRatioURL: "https://financialmodelingprep.com/api/v3/ratios",
     LOCALHOSTBACK: "http://127.0.0.1:5000",
-    POSTSPERPAGE: 5,
+    POSTSPERPAGE: "5",
     stockAPIKEY: process.env.stockAPIKEY,
     GoogleClientID: process.env.GoogleClientID,
     GoogleClientSecret: process.env.GoogleClientSecret,
