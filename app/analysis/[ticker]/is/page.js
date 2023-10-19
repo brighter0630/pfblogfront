@@ -1,9 +1,9 @@
 import FinancialTable from "@/components/FinancialTable";
-import { getBSData } from "@/libs/getFinancialData";
+import { getISData } from "@/libs/getFinancialData";
 
 async function ISPage({ params }) {
   const { ticker } = params;
-  const yearsData = await getBSData(ticker);
+  const yearsData = await getISData(ticker);
   const selectedCols = [
     "revenue",
     "costOfRevenue",

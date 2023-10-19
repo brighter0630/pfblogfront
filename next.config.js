@@ -24,8 +24,8 @@ const nextConfig = {
       "https://financialmodelingprep.com/api/v3/quote-short",
     stockMinPriceURL:
       "https://financialmodelingprep.com/api/v3/historical-chart/1min",
-    stockBSURL: "https://financialmodelingprep.com/api/v3/income-statement",
-    stockISURL:
+    stockISURL: "https://financialmodelingprep.com/api/v3/income-statement",
+    stockBSURL:
       "https://financialmodelingprep.com/api/v3/balance-sheet-statement",
     stockCSURL: "https://financialmodelingprep.com/api/v3/cash-flow-statement",
     stockDVURL:
@@ -65,6 +65,12 @@ const nextConfig = {
     ],
   },
 };
+
+const { withContentlayer } = require("next-contentlayer");
+
+module.exports = withContentlayer({
+  experimental: { appDir: true },
+});
 
 module.exports = nextConfig;
 module.exports = withMDX(nextConfig);

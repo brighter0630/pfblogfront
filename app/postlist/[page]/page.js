@@ -1,12 +1,11 @@
 import Pagination from "@/components/Pagination";
 import PostListing from "@/components/PostListing";
-import { getAllPostsMeta } from "@/libs/getPosts";
 import Head from "next/head";
+import { allPosts } from "contentlayer/generated";
 
 async function EachPage({ params }) {
-  const allPostMeta = await getAllPostsMeta();
   const { page } = params;
-  const postsMeta = allPostMeta.slice(
+  const postsMeta = allPosts.slice(
     process.env.POSTSPERPAGE * (page - 1),
     process.env.POSTSPERPAGE * page
   );
@@ -26,7 +25,7 @@ async function EachPage({ params }) {
         />
       </Head>
       <PostListing postsMeta={postsMeta} />
-      <Pagination numOfPosts={allPostMeta.length} />
+      <Pagination numOfPosts={allPosts.length} />
     </div>
   );
 }

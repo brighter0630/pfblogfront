@@ -1,12 +1,13 @@
 import Pagination from "@/components/Pagination";
 import PostListing from "@/components/PostListing";
 import { getPostsByTag } from "@/libs/getPosts";
+import { allPosts } from "contentlayer/generated";
 import Head from "next/head";
 
 async function EachPageByTag({ params }) {
   const { tag, page } = params;
   const deCodedTag = decodeURIComponent(tag);
-  const allPostMeta = await getPostsByTag(deCodedTag);
+  const allPostMeta = allPosts.filter((post) => post.tags.includes(deCodedTag));
   const postsMeta = allPostMeta.slice(
     process.env.POSTSPERPAGE * (page - 1),
     process.env.POSTSPERPAGE * page
