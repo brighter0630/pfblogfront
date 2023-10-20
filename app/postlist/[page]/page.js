@@ -3,15 +3,18 @@ import PostListing from "@/components/PostListing";
 import Head from "next/head";
 import { allPosts } from "contentlayer/generated";
 
-async function EachPage({ params }) {
+function EachPage({ params }) {
   const { page } = params;
-  const postsMeta = allPosts.slice(
+  const sortedPosts = [...allPosts].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+
+  const postsMeta = sortedPosts.slice(
     process.env.POSTSPERPAGE * (page - 1),
     process.env.POSTSPERPAGE * page
   );
-
   return (
-    <div className="">
+    <div>
       <Head>
         <meta property="og:type" content="website" />
         <meta

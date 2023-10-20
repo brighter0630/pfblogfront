@@ -3,6 +3,7 @@ import { MdxTemplete } from "../../../components/MdxTemplete";
 import Head from "next/head";
 import BasicFrame from "@/components/BasicFrame";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 async function getDocFromParams(slug) {
   const doc = allPosts.find(
@@ -10,7 +11,7 @@ async function getDocFromParams(slug) {
   );
 
   if (!doc) {
-    null;
+    notFound();
   }
 
   return doc;
@@ -36,14 +37,14 @@ const Page = async ({ params }) => {
         <h1 className="font-bold text-zinc-950 text-3xl pl-10 py-6 mx-auto ">
           {doc.title}
         </h1>
-        <div className="flex flex-col justify-items-end text-right pr-2 mx-auto">
+        <div className="flex flex-col justify-items-end text-right pr-2 mx-auto text-gray-800">
           <span>{doc.author}</span>
           <span>{doc.date.substring(0, 10)}</span>
           <ul></ul>
         </div>
         <div className="mx-auto">
           <BasicFrame>
-            <h1>{doc.metaDesc}</h1>
+            <h1 className="text-gray-700">{doc.metaDesc}</h1>
           </BasicFrame>
         </div>
         <div className="mx-auto py-4">

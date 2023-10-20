@@ -38,10 +38,7 @@ function TransactionTable({ data }) {
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-gray-500 hover:text-white duration-300"
           >
             <td className="p-3 text-sm">
-              <Link
-                href={`/transactionhistory/byticker/${each.ticker}`}
-                as={`/transactionhistory/byticker/${each.ticker}`}
-              >
+              <Link href={`/transactionhistory/byticker/${each.ticker}`}>
                 {each.ticker}
               </Link>
             </td>

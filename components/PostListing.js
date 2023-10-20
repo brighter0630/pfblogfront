@@ -16,11 +16,11 @@ function PostListing({ postsMeta }) {
                 {post.title}
               </h1>
               <div className="grid grid-rows-2">
-                <span className="text-right mr-10  md:mr-10 font-light text-xs text-gray-400">
+                <span className="text-right mr-10  md:mr-10 font-light text-xs text-gray-800">
                   {post.date.substring(0, 4)}년 {post.date.substring(5, 7)}월{" "}
                   {post.date.substring(8, 10)}일
                 </span>
-                <span className="font-light text-xs text-gray-400 text-right mr-10 md:mr-10">
+                <span className="font-light text-xs text-gray-800 text-right mr-10 md:mr-10">
                   by {post.author}
                 </span>
               </div>
@@ -28,7 +28,7 @@ function PostListing({ postsMeta }) {
             </Link>
             <div className="flex flex-row mb-1">
               {post.tags.map((tag, i) => (
-                <Link key={i} href={`/postlist/tag/${tag}/1`} replace={true}>
+                <Link key={i} href={`/postlist/tag/${tag}/1`} replace={false}>
                   <span className="p-1 text-sm text-gray-300 bg-slate-900 rounded-md m-1">
                     #{tag}
                   </span>

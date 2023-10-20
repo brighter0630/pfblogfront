@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { cn } from "../libs/utils";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -150,7 +152,7 @@ export function MdxTemplete({ code }) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx text-gray-900 my-4 p-4 mx-auto max-w-screen-sm">
+    <div className="mdx text-gray-900 my-4 p-4 mx-auto max-w-screen-sm ">
       <Component components={components} />
     </div>
   );

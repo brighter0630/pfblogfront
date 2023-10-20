@@ -1,9 +1,5 @@
-import Pagination from "@/components/Pagination";
-import { countAllPosts } from "@/libs/getPosts";
-
 async function BlogLayout({ children }) {
-  const numOfPosts = await countAllPosts();
-  return <div>{children}</div>;
+  return <div className=" text-gray-800 text-opacity-75">{children}</div>;
 }
 
 export default BlogLayout;
