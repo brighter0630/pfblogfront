@@ -67,8 +67,8 @@ async function Page() {
     <article>
       <h2>Becton Dickinson & Co.에 대해 알아보자.</h2>
       <p>
-        이 기업은 <strong>'Dividend Achievers'</strong> 리스트에서 찾은
-        기업이다. Dividend Achievers는 배당을 최소 10년 이상 꾸준히 늘려온
+        이 기업은 <strong>&apos;Dividend Achievers&apos;</strong> 리스트에서
+        찾은 기업이다. Dividend Achievers는 배당을 최소 10년 이상 꾸준히 늘려온
         기업을 일컫는 표현이다. 하지만 BDX는 무려 <strong>50년</strong> 동안이나
         배당을 꾸준하게 증액시켜왔다. 50년이라는 숫자가 우습게 느껴질 지
         모르겠으나 미국 기업 중 25년 이상 배당을 지급하고 증액한{" "}
