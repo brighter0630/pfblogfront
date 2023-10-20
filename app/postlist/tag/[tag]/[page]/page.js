@@ -33,7 +33,7 @@ async function EachPageByTag({ params }) {
         <span>Tag {decodeURIComponent(tag)}</span>
       </div>
       <div>
-        <PostListing postsMeta={postsMetaListing} />;
+        <PostListing postsMeta={postsMetaListing} />
       </div>
       <div>
         <Pagination numOfPosts={postsMetaListing.length} />
