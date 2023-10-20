@@ -2,6 +2,7 @@ import FinancialTable from "@/components/FinancialTable";
 import { getISData } from "@/libs/getFinancialData";
 import PriceChart from "@/components/BlogContentsComponents/PriceChart";
 import getPriceChartData from "@/components/BlogContentsComponents/libs/getPriceChartData";
+import Link from "next/link";
 
 export const metaData = {
   title: "배당성장주 투자는 배당주 투자가 아니다.",
@@ -46,10 +47,11 @@ async function Page() {
         selectedCols={selectedCols}
       />
       <p>
-        위에서 보듯, T과 같은 유틸리티 기업은 이익 안정성이 매우 뛰어나다.
-        하지만 이는 곧 이익 성장성이 낮다는 것을 의미한다. 그 결과 배당금과
-        배당수익률은 훌륭하지만, 이익이 크게 성장하지 않으므로 주가도 크게
-        오르지 않는 경향이 있다.
+        위에서 보듯, {"  "}
+        <Link href={"/analysis/T/pc/3months"}>AT&T(T)</Link>과 같은 유틸리티
+        기업은 이익 안정성이 매우 뛰어나다. 하지만 이는 곧 이익 성장성이 낮다는
+        것을 의미한다. 그 결과 배당금과 배당수익률은 훌륭하지만, 이익이 크게
+        성장하지 않으므로 주가도 크게 오르지 않는 경향이 있다.
       </p>
       <PriceChart chartData={chartDataT} />
       <p>
@@ -74,7 +76,10 @@ async function Page() {
       </p>
       <h2>배당성장주의 흔한 예(Automatic Data Processing, Inc.(ADP)</h2>
       <p>
-        ADP의 경우를 보자. 이 기업은 24년 간 꾸준하게 배당금을 증액시켜온{" "}
+        <Link href={"/analysis/ADP/pc/3months"}>
+          Automatic Data Processing, Inc.(ADP)
+        </Link>
+        의 경우를 보자. 이 기업은 24년 간 꾸준하게 배당금을 증액시켜온{" "}
         <strong>Dividend Aristocrats</strong>이다. 물론 배당금 증액과 비슷한
         속도로 이익도 장기적으로 꾸준히 증가해왔다.
       </p>
