@@ -4,10 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "doubledev": "next dev -p 3001 && contentlayer dev",
-    "cl-dev": "contentlayer dev",
-    "build": "contentlayer build && next build",
-    "buildCL": "contentlayer build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
