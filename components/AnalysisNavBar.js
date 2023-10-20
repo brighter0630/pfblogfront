@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 function AnalysisNavBar({ ticker }) {
-  const navLinks = [
+  const [navLinks, setNavLinks] = useState([
     {
       title: "주가",
       path: `/analysis/${ticker}/pc/3months`,
@@ -25,7 +26,7 @@ function AnalysisNavBar({ ticker }) {
       title: "재무비율 및 배당",
       path: `/analysis/${ticker}/dv/10years`,
     },
-  ];
+  ]);
   const pathName = usePathname();
 
   return (

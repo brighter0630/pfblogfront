@@ -13,7 +13,6 @@ import {
 
 function SimpleLineChart({ data }) {
   const keys = Object.keys(data[0]);
-  console.log(keys);
   return (
     <div className="h-96 relative">
       <ResponsiveContainer width="100%" height="100%">

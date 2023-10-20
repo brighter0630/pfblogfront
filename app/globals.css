@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 /* 폰트 */
-@font-face {
-  font-family: "NanumSquare";
+/* @font-face {
+  font-family: "MaruBuri-Regular";
   font-style: normal;
   font-weight: 500;
   src: url("../public/fonts/MaruBuri-Regular.ttf") format("ttf");
-}
+} */
 
 @font-face {
-  font-family: "NanumBarunPen";
+  font-family: "NanumBarunpenR";
   font-style: normal;
   font-weight: 500;
   src: url("../public/fonts/NanumBarunpenR.ttf") format("ttf");

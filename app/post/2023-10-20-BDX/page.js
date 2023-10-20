@@ -1,9 +1,9 @@
 import React from "react";
 import BiaxialBarChart from "@/components/BlogContentsComponents/BiaxialBarChart";
-import PriceChart from "../../../components/BlogContentsComponents/PriceChart";
-import getPriceChartData from "../../../components/BlogContentsComponents/libs/getPriceChartData";
+import PriceChart from "@/components/BlogContentsComponents/PriceChart";
+import getPriceChartData from "@/components/BlogContentsComponents/libs/getPriceChartData";
 import { elderlyPopulation } from "./age";
-import SimpleLineChart from "../../../components/BlogContentsComponents/SimpleLineChart";
+import SimpleLineChart from "@/components/BlogContentsComponents/SimpleLineChart";
 export const data = [
   {
     name: "Jun 2023",
@@ -119,7 +119,7 @@ async function Page() {
       <SimpleLineChart data={elderlyPopulation} />
       <h2>결론</h2>
       <p>
-        고령화라는 메가 트렌드에 부합하며, 50년 간 <strong>매년</strong> 꾸준히
+        고령화라는 메가 트렌드에 부합하며, <strong>50년 간 매년 꾸준히</strong>
         배당을 증액시켜온 기업, BDX는 배당성장주 포트폴리오에 편입시킬만한
         가치가 있다. 성장성은 다소 낮아보이지만, 그건 지금의 기업의 상황이 그런
         것일 뿐이다.
