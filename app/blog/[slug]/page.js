@@ -1,5 +1,5 @@
 import { allPosts } from "contentlayer/generated";
-import { MdxTemplete } from "../../../components/MdxTemplete";
+import { MdxTemplete } from "@/components/MdxTemplete";
 import Head from "next/head";
 import BasicFrame from "@/components/BasicFrame";
 import Link from "next/link";
