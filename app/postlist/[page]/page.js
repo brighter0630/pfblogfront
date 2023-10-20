@@ -1,15 +1,16 @@
 import Pagination from "@/components/Pagination";
 import PostListing from "@/components/PostListing";
 import Head from "next/head";
-import { allPosts } from "contentlayer/generated";
+import { getAllPostsMeta } from "@/libs/getPostsJS";
 
-function EachPage({ params }) {
+async function EachPage({ params }) {
   const { page } = params;
-  const sortedPosts = [...allPosts].sort(
+  const postsMeta = await getAllPostsMeta();
+  const sortedPosts = postsMeta.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
-  const postsMeta = sortedPosts.slice(
+  const postsMetaListing = sortedPosts.slice(
     process.env.POSTSPERPAGE * (page - 1),
     process.env.POSTSPERPAGE * page
   );
@@ -27,8 +28,8 @@ function EachPage({ params }) {
           content="배당성장주 투자에 대한 철학과 기업 이야기."
         />
       </Head>
-      <PostListing postsMeta={postsMeta} />
-      <Pagination numOfPosts={allPosts.length} />
+      <PostListing postsMeta={postsMetaListing} />
+      <Pagination numOfPosts={postsMeta.length} />
     </div>
   );
 }

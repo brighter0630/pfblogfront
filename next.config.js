@@ -1,17 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-});
-/** @type {import('next').NextConfig} */
-
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-  // Configure `pageExtensions`` to include MDX files
   reactStrictMode: false,
   env: {
     stockAPIURL_profile: "https://financialmodelingprep.com/api/v3/profile",
@@ -66,11 +55,4 @@ const nextConfig = {
   },
 };
 
-const { withContentlayer } = require("next-contentlayer");
-
-module.exports = withContentlayer({
-  experimental: { appDir: true },
-});
-
 module.exports = nextConfig;
-module.exports = withMDX(nextConfig);

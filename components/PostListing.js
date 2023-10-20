@@ -1,17 +1,13 @@
 import Link from "next/link";
 
 function PostListing({ postsMeta }) {
-  console.log(`/blog/${encodeURIComponent(postsMeta[0].slugAsParams)}`);
   return (
     <div className="grid mx-auto my-4 max-w-5xl p-4 md:p-0 min-w-[480px] w-[768px]">
       {postsMeta
         ?.filter((post) => new Date(post.date) < new Date())
-        .map((post) => (
-          <div
-            key={post.slug}
-            className="m-4 rounded-sm border-b-2 border-b-stone-300"
-          >
-            <Link href={`/blog/${encodeURIComponent(post.slugAsParams)}`}>
+        .map((post, i) => (
+          <div key={i} className="m-4 rounded-sm border-b-2 border-b-stone-300">
+            <Link href={`/post/${encodeURI(post.slug)}`}>
               <h1 className="p-4 font-bold text-lg text-gray-900">
                 {post.title}
               </h1>
