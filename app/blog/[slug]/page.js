@@ -5,7 +5,7 @@ import BasicFrame from "@/components/BasicFrame";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-async function getDocFromParams(slug) {
+function getDocFromParams(slug) {
   const doc = allPosts.find(
     (doc) => doc.slugAsParams === decodeURIComponent(slug)
   );
@@ -17,8 +17,9 @@ async function getDocFromParams(slug) {
   return doc;
 }
 
-const Page = async ({ params }) => {
-  const doc = await getDocFromParams(params.slug);
+const Page = ({ params }) => {
+  const doc = getDocFromParams(params.slug);
+  console.log(doc);
   return (
     <>
       <Head>

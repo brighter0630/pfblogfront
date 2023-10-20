@@ -57,7 +57,7 @@ const data = [
 const Test = ({ text }) => {
   return (
     <div className="min-h-[300px]">
-      차트만 나와야 해요.
+      차트만 나와야 해요. @!@#!@$!@#!@#!@
       <LineChart
         width={500}
         height={300}
