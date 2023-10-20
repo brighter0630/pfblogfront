@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { BsFillBellFill, BsFillEnvelopeFill, BsSearch } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { GrLogout } from "react-icons/gr";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
@@ -10,25 +10,30 @@ import LoginButtonGoogle from "./LoginButtonGoogle";
 import LoginButtonKakao from "./LoginButtonKakao";
 import UserGreeting from "./UserGreeting";
 
+export function searchPathFinder(ticker, pathname) {
+  if (pathname.includes("analysis")) {
+    const urlParticles = pathname.split("/");
+    urlParticles[2] = ticker;
+    return `${urlParticles.join("/")}`;
+  } else {
+    return `/analysis/${ticker}/pc/3months`;
+  }
+}
+
 function Header() {
   const [ticker, setTicker] = useState("");
-  const router = useRouter();
   const pathName = usePathname();
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   const searchHandler = (e) => {
     if (e.key === "Enter") {
-      const urlParticles = pathName.split("/");
-      urlParticles[2] = ticker;
-      router.push(`${urlParticles.join("/")}`);
+      router.push(searchPathFinder(ticker, pathName));
     }
   };
   const searchClicked = () => {
     if (ticker) {
-      // 나중에 REGEX로 바꿔야하는데....
-      const urlParticles = pathName.split("/");
-      urlParticles[2] = ticker;
-      router.push(`${urlParticles.join("/")}`);
+      router.push(searchPathFinder(ticker, pathName));
     }
   };
   const moveToX0 = () => {
@@ -45,6 +50,7 @@ function Header() {
               type="search"
               id="searchTicker"
               onChange={(e) => setTicker(e.target.value)}
+              onClick={(e) => (e.target.value = "")}
               onKeyDown={searchHandler}
               placeholder="티커를 입력하세요. (ex: AAPL)"
               autoComplete="off"
@@ -65,8 +71,6 @@ function Header() {
           </div>
         ) : (
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
-            {/* <BsFillBellFill className="m-auto" />
-            <BsFillEnvelopeFill className="m-auto" /> */}
             <UserGreeting session={session} />
             <div
               className="m-auto flex gap-2 border-4"

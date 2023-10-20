@@ -7,12 +7,7 @@ module.exports = {
     try {
       return (
         await axios.get(
-          `${process.env.stockBSURL}/${ticker}?limit=10&apikey=${process.env.stockAPIKEY}`,
-          {
-            httpsAgent: new https.Agent({
-              rejectUnauthorized: false, //허가되지 않은 인증을 reject하지 않겠다!
-            }),
-          }
+          `${process.env.stockBSURL}/${ticker}?limit=10&apikey=${process.env.stockAPIKEY}`
         )
       ).data;
     } catch (error) {

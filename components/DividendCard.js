@@ -14,7 +14,7 @@ function DividendCard({ historical }) {
     return <span className="text-center text-lg">배당 정보가 없습니다.</span>;
   }
   return (
-    <table>
+    <table className="mx-auto max-w-[250px]">
       <tbody>
         {selectedCols.map((col, i) => (
           <tr key={i}>
@@ -31,7 +31,7 @@ function DividendCard({ historical }) {
           <td className="p-2 text-right mr-2">
             {historical[0].hasOwnProperty("adjDividend")
               ? Math.round(
-                  (historical[0].adjDividend / historical[3].adjDividend - 1) *
+                  (historical[0].adjDividend / historical[4].adjDividend - 1) *
                     10000
                 ) / 100
               : "-"}{" "}
@@ -47,10 +47,10 @@ function DividendCard({ historical }) {
           </td>
         </tr>
         <tr>
-          <th className="p-2 font-light text-sm">작년 배당금</th>
+          <th className="p-2 font-light text-sm">작년 동분기 배당금</th>
           <td className="p-2 text-right mr-2">
-            {historical[3].hasOwnProperty("adjDividend")
-              ? historical[3].adjDividend
+            {historical[4].hasOwnProperty("adjDividend")
+              ? historical[4].adjDividend
               : "-"}
           </td>
         </tr>

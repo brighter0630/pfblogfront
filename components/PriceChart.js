@@ -36,7 +36,15 @@ function PriceChart({ symbol, historical, charttype }) {
           </defs>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
-          <YAxis type="number" />
+          <YAxis
+            type="number"
+            domain={[
+              0,
+              (dataMax) =>
+                10 ** (String(Math.round(dataMax)).length - 1) *
+                (Number(String(dataMax)[0]) + 2),
+            ]}
+          />
           <Tooltip />
           <Area
             type="monotone"

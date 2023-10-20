@@ -65,29 +65,34 @@ function CompanyProfile({ profile, minPrice, afterMarketPrice }) {
             %)
           </span>
         </div>
-        <div className="grid grid-rows-2 gap-1 my-auto text-center">
+        <div className="grid grid-rows-2 gap-0 my-auto text-center">
           <span className="text-xs my-auto">장외거래</span>
-          <span className="text-sm">
-            {printDateFull(afterMarketPrice.timestamp)}
-          </span>
-          <div className="flex gap-1 mx-auto">
-            <span>${afterMarketPrice.price}</span>
-            <span className="text-sm my-auto">
-              {afterMarketPrice.price - profile.price > 0 && "+"}
-              {(
-                Math.round((afterMarketPrice.price - profile.price) * 100) / 100
-              ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
-            </span>
-            <span>
-              ({afterMarketPrice.price - profile.price > 0 && "+"}
-              {(
-                Math.round(
-                  (afterMarketPrice.price / profile.price - 1) * 10000
-                ) / 100
-              ).toFixed(2)}
-              %)
-            </span>
-          </div>
+          {afterMarketPrice.timestamp === 0 ? (
+            <div>정보 없음</div>
+          ) : (
+            <div>
+              <p className="text-xs max-w-fit mx-auto">
+                {printDateFull(afterMarketPrice.timestamp)}
+              </p>
+              <span>${afterMarketPrice.price}</span>
+              <span className="text-sm my-auto mx-1">
+                {afterMarketPrice.price - profile.price > 0 && "+"}
+                {(
+                  Math.round((afterMarketPrice.price - profile.price) * 100) /
+                  100
+                ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              </span>
+              <span>
+                ({afterMarketPrice.price - profile.price > 0 && "+"}
+                {(
+                  Math.round(
+                    (afterMarketPrice.price / profile.price - 1) * 10000
+                  ) / 100
+                ).toFixed(2)}
+                %)
+              </span>
+            </div>
+          )}
         </div>
       </div>
       <div className="grid grid-rows-3 text-center font-normal items-center justify-center">
@@ -101,7 +106,13 @@ function CompanyProfile({ profile, minPrice, afterMarketPrice }) {
         </div>
         <div className="grid grid-flow-row h-1/5">
           <span className="text-sm">CEO</span>
-          <span className="text-sm font-bold">{profile?.ceo}</span>
+          <a
+            target="_blank"
+            href={`https://www.google.com/search?q=${profile.ceo}`}
+            rel="noopener noreferrer"
+          >
+            <span className="text-sm font-bold">{profile?.ceo}</span>
+          </a>
         </div>
       </div>
     </div>
