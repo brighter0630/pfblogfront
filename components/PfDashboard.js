@@ -45,7 +45,7 @@ function PfDashboard({ data, currentPrices }) {
       setNewData(mergedData);
       setLoading(false);
     });
-  }, [newData]);
+  }, [newData, currentPrices, data]);
 
   if (loading) {
     return (

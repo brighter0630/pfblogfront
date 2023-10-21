@@ -10,6 +10,7 @@ export default function NotAdmin() {
           width={1280}
           height={853}
           objectFit="cover"
+          alt="unAuthorizedImage"
         />
       </div>
       <span className="text-center text-4xl p-4 font-bold">

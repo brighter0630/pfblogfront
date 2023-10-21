@@ -17,7 +17,7 @@ function PriceChartTemplete({ params }) {
       setLoading(false);
     }
     getData();
-  }, []);
+  }, [ticker]);
 
   if (loading) {
     return <Loading />;
