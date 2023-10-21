@@ -1,12 +1,34 @@
+"use client";
+
 import PriceChart from "@/components/PriceChart";
 import { getPriceHistory } from "@/libs/getPriceHistory";
+import { useEffect, useState } from "react";
+import Loading from "@/components/Loading";
 
-async function PriceChartTemplete({ params }) {
+function PriceChartTemplete({ params }) {
   const { ticker, charttype } = params;
-  const { symbol, historical } = await getPriceHistory(ticker);
+  const [priceHistory, setPriceHistory] = useState();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function getData() {
+      const { symbol, historical } = await getPriceHistory(ticker);
+      setPriceHistory(historical);
+      setLoading(false);
+    }
+    getData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
-    <PriceChart symbol={symbol} historical={historical} charttype={charttype} />
+    <PriceChart
+      symbol={ticker}
+      historical={priceHistory}
+      charttype={charttype}
+    />
   );
 }
 

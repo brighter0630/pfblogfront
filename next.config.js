@@ -34,6 +34,7 @@ const nextConfig = {
     MARIADBID: process.env.MARIADBID,
     MARIADBPASSWD: process.env.MARIADBPASSWD,
     BASE_URL: process.env.BASE_URL,
+    SOCKETIOHOST: process.env.SOCKETIOHOST,
   },
   images: {
     domains: [

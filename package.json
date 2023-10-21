@@ -6,7 +6,8 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "node": "node server.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
@@ -15,6 +16,7 @@
     "@next/mdx": "^13.5.4",
     "@types/mdx": "^2.0.8",
     "axios": "^1.5.1",
+    "bufferutil": "^4.0.8",
     "chart.js": "^4.4.0",
     "clsx": "^2.0.0",
     "contentlayer": "^0.3.4",
@@ -44,8 +46,12 @@
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^3.0.1",
     "shiki": "^0.14.5",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
     "swr": "^2.2.4",
-    "tailwind-merge": "^1.14.0"
+    "tailwind-merge": "^1.14.0",
+    "utf-8-validate": "^5.0.10",
+    "ws": "^8.14.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

@@ -27,14 +27,11 @@ export default async function AnalysisLayout({ children, params }) {
         />
       </Head>
       <div className="mx-auto max-w-5xl">
-        <BasicFrame>
-          <span className={"m-4 font-medium text-2xl"}>요약 정보</span>
-          <CompanyProfile
-            profile={profile}
-            minPrice={minPrice}
-            afterMarketPrice={afterMarketPrice}
-          />
-        </BasicFrame>
+        <CompanyProfile
+          profile={profile}
+          minPrice={minPrice}
+          afterMarketPrice={afterMarketPrice}
+        />
       </div>
       <div>
         <AnalysisNavBar ticker={ticker} />

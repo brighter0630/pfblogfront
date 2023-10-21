@@ -53,13 +53,13 @@ export default function PfTable({
             >
               총 매수 원금
             </th>
-            {/* <th
+            <th
               className={
                 "p-3 text-sm font-semibold tracking-wide text-center min-w-[100px]"
               }
             >
               현재 주가
-            </th> */}
+            </th>
             <th
               className={
                 "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
@@ -95,13 +95,6 @@ export default function PfTable({
             >
               EPS
             </th> */}
-            <th
-              className={
-                "p-3 text-sm font-semibold tracking-wide text-left min-w-[100px]"
-              }
-            >
-              실적발표일
-            </th>
           </tr>
         </thead>
         <tbody>
@@ -134,11 +127,11 @@ export default function PfTable({
                 )}
               </td>
               {/* 현재 주가 */}
-              {/* <td className={"p-3 text-sm"}>
+              <td className={"p-3 text-sm"}>
                 {(Math.round(stock.price * 100) / 100)
                   .toFixed(2)
                   .toLocaleString("en-US")}
-              </td> */}
+              </td>
               <td
                 className={`p-3 text-sm ${
                   stock.price / (stock.numerator / stock.denumerator) - 1 >= 0
@@ -197,11 +190,6 @@ export default function PfTable({
               </td>
               {/* <td className={"p-3 text-sm"}>{stock.pe}</td>
               <td className={"p-3 text-sm"}>{stock.eps}</td> */}
-              <td className={"p-3 text-sm"}>
-                {stock.earningsAnnouncement.substr(0, 4)}/
-                {stock.earningsAnnouncement.substr(5, 2)}/
-                {stock.earningsAnnouncement.substr(8, 2)}
-              </td>
             </tr>
           ))}
         </tbody>
