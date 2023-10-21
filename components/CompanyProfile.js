@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import printDateYYYYMMDDhhmm from "@/libs/printDateYYYYMMDDhhmm";
-import { io } from "socket.io-client";
+import connectSocketIO from "@/libs/connectSocketIO";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import BasicFrame from "@/components/BasicFrame";
@@ -15,18 +15,18 @@ function CompanyProfile({ profile, minPrice, afterMarketPrice }) {
     route.push("/ticker-not-found");
   }
 
-  const socket = io(process.env.SOCKETIOHOST);
   const [realTimePrice, setRealTimePrice] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const socket = connectSocketIO();
     socket.on("price", ({ realtimeData }) => {
       setRealTimePrice(
         realtimeData.filter((el) => el.symbol === profile.symbol)[0].price
       );
       setLoading(false);
     });
-  }, [realTimePrice, profile.symbol]);
+  }, []);
 
   if (loading) {
     return <Loading />;

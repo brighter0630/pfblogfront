@@ -2,7 +2,6 @@ import CompanyProfile from "@/components/CompanyProfile";
 import { getCompanyProfile } from "@/libs/getCompanyProfile";
 import getMinPrice from "@/libs/getMinPrice";
 import AnalysisNavBar from "@/components/AnalysisNavBar";
-import BasicFrame from "@/components/BasicFrame";
 import { getAfterMarketPrice } from "@/libs/getAfterMarketPrice";
 import Head from "next/head";
 
@@ -13,7 +12,7 @@ export default async function AnalysisLayout({ children, params }) {
   const afterMarketPrice = await getAfterMarketPrice(ticker);
 
   return (
-    <div className="p-5 my-2 mx-auto text-opacity-90 font-semibold text-black grid gap-3 grid-flow-row font-['NanumBarunPen']">
+    <div className="p-5 my-2 mx-auto text-opacity-90 font-semibold text-black grid gap-3 grid-flow-row">
       <Head>
         <meta property="og:type" content="website" />
         <meta

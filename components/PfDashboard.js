@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { io } from "socket.io-client";
 import BasicFrame from "@/components/BasicFrame";
 import printDateFull from "../libs/printDateFull";
 import Loading from "./Loading";
+import connectSocketIO from "@/libs/connectSocketIO";
 
 function PfDashboard({ data, currentPrices }) {
-  const socket = io(process.env.SOCKETIOHOST);
   const [newData, setNewData] = useState([{}]);
   const [totalInvestedCapital, setTotalInvestedCapital] = useState();
   const [totalCurrentAsset, setTotalCurrentAsset] = useState();
@@ -19,6 +18,7 @@ function PfDashboard({ data, currentPrices }) {
   }, []);
 
   useEffect(() => {
+    const socket = connectSocketIO();
     socket.on("price", ({ realtimeData }) => {
       const mergedData = data.map((stock) => {
         return Object.assign(
@@ -45,7 +45,7 @@ function PfDashboard({ data, currentPrices }) {
       setNewData(mergedData);
       setLoading(false);
     });
-  }, [newData, currentPrices, data]);
+  }, []);
 
   if (loading) {
     return (
