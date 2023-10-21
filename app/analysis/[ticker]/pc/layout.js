@@ -1,4 +1,4 @@
-import NavBar from "../../../../components/StockPriceNavBar";
+import NavBar from "@/components/StockPriceNavBar";
 
 async function PCPageLayout({ children, params }) {
   const { ticker } = params;

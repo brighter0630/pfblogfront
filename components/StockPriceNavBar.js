@@ -35,7 +35,7 @@ function NavBar({ ticker }) {
   return (
     <ul className="grid grid-flow-col gap-5 mx-auto">
       {navLinks.map((navLink, i) => (
-        <Link key={i} href={navLink.path}>
+        <Link key={i} href={navLink.path} prefetch={false}>
           <li
             className={`min-w-[50px] text-center rounded-md p-1 ${
               pathName === navLink.path

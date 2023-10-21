@@ -16,7 +16,10 @@ export default function DateNavbar() {
 
   return (
     <div className="py-5 flex flex-row justify-center text-center">
-      <Link href={`/transactionhistory/bydate/${getMonthAgo(lastMonth)}`}>
+      <Link
+        prefetch={false}
+        href={`/transactionhistory/bydate/${getMonthAgo(lastMonth)}`}
+      >
         <BiChevronLeft
           className="my-auto text-2xl"
           onClick={() => setLastMonth(getMonthAgo(lastMonth))}
@@ -24,7 +27,10 @@ export default function DateNavbar() {
       </Link>
       {printDateMonth(lastMonth).substring(0, 4)}년{" "}
       {printDateMonth(lastMonth).substring(5, 7)}월
-      <Link href={`/transactionhistory/bydate/${getMonthLater(lastMonth)}`}>
+      <Link
+        prefetch={false}
+        href={`/transactionhistory/bydate/${getMonthLater(lastMonth)}`}
+      >
         <BiChevronRight
           className="my-auto text-2xl"
           onClick={() => setLastMonth(getMonthLater(lastMonth))}

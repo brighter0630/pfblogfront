@@ -18,6 +18,7 @@ function DividendNavBar({ ticker }) {
       <ul className="grid grid-flow-col w-5/12 justify-end gap-5 mx-auto">
         {navLinks.map((navLink, i) => (
           <Link
+            prefetch={false}
             href={navLink.path}
             key={i}
             replace={true}
