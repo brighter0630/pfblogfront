@@ -5,8 +5,9 @@ import BasicFrame from "@/components/BasicFrame";
 import printDateFull from "../libs/printDateFull";
 import Loading from "./Loading";
 import connectSocketIO from "@/libs/connectSocketIO";
+import mergeRealTimeData from "@/libs/mergeRealTimeData";
 
-function PfDashboard({ data, currentPrices }) {
+function PfDashboard({ summaryData, currentPrices }) {
   const [newData, setNewData] = useState([{}]);
   const [totalInvestedCapital, setTotalInvestedCapital] = useState();
   const [totalCurrentAsset, setTotalCurrentAsset] = useState();
@@ -20,25 +21,18 @@ function PfDashboard({ data, currentPrices }) {
   useEffect(() => {
     const socket = connectSocketIO();
     socket.on("price", ({ realtimeData }) => {
-      const mergedData = data.map((stock) => {
-        return Object.assign(
-          ...currentPrices.filter((price) => {
-            price.symbol === stock.ticker;
-          }),
-          stock,
-          {
-            realtimePrice: realtimeData.filter(
-              (el) => el.symbol === stock.ticker
-            )[0].price,
-          }
-        );
-      });
+      const mergedData = mergeRealTimeData(
+        summaryData,
+        { realtimeData },
+        currentPrices
+      );
       setTotalInvestedCapital(
-        mergedData.reduce((prev, curr) => prev + curr.numerator, 0)
+        mergedData.reduce((prev, curr) => prev + curr.totalEquityPerStock, 0)
       );
       setTotalCurrentAsset(
         mergedData.reduce(
-          (prev, curr) => prev + curr.denumerator * curr.realtimePrice,
+          (prev, curr) =>
+            prev + curr.totalQuantityPerStock * curr.realtimePrice,
           0
         )
       );

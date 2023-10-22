@@ -1,8 +1,6 @@
 export default async function summarisePortfolio() {
   try {
-    const res = await fetch(`${process.env.BASE_URL}/api/summarizepf`, {
-      cache: "reload",
-    });
+    const res = await fetch(`${process.env.BASE_URL}/api/summarizepf`);
     if (!res.ok) {
       throw new Error("Failed to load summary of data", res.ok);
     }
