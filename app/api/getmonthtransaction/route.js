@@ -9,7 +9,7 @@ export async function POST(request) {
     const monthTransctionData = await executeQuery(query);
     return NextResponse.json({ monthTransctionData });
   } catch (error) {
-    console.log("에러 아닌감", error);
+    console.log("에러", error);
     return NextResponse.json({ message: "에러" }, { status: 401 });
   }
 }

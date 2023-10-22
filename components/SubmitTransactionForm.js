@@ -26,7 +26,7 @@ function SubmitTransactionForm() {
         (d) => d.date === printDate(dateOfTransaction)
       )[0].open;
 
-      const res = await fetch("http://localhost:3000/api/addtransaction", {
+      const res = await fetch(`${process.env.BASE_URL}/api/addtransaction`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

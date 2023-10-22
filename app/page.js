@@ -1,15 +1,18 @@
-import Pfchart from "../components/Pfchart";
-import CurrentHoldings from "../components/CurrentHoldings";
-import getCurrentPrice from "../libs/getCurrentPrice";
-import PfDashboard from "../components/PfDashboard";
-import BasicFrame from "@/components/BasicFrame";
+import Pfchart from "@/components/Pfchart";
+import CurrentHoldings from "@/components/CurrentHoldings";
+import getCurrentPrice from "@/libs/getCurrentPrice";
+import PfDashboard from "@/components/PfDashboard";
+import PfReturnChart from "@/components/PfReturnChart";
 import Script from "next/script";
 import summarisePortfolio from "@/libs/mariadb/summarisePortfolio";
+import getMonthsBetween from "@/libs/getMonthsBetween";
+import getMonthlySummary from "@/libs/getMonthlySummary";
 import { getNasdaqIndex, getSNPIndex } from "@/libs/getIndex";
 import Head from "next/head";
 
 export default async function Home() {
   const { summaryData } = await summarisePortfolio();
+  const { arrayOfTotalAsset } = await getMonthlySummary(getMonthsBetween());
   const tickers = summaryData.map((stock) => stock.ticker);
   const currentPrices = await getCurrentPrice(tickers);
   const nasdaqIndex = await getNasdaqIndex(1);
@@ -39,6 +42,7 @@ export default async function Home() {
         `}
       </Script>
       <PfDashboard summaryData={summaryData} currentPrices={currentPrices} />
+      <PfReturnChart arrayOfTotalAsset={arrayOfTotalAsset} />
       <CurrentHoldings
         data={summaryData}
         currentPrices={currentPrices}

@@ -1,7 +1,6 @@
 import axios from "axios";
 const https = require("https");
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 module.exports = {
   getBSData: async (ticker) => {
     try {
