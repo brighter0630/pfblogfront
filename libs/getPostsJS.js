@@ -17,8 +17,12 @@ export const getAllPostsMeta = async () => {
 
   let posts = [];
   for (const file of files) {
-    const { metaData } = getPostBySlug(file);
-    posts.push({ ...metaData, slug: file });
+	  try {
+	    const { metaData } = getPostBySlug(file);
+		posts.push({ ...metaData, slug: file });
+	  } catch {
+		  console.error('File does not exist', file);
+	  }
   }
   return posts;
 };

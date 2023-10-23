@@ -19,7 +19,7 @@ export default async function Home() {
   const snpIndex = await getSNPIndex(1);
 
   return (
-    <div className="p-5 my-4 mx-auto text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row max-w-3xl">
+    <div className={`p-5 my-4 mx-auto text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row max-w-3xl`}>
       <Head>
         <meta property="og:type" content="website" />
         <meta
