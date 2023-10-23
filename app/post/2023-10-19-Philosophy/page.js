@@ -11,6 +11,7 @@ export const metaData = {
   date: "2023-10-19",
   author: "이웃집백만장자",
   tags: ["투자철학", "배당성장주", "배당주", "ADP", "AWK"],
+  published: true,
 };
 
 async function Page() {

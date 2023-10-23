@@ -63,7 +63,8 @@ function PfDashboard({ summaryData, currentPrices }) {
             <span className="text-7xl font-extralight">
               $
               {(Math.round(totalCurrentAsset * 100) / 100).toLocaleString(
-                "en-US"
+                undefined,
+                { minimumFractionDigits: 2 }
               )}
             </span>
           )}
@@ -84,7 +85,7 @@ function PfDashboard({ summaryData, currentPrices }) {
                 Math.round(
                   (totalCurrentAsset / totalInvestedCapital - 1) * 10000
                 ) / 100
-              ).toFixed(2)}
+              ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
               %
             </span>
           )}

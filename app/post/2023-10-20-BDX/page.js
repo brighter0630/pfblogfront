@@ -61,6 +61,7 @@ export const metaData = {
   date: "2023-10-20",
   author: "이웃집백만장자",
   tags: ["BDX", "배당성장주", "기업분석"],
+  published: true,
 };
 
 async function Page() {
