@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import BasicFrame from "@/components/BasicFrame";
 
-function CompanyProfile({ profile, minPrice, afterMarketPrice }) {
+function CompanyProfile({ profile, afterMarketPrice }) {
   const route = useRouter();
-  if (profile === undefined || minPrice === undefined) {
+  if (profile === undefined) {
     route.push("/ticker-not-found");
   }
 

@@ -1,14 +1,13 @@
 import CompanyProfile from "@/components/CompanyProfile";
 import { getCompanyProfile } from "@/libs/getCompanyProfile";
-import getMinPrice from "@/libs/getMinPrice";
 import AnalysisNavBar from "@/components/AnalysisNavBar";
 import { getAfterMarketPrice } from "@/libs/getAfterMarketPrice";
+import BasicInfoCard from "@/components/BasicInfoCard";
 import Head from "next/head";
 
 export default async function AnalysisLayout({ children, params }) {
   const { ticker } = params;
   const profile = await getCompanyProfile(ticker);
-  const minPrice = (await getMinPrice(ticker))[0];
   const afterMarketPrice = await getAfterMarketPrice(ticker);
 
   return (
@@ -27,11 +26,11 @@ export default async function AnalysisLayout({ children, params }) {
       </Head>
       <div className="mx-auto max-w-5xl">
         <CompanyProfile
-          profile={profile}
-          minPrice={minPrice}
+          profile={profile.profile}
           afterMarketPrice={afterMarketPrice}
         />
       </div>
+      <BasicInfoCard profile={profile} />
       <div>
         <AnalysisNavBar ticker={ticker} />
       </div>

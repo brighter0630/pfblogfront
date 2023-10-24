@@ -11,12 +11,14 @@ export async function middleware(req) {
       return NextResponse.redirect(url);
     }
     if (token.user.role !== 9) {
+	  const url = req.nextUrl.clone();
+      url.pathname = "/not-admin";
       return NextResponse.redirect(url);
     }
   }
 
   if (req.nextUrl.pathname.startsWith("/analysis")) {
-    if (!req.nextUrl.pathname.includes("AAPL")) {
+    if (!req.nextUrl.pathname.includes("AAPL") && !token) {
       const url = req.nextUrl.clone();
       url.pathname = "/not-a-member";
       return NextResponse.redirect(url);
