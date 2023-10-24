@@ -1,5 +1,6 @@
 import BasicFrame from "@/components/BasicFrame";
 import { EntoKo } from "@/translation";
+import formatter from '@/libs/formatter.js';
 
 const column1 = [
   "mktCap",
@@ -13,17 +14,23 @@ const column1 = [
 
 const column2 = [
   "peRatioTTM",
-  "returnOnAssetsTTM",
-  "returnOnEquityTTM",
   "priceBookValueRatioTTM",
   "priceSalesRatioTTM",
+  "returnOnAssetsTTM",
+  "returnOnEquityTTM",
   "freeCashFlowPerShareTTM",
 ];
 
-const column3 = [];
+const column3 = [
+  "title",
+  "name",
+  "yearBorn",
+  "pay",
+];
 
 export default function BasicInfoCard({ profile }) {
-  console.log(profile);
+	const mergedProfile = Object.assign(profile['profile'], {yearHigh: profile['metrics']['yearHigh']}, {yearLow: profile['metrics']['yearLow']}, profile['ratios'][0])
+    console.log(profile); 
   return (
     <BasicFrame>
       <span className={"m-4 font-medium text-2xl"}>기본 정보</span>
@@ -34,15 +41,47 @@ export default function BasicInfoCard({ profile }) {
               <tr key={i}>
                 <th>{EntoKo[col].ko}</th>
                 <td>
-                  {profile.ratios[0].col
-                    ? profile.ratios[0].col
-                    : profile.profile.col}
+                  {formatter(col, mergedProfile[col], EntoKo)}
                 </td>
               </tr>
             ))}
           </tbody>
+		</table>
+		<table>
+		  <tbody>
+			{column2.map((col, i) => (
+					<tr key={i}>
+					<th>{EntoKo[col].ko}</th>
+					<td>
+					{formatter(col, mergedProfile[col], EntoKo)}
+					</td>
+					</tr>
+					))}
+		  </tbody>
         </table>
+		<table className="col-span-2">
+			<thead>
+			{column3.map((col, i) => (
+							<th key={i}>{EntoKo[col]}</th>
+							))
+			}
+			</thead>
+			<tbody>
+			{profile.keyExecutives.map((officer, i) => (
+						<tr key={i}>
+							column3.map((col, j) => (
+									<td key={j}> {officer[col]} </td>
+							))
+						</tr>
+						))}
+			</tbody>
+		</table>
       </div>
     </BasicFrame>
   );
 }
+
+
+
+
+
