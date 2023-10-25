@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import datepickerCSS from "react-datepicker/dist/react-datepicker.css";
+import * as datepickerCSS from "react-datepicker/dist/react-datepicker.css";
 import { useRouter } from "next/navigation";
 import printDate from "@/libs/printDate";
 import { getNasdaqIndex, getSNPIndex } from "@/libs/getIndex";
