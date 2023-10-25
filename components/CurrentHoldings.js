@@ -19,13 +19,15 @@ export default function PfTable({
   useEffect(() => {
     const socket = connectSocketIO();
     socket.on("price", ({ realtimeData }) => {
-      const mergedData = mergeRealTimeData(
-        data,
-        { realtimeData },
-        currentPrices
-      );
-      setNewData(mergedData);
-      setLoading(false);
+      if (realtimeData.length > 0) {
+        const mergedData = mergeRealTimeData(
+          data,
+          { realtimeData },
+          currentPrices
+        );
+        setNewData(mergedData);
+        setLoading(false);
+      }
     });
   }, []);
 
