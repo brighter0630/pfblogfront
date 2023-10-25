@@ -21,10 +21,19 @@ function CompanyProfile({ profile, afterMarketPrice }) {
   useEffect(() => {
     const socket = connectSocketIO();
     socket.on("price", ({ realtimeData }) => {
-      setRealTimePrice(
-        realtimeData.filter((el) => el.symbol === profile.symbol)[0].price
-      );
-      setLoading(false);
+      const result = realtimeData.filter((el) => el.symbol === profile.symbol);
+
+      if (result.length !== 0) {
+        setRealTimePrice(result[0].price);
+        setLoading(false);
+      } else if (profile?.price !== null) {
+        setRealTimePrice(profile?.price);
+        setLoading(false);
+      }
+      if (result.length === 0 && profile?.price === null) {
+        setRealTimePrice(false);
+        setLoading(false);
+      }
     });
   }, [profile]);
 
@@ -60,37 +69,38 @@ function CompanyProfile({ profile, afterMarketPrice }) {
           <div className="text-center my-auto">
             <span className="text-sm">{printDateYYYYMMDDhhmm(new Date())}</span>
           </div>
-          <div
-            className={`text-center gap-0 ${
-              profile?.changes >= 0 ? "text-red-700" : "text-blue-700"
-            } ${realTimePrice === null && "hidden"}`}
-          >
-            {/* 현재가격 */}
-            {realTimePrice !== null ? (
+          {realTimePrice === false ? (
+            <span className="text-center text-lg text-red-800">거래중단</span>
+          ) : (
+            <div
+              className={`text-center gap-0 ${
+                profile?.changes >= 0 ? "text-red-700" : "text-blue-700"
+              }`}
+            >
+              {/* 현재가격 */}
               <span className={`text-5xl`}>
                 $
                 {realTimePrice.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
                 })}
               </span>
-            ) : (
-              <span className={`text-5xl`}>거래 정지</span>
-            )}
-            <p className="text-2xl">
-              <span className={`${profile?.changes < 0 && "hidden"}`}>+</span>
-              {profile?.changes}
-            </p>
-            <span className="text-base m-2">
-              (
-              {(
-                Math.round((profile?.changes / realTimePrice) * 10000) / 100
-              ).toFixed(2)}
-              %)
-            </span>
-          </div>
+              <p className={`text-2xl`}>
+                <span className={`${profile?.changes < 0 && "hidden"}`}>+</span>
+                {profile?.changes}
+              </p>
+              <span className="text-base m-2">
+                (
+                {(
+                  Math.round((profile?.changes / realTimePrice) * 10000) / 100
+                ).toFixed(2)}
+                %)
+              </span>
+            </div>
+          )}
+
           <div className="grid grid-rows-2 gap-0 my-auto text-center">
             <span className="text-xs my-auto">장외거래</span>
-            {afterMarketPrice.timestamp === 0 ? (
+            {afterMarketPrice.timestamp === 0 || realTimePrice === false ? (
               <div>정보 없음</div>
             ) : (
               <div>

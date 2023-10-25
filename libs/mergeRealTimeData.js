@@ -1,9 +1,13 @@
 function mergeRealTimeData(summaryData, { realtimeData }, currentPrices) {
   const mergedData = summaryData.map((stock) => {
     try {
-      const realtimePrice = realtimeData.filter(
-        (el) => el.symbol === stock.ticker
-      )[0].price;
+      const result = realtimeData.filter((el) => el.symbol === stock.ticker);
+
+      const realtimePrice =
+        result.length > 0
+          ? result[0].price
+          : currentPrices.filter((price) => price.symbol === stock.ticker)[0]
+              .price;
 
       const dataAssigned = Object.assign(
         ...currentPrices.filter((price) => price.symbol === stock.ticker),

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { GrLogout } from "react-icons/gr";
 import { usePathname, useRouter } from "next/navigation";
@@ -20,14 +20,26 @@ export function searchPathFinder(ticker, pathname) {
   }
 }
 
+export function cursorToSearchBox(e) {
+  if (e.key !== "Escape") {
+    document.getElementById("searchTicker").focus();
+  }
+}
+
 function Header() {
   const [ticker, setTicker] = useState("");
   const pathName = usePathname();
   const { data: session, status } = useSession();
   const router = useRouter();
+  useEffect(() => {
+    if (window !== undefined) {
+      window.addEventListener("keydown", cursorToSearchBox);
+    }
+  }, []);
 
   const searchHandler = (e) => {
     if (e.key === "Enter") {
+      document.getElementById("searchTicker").blur();
       router.push(searchPathFinder(ticker, pathName));
     }
   };

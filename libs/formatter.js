@@ -1,6 +1,6 @@
 export default function formmater(col, value, translator) {
   let formatted = "";
-  if (value === undefined) {
+  if (value === undefined || value === 0) {
     formatted = "-";
   } else if (col === "mktCap") {
     if (value > 1000000000000) {
@@ -8,9 +8,8 @@ export default function formmater(col, value, translator) {
     } else if (value > 1000000000) {
       formatted = "$ " + (value / 1000000000).toFixed(2) + "B";
     } else if (value > 1000000) {
-      formatted = "$ " + (value / 1000000).toFixed(2);
+      formatted = "$ " + (value / 1000000).toFixed(2) + "M";
     }
-    +"M";
   } else if (translator[col].money) {
     formatted = Math.round(value / 1000000).toLocaleString("en-US");
   } else if (translator[col].ratio) {
@@ -28,19 +27,6 @@ export default function formmater(col, value, translator) {
   } else {
     formatted = value;
   }
-  //	const formatted = value === 0
-  //		?  "-"
-  //		: translator[col].money === true
-  //		?  Math.round(value / 1000000).toLocaleString("en-US")
-  //		: translator[col].ratio === true
-  //		?  `${(value * 100).toFixed(2)}%`
-  //		: translator[col].perShare === true
-  //		?  value.toFixed(2)
-  //		: translator[col].share === true
-  //		?  Math.round(value / 1000000).toLocaleString("en-US")
-  //		: translator[col].days === true
-  //		?  value.toFixed(1)
-  //		:  value
 
   return formatted;
 }

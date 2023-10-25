@@ -23,6 +23,7 @@ export default function UserGreeting({ session }) {
           width={50}
           height={50}
           alt="Profile"
+          priority={false}
         />
       ) : (
         <span className="my-auto">
