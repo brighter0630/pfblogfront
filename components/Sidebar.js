@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import printDateMonth from "@/libs/printDateMonth";
 import {
@@ -8,8 +10,11 @@ import {
   BsPieChartFill,
   BsFillGearFill,
 } from "react-icons/bs";
+import { usePathname } from "next/navigation";
 
 function Sidebar() {
+  const pathName = usePathname();
+
   return (
     <div className={`flex flex-col h-full bg-[--sidebar-color] `}>
       <div className={`flex py-5 pl-3 pr-0 mb-5 max-h-[300px]`}>
@@ -20,19 +25,31 @@ function Sidebar() {
         </Link>
       </div>
       <ul className={`grid grid-flow-row mt-0 pl-5`}>
-        <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
+        <li
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
+            pathName === "/" && "bg-[#596a8b] scale-105"
+          }`}
+        >
           <Link href="/" className="flex text-xl">
             <BsPieChartFill className="mx-5 text-lg my-auto" />
             <span>대시보드</span>
           </Link>
         </li>
-        <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
+        <li
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
+            pathName.includes("postlist") && "bg-[#596a8b] scale-105"
+          }`}
+        >
           <Link href="/postlist/1" className="flex text-xl">
             <BsJournalText className="mx-5 text-lg my-auto" />
             투자생각
           </Link>
         </li>
-        <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
+        <li
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
+            pathName.includes("analysis") && "bg-[#596a8b] scale-105"
+          }`}
+        >
           <Link href="/analysis/AAPL/pc/3months" className="flex text-xl">
             <BsFillGrid3X3GapFill className="mx-5 text-lg my-auto" />
             기업분석
@@ -44,7 +61,11 @@ function Sidebar() {
             커뮤니티
           </Link>
         </li> */}
-        <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
+        <li
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
+            pathName.includes("transactionhistory") && "bg-[#596a8b] scale-105"
+          }`}
+        >
           <Link
             href={`/transactionhistory/bydate/${printDateMonth(
               new Date(new Date().getFullYear(), new Date().getMonth(), 1) - 1
@@ -55,7 +76,11 @@ function Sidebar() {
             거래내역
           </Link>
         </li>
-        <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
+        <li
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
+            pathName.includes("admin") && "bg-[#596a8b] scale-105"
+          }`}
+        >
           <Link href="/admin" className="flex text-xl">
             <BsFillGearFill className="mx-5 text-lg my-auto" />
             관리자
