@@ -11,8 +11,9 @@ import BasicFrame from "@/components/BasicFrame";
 
 function CompanyProfile({ profile, afterMarketPrice }) {
   const route = useRouter();
-  if (profile === undefined) {
+  if (profile === undefined || Object.keys(profile).length === 0) {
     route.push("/ticker-not-found");
+    return false;
   }
 
   const [realTimePrice, setRealTimePrice] = useState();

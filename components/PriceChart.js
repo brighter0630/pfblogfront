@@ -10,9 +10,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import filterChartDataByDate from "../libs/filterChartDataByDate";
+import { useRouter } from "next/navigation";
 
 function PriceChart({ symbol, historical, charttype }) {
   const chartData = filterChartDataByDate(charttype, historical);
+  const router = useRouter();
+  if (chartData === false) {
+    router.push("/ticker-not-found");
+    return false;
+  }
 
   return (
     <div className="grid overflow-x-hidden overflow-y-auto grid-flow-col h-96 relative my-10">

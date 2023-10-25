@@ -4,11 +4,12 @@ export async function getCompanyProfile(ticker) {
   try {
     return (
       await axios.get(
-		`${process.env.stockAPIURL_outlook}${ticker}&apikey=${process.env.stockAPIKEY}`
+        `${process.env.stockAPIURL_outlook}${ticker}&apikey=${process.env.stockAPIKEY}`
       )
     ).data;
   } catch (error) {
     console.log(error);
+    return false;
   }
 }
 
