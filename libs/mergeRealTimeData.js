@@ -10,7 +10,6 @@ function mergeRealTimeData(summaryData, { realtimeData }, currentPrices) {
           )[0].price,
         }
       );
-
       return dataAssigned;
     } catch (error) {
       console.error("Error occured, merging realtime data", error);

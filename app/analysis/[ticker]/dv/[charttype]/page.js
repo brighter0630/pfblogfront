@@ -22,7 +22,7 @@ async function DVPage({ params }) {
   ];
 
   return (
-    <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl grid grid-flow-row ">
+    <div className="justify-center m-auto overflow-auto min-w-min w-full grid grid-flow-row ">
       <div className="grid grid-flow-col">
         <div className="min-w-[480px] mx-auto">
           <DividendChart historical={historical} charttype={charttype} />

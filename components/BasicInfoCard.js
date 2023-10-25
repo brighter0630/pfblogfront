@@ -42,7 +42,7 @@ export default function BasicInfoCard({ profile }) {
       )
     );
     setLoading(false);
-  }, profile);
+  }, [profile]);
 
   if (loading) {
     return <Loading />;

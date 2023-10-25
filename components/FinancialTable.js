@@ -1,8 +1,29 @@
 "use client";
 
 import { EntoKo } from "@/translation";
+import { useState } from "react";
+import CustomModal from "./CustomModal";
+import FinancialBarChart from "./BlogContentsComponents/FinancialBarChart";
 
 function FinancialTable({ yearsData, selectedCols }) {
+  const [showModal, setShowModal] = useState(
+    new Array(selectedCols.length).fill(false)
+  );
+  const [positionX, setPositionX] = useState(0);
+  const [positionY, setPositionY] = useState(0);
+
+  const setModalArray = (i, e) => {
+    let tempArray = new Array(selectedCols.length).fill(false);
+    tempArray[i] = true;
+
+    setPositionX(e.pageX + 20);
+    setPositionY(e.pageY - 100);
+    setShowModal(tempArray);
+  };
+  const initModalArray = () => {
+    setShowModal(new Array(selectedCols.length).fill(false));
+  };
+
   return (
     <table className="my-8 mx-auto">
       <thead>
@@ -29,8 +50,33 @@ function FinancialTable({ yearsData, selectedCols }) {
       <tbody>
         {selectedCols.map((col, i) => (
           <tr key={i}>
-            <th className="p-3 text-sm mx-auto text-center grid min-w-[80px]">
+            <th
+              className="p-3 text-sm mx-auto text-center grid min-w-[80px]"
+              onMouseEnter={(e) => setModalArray(i, e)}
+              onMouseLeave={(e) => initModalArray(i)}
+            >
               <span className="text-xs">{EntoKo[col].ko}</span>
+              {showModal[i] && (
+                <CustomModal
+                  title={EntoKo[col].ko}
+                  positionX={positionX}
+                  positionY={positionY}
+                  width={350}
+                  height={180}
+                >
+                  <FinancialBarChart
+                    chartData={yearsData.map((yearData) => {
+                      return {
+                        name: `${yearData["date"].substring(0, 4)} ${yearData[
+                          "date"
+                        ].substring(5, 7)}월`,
+                        value: yearData[col],
+                      };
+                    })}
+                    col={col}
+                  />
+                </CustomModal>
+              )}
             </th>
             {yearsData.map((yearData, i) => (
               <td key={i} className="text-right pr-5">
