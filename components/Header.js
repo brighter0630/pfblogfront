@@ -10,9 +10,9 @@ import LoginButtonGoogle from "./LoginButtonGoogle";
 import LoginButtonKakao from "./LoginButtonKakao";
 import UserGreeting from "./UserGreeting";
 
-export function searchPathFinder(ticker, pathname) {
-  if (pathname.includes("analysis")) {
-    const urlParticles = pathname.split("/");
+export function searchPathFinder(ticker, pathName) {
+  if (pathName.includes("analysis")) {
+    const urlParticles = pathName.split("/");
     urlParticles[2] = ticker;
     return `${urlParticles.join("/")}`;
   } else {
@@ -20,9 +20,16 @@ export function searchPathFinder(ticker, pathname) {
   }
 }
 
-export function cursorToSearchBox(e) {
-  if (e.key !== "Escape") {
+export function cursorToSearchBox(e, pathName) {
+  if (
+    e.key !== "Escape" &&
+    (pathName.includes("analysis") ||
+      pathName.includes("transactionhistory") ||
+      pathName === "/")
+  ) {
     document.getElementById("searchTicker").focus();
+  } else if (e.key === "Escape") {
+    document.getElementById("searchTicker").blur();
   }
 }
 
@@ -31,11 +38,13 @@ function Header() {
   const pathName = usePathname();
   const { data: session, status } = useSession();
   const router = useRouter();
+
   useEffect(() => {
     if (window !== undefined) {
-      window.addEventListener("keydown", cursorToSearchBox);
+      window.addEventListener("keydown", (e) => cursorToSearchBox(e, pathName));
+      document.getElementById("searchTicker").focus();
     }
-  }, []);
+  }, [pathName]);
 
   const searchHandler = (e) => {
     if (e.key === "Enter") {

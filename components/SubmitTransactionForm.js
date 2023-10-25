@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import datepickerCSS from "react-datepicker/dist/react-datepicker.css";
 import { useRouter } from "next/navigation";
 import printDate from "@/libs/printDate";
 import { getNasdaqIndex, getSNPIndex } from "@/libs/getIndex";
@@ -71,6 +71,7 @@ function SubmitTransactionForm() {
       <label className="m-2">
         <span className="mr-4">거래일</span>
         <DatePicker
+          style={{ datepickerCSS }}
           selected={dateOfTransaction}
           onChange={(date) => setDateOfTransaction(date)}
         />
