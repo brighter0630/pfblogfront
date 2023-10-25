@@ -50,11 +50,13 @@ function Header() {
     if (e.key === "Enter") {
       document.getElementById("searchTicker").blur();
       router.push(searchPathFinder(ticker, pathName));
+      e.target.value = "";
     }
   };
   const searchClicked = () => {
     if (ticker) {
       router.push(searchPathFinder(ticker, pathName));
+      setTicker(""); // 효과가 있는 지는 모름.
     }
   };
   const moveToX0 = () => {
