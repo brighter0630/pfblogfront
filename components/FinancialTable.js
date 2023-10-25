@@ -29,9 +29,9 @@ function FinancialTable({ yearsData, selectedCols }) {
       <tbody>
         {selectedCols.map((col, i) => (
           <tr key={i}>
-            <td className="p-3 text-sm mx-auto text-center grid min-w-[80px]">
+            <th className="p-3 text-sm mx-auto text-center grid min-w-[80px]">
               <span className="text-xs">{EntoKo[col].ko}</span>
-            </td>
+            </th>
             {yearsData.map((yearData, i) => (
               <td key={i} className="text-right pr-5">
                 {yearData[col] === 0

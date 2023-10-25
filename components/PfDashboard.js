@@ -23,7 +23,7 @@ function PfDashboard({ summaryData, currentPrices }) {
     socket.on("price", ({ realtimeData }) => {
       const mergedData = mergeRealTimeData(
         summaryData,
-        { realtimeData },
+		{realtimeData },
         currentPrices
       );
       setTotalInvestedCapital(

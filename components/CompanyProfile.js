@@ -26,7 +26,7 @@ function CompanyProfile({ profile, afterMarketPrice }) {
       );
       setLoading(false);
     });
-  }, []);
+  }, [profile]);
 
   if (loading) {
     return <Loading />;

@@ -1387,7 +1387,7 @@ export const EntoKo = {
     share: false,
     perShare: false,
     days: false,
-	general: true
+    general: true,
   },
   returnOnAssetsTTM: {
     ko: "ROA",
@@ -1478,11 +1478,20 @@ export const EntoKo = {
     share: false,
     perShare: false,
     days: false,
-	general: true
+    general: true,
   },
   yearBorn: {
     ko: "출생연도",
     ratio: false,
+    money: false,
+    date: false,
+    share: false,
+    perShare: false,
+    days: false,
+  },
+  returnOnCapitalEmployedTTM: {
+    ko: "ROCE",
+    ratio: true,
     money: false,
     date: false,
     share: false,

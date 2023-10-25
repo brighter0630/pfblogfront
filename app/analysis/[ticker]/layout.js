@@ -24,17 +24,17 @@ export default async function AnalysisLayout({ children, params }) {
           content="10년 간의 재무지표와 배당 기록을 통해 기업을 분석한다."
         />
       </Head>
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto w-full">
         <CompanyProfile
           profile={profile.profile}
           afterMarketPrice={afterMarketPrice}
         />
       </div>
       <BasicInfoCard profile={profile} />
-      <div>
+      <div className="mx-auto w-full">
         <AnalysisNavBar ticker={ticker} />
       </div>
-      <main>{children}</main>
+      <main className="mx-auto w-full">{children}</main>
     </div>
   );
 }
