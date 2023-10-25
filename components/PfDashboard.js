@@ -21,12 +21,12 @@ function PfDashboard({ summaryData, currentPrices }) {
   useEffect(() => {
     const socket = connectSocketIO();
     socket.on("price", ({ realtimeData }) => {
-      if (realtimeData.lengh > 0) {
-        const mergedData = mergeRealTimeData(
-          summaryData,
-          { realtimeData },
-          currentPrices
-        );
+      const mergedData = mergeRealTimeData(
+        summaryData,
+        { realtimeData },
+        currentPrices
+      );
+      if (mergedData) {
         setTotalInvestedCapital(
           mergedData.reduce((prev, curr) => prev + curr.totalEquityPerStock, 0)
         );

@@ -15,7 +15,7 @@ function mergeRealTimeData(summaryData, { realtimeData }, currentPrices) {
       return dataAssigned;
     } catch (error) {
       console.error("Error occured, merging realtime data", error);
-      return [];
+      return false;
     }
   });
 
