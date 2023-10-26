@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  distDir: process.env.BUILDMOD === "production" ? ".next" : ".dev/build",
   reactStrictMode: false,
   env: {
     stockAPIURL_profile: "https://financialmodelingprep.com/api/v3/profile",
-	stockAPIURL_outlook: "https://financialmodelingprep.com/api/v4/company-outlook?symbol=",
+    stockAPIURL_outlook:
+      "https://financialmodelingprep.com/api/v4/company-outlook?symbol=",
     stockAPIAfterMarket:
       "https://financialmodelingprep.com/api/v4/pre-post-market-trade",
     stockPHURL:

@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/not-a-member/page": "app/not-a-member/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/postlist/[page]/page": "app/postlist/[page]/page.js",
+  "/post/2023-10-23-Philosophy/page": "app/post/2023-10-23-Philosophy/page.js"
+}

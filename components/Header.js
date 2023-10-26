@@ -90,7 +90,7 @@ function Header() {
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
             <LoginButtonGoogle title="구글 로그인" />
             <LoginButtonNaver title="네이버 로그인" />
-            <LoginButtonKakao title="카카오 로그인" />
+            {/* <LoginButtonKakao title="카카오 로그인" /> 카카오에서 승인 거절...ㅠㅠ */}
           </div>
         ) : (
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
