@@ -85,13 +85,25 @@ function CompanyProfile({ profile, afterMarketPrice }) {
                 })}
               </span>
               <p className={`text-2xl`}>
-                <span className={`${profile?.changes < 0 && "hidden"}`}>+</span>
-                {profile?.changes}
+                <span
+                  className={`${
+                    realTimePrice - (profile?.price - profile?.changes) < 0 &&
+                    "hidden"
+                  }`}
+                >
+                  +
+                </span>
+                {(realTimePrice - (profile?.price - profile?.changes)).toFixed(
+                  2
+                )}
               </p>
               <span className="text-base m-2">
                 (
                 {(
-                  Math.round((profile?.changes / realTimePrice) * 10000) / 100
+                  Math.round(
+                    (realTimePrice / (profile?.price - profile?.changes) - 1) *
+                      10000
+                  ) / 100
                 ).toFixed(2)}
                 %)
               </span>
