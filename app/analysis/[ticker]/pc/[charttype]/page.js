@@ -17,6 +17,10 @@ function PriceChartTemplete({ params }) {
       setLoading(false);
     }
     getData();
+
+    return () => {
+      sessionStorage.setItem('scrollYPosition', window.scrollY)
+    }
   }, [ticker]);
 
   if (loading) {
