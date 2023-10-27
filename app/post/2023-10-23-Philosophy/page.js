@@ -2,7 +2,7 @@ import Link from "next/link";
 import BarChartOneOnOne from "@/components/BlogContentsComponents/BarChartOneOnOne";
 import Ptag from "@/components/BlogComponents/Ptag";
 
-export const metaData = {
+export const blogMeta = {
   title: "배당성장주 투자의 가장 큰 기쁨",
   metaDesc:
     "배당성장주 투자를 하는 이유는 무엇인가? 배당성장주에 투자함으로써 우리가 잃는 것과 얻는 것은 무엇일까? 주식투자는 노동이다. 가장 적게 일하며 가장 많은 리턴은 무엇으로 얻어지는가?",

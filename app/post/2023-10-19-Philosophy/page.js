@@ -5,7 +5,7 @@ import getPriceChartData from "@/components/BlogContentsComponents/libs/getPrice
 import Link from "next/link";
 import Ptag from "@/components/BlogComponents/Ptag";
 
-export const metaData = {
+export const blogMeta = {
   title: "배당성장주 투자는 배당주 투자가 아니다.",
   metaDesc:
     "배당성장주는 흔히 배당주와 쉽게 혼동되며 오해받는다. 배당성장주와 배당주는 명확히 다르다. 그 차이점에 대해 정리해보자.",

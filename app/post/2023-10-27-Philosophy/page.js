@@ -3,7 +3,7 @@ import Ptag from "@/components/BlogComponents/Ptag";
 import SimpleBarChart from "@/components/BlogContentsComponents/SimpleBarChart";
 import { dataTurnOverRateAndPerformance } from "./data";
 
-export const metaData = {
+export const blogMeta = {
   title: "주가를 확인하는 습관에서 벗어나는 유일한 방법",
   metaDesc:
     "주식 투자에 있어서 가장 큰 스트레스는 주가를 자주 확인하는 데서 온다. 주가가 올라도 스트레스, 내려도 스트레스. 이제 그 스트레스에서 벗어나보자.",

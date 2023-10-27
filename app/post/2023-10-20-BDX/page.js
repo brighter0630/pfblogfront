@@ -55,7 +55,7 @@ export const data = [
   },
 ];
 
-export const metaData = {
+export const blogMeta = {
   title: "배당성장주 BDX의 기업 분석",
   metaDesc:
     "Dividend Achievers 중 하나인 BDX에 대해 알아보자. 배당성장주 투자의 철학에 알맞는가? 배당을 꾸준히 늘려 왔는가? 매출과 이익은 꾸준히 늘어나는가? 자본배분은 잘 이루어지고 있는가? 배당은 안전한가?",

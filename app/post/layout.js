@@ -5,24 +5,24 @@ import Title from "@/components/BlogComponents/Title";
 import TagList from "@/components/BlogComponents/TagList";
 import Footer from "@/components/BlogComponents/Footer";
 import BasicFrame from "@/components/BasicFrame";
-import Head from "next/head";
+// import Head from "next/head";
 import Script from "next/script";
 
 function PostLayout({ children }) {
   const pathName = usePathname();
-  const { metaData } = require(`../post/${pathName.split("/")[2]}/page`);
+  const { blogMeta } = require(`../post/${pathName.split("/")[2]}/page`);
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
           content="https://dividendgrowthinvesting.co.kr"
         />
-        <meta property="og:title" content={metaData.title} />
-        <meta property="og:description" content={metaData.metaDesc} />
-      </Head>
+        <meta property="og:title" content={blogMeta.title} />
+        <meta property="og:description" content={blogMeta.metaDesc} />
+      </Head> */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-NHT517M9G5`}
       />
@@ -36,14 +36,14 @@ function PostLayout({ children }) {
         `}
       </Script>
       <div className=" text-gray-800 text-opacity-75 prose p-5 max-w-[640px]">
-        <Title text={metaData.title} />
-        <div className="grid grid-flow-col justify-stretch">
-          <TagList list={metaData.tags} />
-          <span className="my-auto">{metaData.author}</span>
+        <Title text={blogMeta.title} />
+        <div className="grid grid-flow-col justify-between">
+          <TagList list={blogMeta.tags} />
+          <span className="my-auto">{blogMeta.author}</span>
         </div>
-        <BasicFrame>{metaData.metaDesc}</BasicFrame>
+        <BasicFrame>{blogMeta.metaDesc}</BasicFrame>
         {children}
-        <Footer list={metaData.tags} />
+        <Footer list={blogMeta.tags} />
       </div>
     </>
   );
