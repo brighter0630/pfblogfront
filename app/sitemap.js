@@ -8,11 +8,19 @@ export default async function sitemap() {
     return {
       url: `${baseURL}/post/${post.slug}`,
       lastModified: new Date(post.date),
-      changeFrequency: "yearly",
+      changeFrequency: "weekly",
       priority: 1,
     };
   });
-  return sitemapArray;
+  return [
+    ...sitemapArray,
+    {
+      url: "https://dividendgrowthinvesting.co.kr/postlist/1",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.5,
+    },
+  ];
 
   //   return [
   //     {
