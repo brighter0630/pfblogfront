@@ -42,7 +42,6 @@ function Header() {
   useEffect(() => {
     if (window !== undefined) {
       window.addEventListener("keydown", (e) => cursorToSearchBox(e, pathName));
-      document.getElementById("searchTicker").focus();
     }
   }, [pathName]);
 
@@ -77,7 +76,6 @@ function Header() {
               onKeyDown={searchHandler}
               placeholder="티커를 입력하세요. (ex: AAPL)"
               autoComplete="off"
-              onFocus={moveToX0}
               className="outline-0 rounded-md ml-5 w-96 h-10 opacity-80 p-4"
             />
           </label>

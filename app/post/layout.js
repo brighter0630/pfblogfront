@@ -37,7 +37,10 @@ function PostLayout({ children }) {
       </Script>
       <div className=" text-gray-800 text-opacity-75 prose p-5 max-w-[640px]">
         <Title text={metaData.title} />
-        <TagList list={metaData.tags} />
+        <div className="grid grid-flow-col justify-stretch">
+          <TagList list={metaData.tags} />
+          <span className="my-auto">{metaData.author}</span>
+        </div>
         <BasicFrame>{metaData.metaDesc}</BasicFrame>
         {children}
         <Footer list={metaData.tags} />

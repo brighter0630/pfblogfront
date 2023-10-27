@@ -34,7 +34,7 @@ function FinancialTable({ yearsData, selectedCols }) {
           {yearsData.map((yearData, i) => (
             <th
               key={i}
-              className="p-3 text-sm font-semibold tracking-wide text-left min-w-[80px]"
+              className="p-3 text-sm font-semibold tracking-wide text-left min-w-[60px]"
             >
               <p className="text-base text-center">
                 {" "}
