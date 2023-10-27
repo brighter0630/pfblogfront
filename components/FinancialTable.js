@@ -34,11 +34,11 @@ function FinancialTable({ yearsData, selectedCols }) {
           {yearsData.map((yearData, i) => (
             <th
               key={i}
-              className="p-3 text-sm font-semibold tracking-wide text-left min-w-[60px]"
+              className="p-3 text-sm font-semibold tracking-wide text-left min-w-[65px]"
             >
               <p className="text-base text-center">
                 {" "}
-                {yearData.date.substr(0, 4)}년
+                {yearData.date.substr(0, 4)}
               </p>
               <p className="text-xs text-right mr-4">
                 {yearData.date.substr(5, 2)}월

@@ -1,6 +1,6 @@
 export default function formmater(col, value, translator) {
   let formatted = "";
-  if (value === undefined || value === 0) {
+  if (value === undefined || value === 0 || value === null) {
     formatted = "-";
   } else if (col === "mktCap") {
     if (value > 1000000000000) {

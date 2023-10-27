@@ -1,3 +1,4 @@
+import IndexPriceDiv from "@/components/IndexPriceDiv";
 import Pfchart from "@/components/Pfchart";
 import CurrentHoldings from "@/components/CurrentHoldings";
 import getCurrentPrice from "@/libs/getCurrentPrice";
@@ -8,7 +9,11 @@ import summarisePortfolio from "@/libs/mariadb/summarisePortfolio";
 import getMonthsBetween from "@/libs/getMonthsBetween";
 import getMonthlySummary from "@/libs/getMonthlySummary";
 import { getNasdaqIndex, getSNPIndex } from "@/libs/getIndex";
-import Head from "next/head";
+
+export const metadata = {
+  title: "이웃집백만장자의 배당성장주 투자",
+  content: "배당성장주 투자의 실제 현황",
+};
 
 export default async function Home() {
   const { summaryData } = await summarisePortfolio();
@@ -20,17 +25,8 @@ export default async function Home() {
 
   return (
     <div
-      className={`p-5 my-4 mx-auto text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row max-w-3xl`}
+      className={`my-4 mx-auto text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row max-w-3xl`}
     >
-      <Head>
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://dividendgrowthinvesting.co.kr"
-        />
-        <meta property="og:title" content="이웃집백만장자의 배당성장주 투자" />
-        <meta property="og:description" content="배당성장주 투자의 실제 현황" />
-      </Head>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-NHT517M9G5`}
       />
@@ -43,6 +39,7 @@ export default async function Home() {
           gtag('config', 'G-NHT517M9G5');
         `}
       </Script>
+      <IndexPriceDiv />
       <PfDashboard summaryData={summaryData} currentPrices={currentPrices} />
       {/* <PfReturnChart arrayOfTotalAsset={arrayOfTotalAsset} /> */}
       <CurrentHoldings

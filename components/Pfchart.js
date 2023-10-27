@@ -73,34 +73,38 @@ export default function Pfchart({ data, currentPrices }) {
 
   return (
     <BasicFrame>
-      <span className="m-4 font-medium text-2xl">보유 종목 차트</span>
-      <div className="grid overflow-x-hidden overflow-y-auto grid-flow-col h-96 relative my-10">
-        <ResponsiveContainer
-          width={"100%"}
-          height={"99%"}
-          className={"grid-cols-1"}
-        >
-          <PieChart width={400} height={800} className="min-w-full">
-            <Pie
-              data={chartData}
-              cx="50%"
-              cy="50%"
-              label={renderCustomizedLabel}
-              labelLine={false}
-              outerRadius={160}
-              dataKey="value"
+      {!loading && (
+        <div>
+          <span className="m-4 font-medium text-2xl">보유 종목 차트</span>
+          <div className="grid overflow-x-hidden overflow-y-auto grid-flow-col h-96 relative my-10">
+            <ResponsiveContainer
+              width={"100%"}
+              height={"99%"}
+              className={"grid-cols-1"}
             >
-              {chartData?.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
-      </div>
+              <PieChart width={400} height={800} className="min-w-full">
+                <Pie
+                  data={chartData}
+                  cx="50%"
+                  cy="50%"
+                  label={renderCustomizedLabel}
+                  labelLine={false}
+                  outerRadius={160}
+                  dataKey="value"
+                >
+                  {chartData?.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      )}
     </BasicFrame>
   );
 }

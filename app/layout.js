@@ -1,5 +1,6 @@
 import "./globals.css";
 import Header from "../components/Header";
+import IndexPriceDiv from "@/components/IndexPriceDiv";
 import Sidebar from "@/components/Sidebar";
 import AuthContext from "@/src/context/AuthContext";
 import localFont from "next/font/local";
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
           <aside className="h-screen sticky top-0 col-span-1">
             <Sidebar />
           </aside>
-          <div className="col-span-4 flex flex-col">
+          <div className="col-span-4 flex flex-col max-w-3xl mx-auto">
             <Header />
             <main className="max-w-5xl mx-auto">{children}</main>
             <footer className="text-slate-700 py-10 font-semibold max-h-52 mt-10 bg-slate-200 overflow-x-hidden">

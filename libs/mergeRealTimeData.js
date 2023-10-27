@@ -4,7 +4,7 @@ function mergeRealTimeData(summaryData, { realtimeData }, currentPrices) {
       const result = realtimeData.filter((el) => el.symbol === stock.ticker);
 
       const realtimePrice =
-        result.length > 0
+        result.length > 0 && result[0].price !== 0
           ? result[0].price
           : currentPrices.filter((price) => price.symbol === stock.ticker)[0]
               .price;

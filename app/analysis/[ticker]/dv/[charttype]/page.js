@@ -2,7 +2,6 @@ import FinancialTable from "@/components/FinancialTable";
 import { getRatioData, getDVData } from "@/libs/getFinancialData";
 import DividendChart from "@/components/DividendChart";
 import DividendCard from "@/components/DividendCard";
-import BasicFrame from "@/components/BasicFrame";
 
 async function DVPage({ params }) {
   const { ticker, charttype } = params;
@@ -24,19 +23,10 @@ async function DVPage({ params }) {
   return (
     <div className="justify-center m-auto overflow-auto min-w-min w-full grid grid-flow-row ">
       <div className="grid grid-flow-col">
-        <div className="min-w-[480px] mx-auto">
-          <DividendChart historical={historical} charttype={charttype} />
-        </div>
-        <div className="min-w-[200px]">
-          <h1 className="text-center text-xl font-medium">배당 정보</h1>
-          <BasicFrame>
-            <DividendCard historical={historical}></DividendCard>
-          </BasicFrame>
-        </div>
+        <DividendChart historical={historical} charttype={charttype} />
+        <DividendCard historical={historical}></DividendCard>
       </div>
-      <div>
-        <FinancialTable yearsData={yearsData} selectedCols={selectedCols} />
-      </div>
+      <FinancialTable yearsData={yearsData} selectedCols={selectedCols} />
     </div>
   );
 }

@@ -11,10 +11,6 @@ import BasicFrame from "@/components/BasicFrame";
 
 function CompanyProfile({ profile, afterMarketPrice }) {
   const route = useRouter();
-  if (profile === undefined || Object.keys(profile).length === 0) {
-    route.push("/ticker-not-found");
-  }
-
   const [realTimePrice, setRealTimePrice] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -55,9 +51,10 @@ function CompanyProfile({ profile, afterMarketPrice }) {
               className="bg-slate-400 p-4 rounded-lg mx-auto"
               alt={profile?.companyName}
             />
-            <div className="text-center my-4 text-xl">
+            <div className="text-center my-4 text-xl grid grid-flow-row">
               <Link href={`${profile?.website}`} target="_blank">
                 <span className="text-center">{profile?.companyName}</span>
+                <span className="text-center"> ({profile?.symbol})</span>
               </Link>
             </div>
             <div className="text-center my-auto">
