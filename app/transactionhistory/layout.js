@@ -5,7 +5,6 @@ function TransactionHistoryLayout({ children }) {
     <div className="flex-row justify-between text-black">
       <DateNavbar />
 			<main>{children}</main>
-			</div>
     </div>
   );
 }
