@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
           </aside>
           <div className="col-span-4 flex flex-col max-w-3xl mx-auto">
             <Header />
-            <main className="max-w-5xl mx-auto">{children}</main>
+            <main className="max-w-5xl">{children}</main>
             <footer className="text-slate-700 py-10 font-semibold max-h-52 mt-10 bg-slate-200 overflow-x-hidden">
               <div className="my-auto p-4 text-center">
                 <p className="">

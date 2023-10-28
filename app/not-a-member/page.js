@@ -7,7 +7,7 @@ import LoginButtonNaver from "@/components/LoginButtonNaver";
 
 export default function NotAMember() {
   return (
-    <div className="w-80 grid grid-flow-row text-center">
+    <div className="w-80 grid grid-flow-row text-center mx-auto">
       <BasicFrame>
         <div className="font-bold text-3xl py-5 border-b-2 mb-5">Sign Up</div>
         <div className="grid grid-flow-row gap-2 justify-center">

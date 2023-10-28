@@ -3,25 +3,26 @@
 import React from "react";
 import IndexPriceBox from "@/components/IndexPriceBox/IndexPriceBox";
 import BasicFrame from "./BasicFrame";
+import { EntoKo } from '@/translation.js';
 
 function IndexPriceDiv() {
   return (
     <BasicFrame>
       <div className="mx-auto grid grid-cols-3 max-w-full min-w-0 min-h-0">
         <table className="max-w-[100px] mx-auto">
-          <IndexPriceBox indexTicker="^GSPC" indexTitle={"S&P500"} />
-          <IndexPriceBox indexTicker="^IXIC" indexTitle={"나스닥"} />
-          <IndexPriceBox indexTicker="^DJI" indexTitle={"다우존스"} />
+          <IndexPriceBox indexTicker="^GSPC" indexTitle={EntoKo['^GSPC'].ko} />
+          <IndexPriceBox indexTicker="^IXIC" indexTitle={EntoKo['^IXIC'].ko} />
+          <IndexPriceBox indexTicker="^DJI" indexTitle={EntoKo['^DJI'].ko} />
         </table>
         <table className="max-w-[100px] mx-auto">
-          <IndexPriceBox indexTicker="^RUT" indexTitle={"러셀2000"} />
-          <IndexPriceBox indexTicker="^FTSE" indexTitle={"FTSE100"} />
-          <IndexPriceBox indexTicker="^KS11" indexTitle={"코스피"} />
+          <IndexPriceBox indexTicker="^RUT" indexTitle={EntoKo['^RUT'].ko} />
+          <IndexPriceBox indexTicker="^FTSE" indexTitle={EntoKo['^FTSE'].ko} />
+          <IndexPriceBox indexTicker="^KS11" indexTitle={EntoKo['^KS11'].ko} />
         </table>
         <table className="max-w-[100px] mx-auto">
-          <IndexPriceBox indexTicker="^FVX" indexTitle={"미국국채(5년)"} />
-          <IndexPriceBox indexTicker="^TNX" indexTitle={"미국국채(10년)"} />
-          <IndexPriceBox indexTicker="^TYX" indexTitle={"미국국채(30년)"} />
+          <IndexPriceBox indexTicker="^FVX" indexTitle={EntoKo['^FVX'].ko} />
+          <IndexPriceBox indexTicker="^TNX" indexTitle={EntoKo['^TNX'].ko} />
+          <IndexPriceBox indexTicker="^TYX" indexTitle={EntoKo['^TYX'].ko} />
         </table>
       </div>
     </BasicFrame>

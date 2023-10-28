@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { GoMoveToTop } from "react-icons/go";
 
-function ToTheTop() {
+function ToTheTopButton() {
   const [toggleBtn, setToggleBtn] = useState(true);
 
   const handleScroll = () => {
@@ -34,4 +34,4 @@ function ToTheTop() {
   ) : null;
 }
 
-export default ToTheTop;
+export default ToTheTopButton;

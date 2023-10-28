@@ -17,15 +17,14 @@ function PriceChart({ symbol, historical, charttype }) {
   const router = useRouter();
   if (chartData === false) {
     router.push("/ticker-not-found");
-    return false;
   }
 
   return (
-    <div className="grid overflow-x-hidden overflow-y-auto grid-flow-col h-96 relative my-10">
+    <div className="grid grid-flow-col h-96 relative my-10 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
-          width={500}
-          height={400}
+          width={1000}
+          height={700}
           data={[...chartData].reverse()}
           margin={{
             top: 10,
@@ -45,10 +44,16 @@ function PriceChart({ symbol, historical, charttype }) {
           <YAxis
             type="number"
             domain={[
-              0,
-              (dataMax) =>
-                10 ** (String(Math.round(dataMax)).length - 1) *
-                (Number(String(dataMax)[0]) + 2),
+              (dataMin) => {
+								if(dataMin > 10) {
+									return Math.pow(10, (String(Math.round(dataMin)).length - 1));
+								} else if(dataMin <= 10 && dataMin > 0) {
+									return 0;
+								}
+							}, 
+              (dataMax) => {
+								return Math.pow(10, (String(Math.round(dataMax)).length - 1)) * (Number(String(dataMax)[0])+1);
+							}
             ]}
           />
           <Tooltip />

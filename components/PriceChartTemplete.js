@@ -9,6 +9,5 @@ export default async function PriceChartTemplete({ ticker }) {
     }
   );
   const { historical } = await res.json();
-  console.log("from pricecharttemp: ", historical);
   return <PriceChart historical={historical} charttype={"year"} />;
 }

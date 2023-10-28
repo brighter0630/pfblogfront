@@ -4,6 +4,8 @@ import { getCompanyProfile } from "@/libs/getCompanyProfile";
 import AnalysisNavBar from "@/components/AnalysisNavBar";
 import { getAfterMarketPrice } from "@/libs/getAfterMarketPrice";
 import BasicInfoCard from "@/components/BasicInfoCard";
+import ToTheTopButton from '@/components/ToTheTopButton';
+import GoBackButton from '@/components/GoBackButton';
 
 export const metadata = {
   title: "배당성장주 무료 10년 재무제표",
@@ -27,6 +29,10 @@ export default async function AnalysisLayout({ children, params }) {
         <AnalysisNavBar ticker={ticker} />
       </div>
       <main className="mx-auto w-full">{children}</main>
+			<div className="flex justify-between px-5">
+				<ToTheTopButton />
+				<GoBackButton />
+			</div>
     </div>
   );
 }

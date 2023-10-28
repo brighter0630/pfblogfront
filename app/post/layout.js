@@ -5,7 +5,6 @@ import Title from "@/components/BlogComponents/Title";
 import TagList from "@/components/BlogComponents/TagList";
 import Footer from "@/components/BlogComponents/Footer";
 import BasicFrame from "@/components/BasicFrame";
-// import Head from "next/head";
 import Script from "next/script";
 
 function PostLayout({ children }) {
@@ -14,15 +13,6 @@ function PostLayout({ children }) {
 
   return (
     <>
-      {/* <Head>
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://dividendgrowthinvesting.co.kr"
-        />
-        <meta property="og:title" content={blogMeta.title} />
-        <meta property="og:description" content={blogMeta.metaDesc} />
-      </Head> */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-NHT517M9G5`}
       />

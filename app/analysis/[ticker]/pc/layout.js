@@ -1,4 +1,4 @@
-import NavBar from "@/components/StockPriceNavBar";
+import PriceChartNavbar from "@/components/PriceChartNavbar";
 
 async function PCPageLayout({ children, params }) {
   const { ticker } = params;
@@ -9,7 +9,7 @@ async function PCPageLayout({ children, params }) {
         <span className="text-4xl text-center pl-3">
           {ticker.toUpperCase()}의 주가차트
         </span>
-        <NavBar ticker={ticker} />
+        <PriceChartNavbar ticker={ticker} />
       </div>
       <main>{children}</main>
     </div>

@@ -3,7 +3,7 @@ import unAuthorizedImage from "@/public/images/unauthorized.jpg";
 
 export default function NotAdmin() {
   return (
-    <div className="py-5 flex flex-col">
+    <div className="py-5 flex flex-col mx-auto">
       <div className="round-lg overflow-hidden">
         <Image
           src={unAuthorizedImage}

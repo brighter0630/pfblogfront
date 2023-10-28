@@ -40,7 +40,7 @@ function FinancialTable({ yearsData, selectedCols }) {
                 {" "}
                 {yearData.date.substr(0, 4)}
               </p>
-              <p className="text-xs text-right mr-4">
+              <p className="text-xs text-right mr-1">
                 {yearData.date.substr(5, 2)}월
               </p>
             </th>

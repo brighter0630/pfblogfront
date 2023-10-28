@@ -32,7 +32,7 @@ function AnalysisNavBar({ ticker }) {
   return (
     <ul className="grid grid-flow-col justify-evenly">
       {navLinks.map((navLink, i) => (
-        <Link key={i} href={navLink.path} replace={true} prefetch={false}>
+        <Link key={i} href={navLink.path} replace={false} prefetch={false}>
           <li
             className={`border-0 p-2 px-6 min-w-[150px] text-center transition ease-in-out delay-150 bg-gray-300 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-200 duration-500 hover:border-0
           ${

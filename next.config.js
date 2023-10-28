@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+experimental: {
+	serverActions: true
+	},
   distDir: process.env.BUILDMOD === "production" ? ".next" : ".dev/build",
   reactStrictMode: false,
   env: {
