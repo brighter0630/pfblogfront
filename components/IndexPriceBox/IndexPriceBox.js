@@ -2,10 +2,14 @@
 
 import connectSocketIO from "@/libs/connectSocketIO";
 import React, { useEffect, useState } from "react";
+import CustomModal from "../CustomModal";
+import PriceChartTemplete from "../PriceChartTemplete";
 
 function IndexPriceBox({ indexTicker, indexTitle }) {
   const [index, setIndex] = useState();
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     const socket = connectSocketIO();
     socket.on("index", ({ realtimeIndex }) => {
@@ -20,7 +24,16 @@ function IndexPriceBox({ indexTicker, indexTitle }) {
   }, []);
 
   return (
-    <tbody className="min-w-0">
+    <tbody
+      className="min-w-0"
+      onMouseEnter={() => setShowModal(true)}
+      onMouseLeave={() => setShowModal(false)}
+    >
+      {/* {showModal && (
+        <CustomModal width={500} height={300}>
+          <PriceChartTemplete ticker={indexTicker} />
+        </CustomModal>
+      )} */}
       {!loading && (
         <tr>
           <th className="text-center text-[#31455b] text-xs min-w-[100px]">
@@ -33,10 +46,11 @@ function IndexPriceBox({ indexTicker, indexTitle }) {
                 : index?.changesPercentage < 0
                 ? "text-blue-700"
                 : "text-black"
-            } text-sm`}
+            } text-sm text-right pr-1`}
           >
             {index?.price.toLocaleString(undefined, {
               minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
             })}
           </td>
           <td
@@ -46,7 +60,7 @@ function IndexPriceBox({ indexTicker, indexTitle }) {
                 : index?.changesPercentage < 0
                 ? "text-blue-700"
                 : "text-black"
-            } text-xs`}
+            } text-xs text-right pr-1`}
           >
             {index?.changesPercentage >= 0 && "+"}
             {index?.changesPercentage.toFixed(2)}%

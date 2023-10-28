@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import LoginButtonNaver from "./LoginButtonNaver";
 import LoginButtonGoogle from "./LoginButtonGoogle";
-import LoginButtonKakao from "./LoginButtonKakao";
+// import LoginButtonKakao from "./LoginButtonKakao";
 import UserGreeting from "./UserGreeting";
 
 export function searchPathFinder(ticker, pathName) {
@@ -57,10 +57,6 @@ function Header() {
       router.push(searchPathFinder(ticker, pathName));
       setTicker(""); // 효과가 있는 지는 모름.
     }
-  };
-  const moveToX0 = () => {
-    document.documentElement.scrollTop = 0;
-    document.documentElement.scrollLeft = 0;
   };
 
   return (

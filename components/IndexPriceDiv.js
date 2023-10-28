@@ -15,7 +15,7 @@ function IndexPriceDiv() {
         </table>
         <table className="max-w-[100px] mx-auto">
           <IndexPriceBox indexTicker="^RUT" indexTitle={"러셀2000"} />
-          <IndexPriceBox indexTicker="^W5000" indexTitle={"윌셔5000"} />
+          <IndexPriceBox indexTicker="^FTSE" indexTitle={"FTSE100"} />
           <IndexPriceBox indexTicker="^KS11" indexTitle={"코스피"} />
         </table>
         <table className="max-w-[100px] mx-auto">
