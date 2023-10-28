@@ -4,6 +4,8 @@ import IndexPriceDiv from "@/components/IndexPriceDiv";
 import Sidebar from "@/components/Sidebar";
 import AuthContext from "@/src/context/AuthContext";
 import localFont from "next/font/local";
+import GoBackButton from '@/components/GoBackButton';
+import ToTheTopButton from '@/components/ToTheTopButton';
 
 export const metadata = {
   title: "이웃집백만장자의 배당성장 포트폴리오",
@@ -26,6 +28,10 @@ export default function RootLayout({ children }) {
           <div className="col-span-4 flex flex-col max-w-3xl mx-auto">
             <Header />
             <main className="max-w-5xl">{children}</main>
+						<div className="flex justify-between px-5 py-2">
+							<ToTheTopButton />
+							<GoBackButton />
+						</div>
             <footer className="text-slate-700 py-10 font-semibold max-h-52 mt-10 bg-slate-200 overflow-x-hidden">
               <div className="my-auto p-4 text-center">
                 <p className="">

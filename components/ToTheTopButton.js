@@ -27,9 +27,9 @@ function ToTheTopButton() {
 
   // 토글 여부 state에 따라 버튼을 보여주거나 감추게 만듦
   return toggleBtn ? (
-    <div onClick={goToTop} className="my-auto flex cursor-pointer">
-      <span className="text-sm">맨위로</span>
-      <GoMoveToTop className="text-xl my-auto" />
+    <div onClick={goToTop} className="my-auto flex cursor-pointer text-gray-800">
+      <span className="text-base mr-1">맨위로</span>
+      <GoMoveToTop className="text-xl my-auto mr-5" />
     </div>
   ) : null;
 }
