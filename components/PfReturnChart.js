@@ -49,7 +49,20 @@ export default function PfReturnChart({ pfChartData }) {
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" />
-						<YAxis tickFormatter={(tick) => tick.toLocaleString()} type="number" domain={[0, 10000]} />
+						<YAxis tickFormatter={(tick) => tick.toLocaleString()} type="number" 
+							domain={[
+              (dataMin) => {
+								if(dataMin > 10) {
+									return Math.pow(10, (String(Math.round(dataMin)).length - 1));
+								} else if(dataMin <= 10 && dataMin > 0) {
+									return 0;
+								}
+							}, 
+              (dataMax) => {
+								return Math.pow(10, (String(Math.round(dataMax)).length - 1)) * (Number(String(dataMax)[0])+1);
+							}
+            ]}
+					/>
 						<Tooltip content={<CustomTooltip />} />
             <Line
               type="monotone"
