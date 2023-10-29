@@ -1,7 +1,7 @@
 import { SiNaver } from "react-icons/si";
 import { signIn } from "next-auth/react";
 
-export default function LoginButtonNaver({ title }) {
+export default function LoginButtonNaver({ title, width, height, fontSize, iconSize }) {
   const trySignIn = () => {
     try {
       signIn("naver", { redirect: true, callbackUrl: "/" });
@@ -9,16 +9,18 @@ export default function LoginButtonNaver({ title }) {
       console.log(error);
     }
   };
-
-  return (
+	 return (
     <div
       onClick={() => trySignIn()}
-      className="h-8 my-auto table rounded-md min-w-[90px] bg-[#1EC800] text-white text-center cursor-pointer text-xs"
+      className="my-auto table rounded-md min-w-[90px] bg-[#2DB400] text-white text-center cursor-pointer"
+			style={{width: `${width}px`, height: `${height}px`}}
     >
       <span className="font-bold table-cell align-middle px-1">
-        <SiNaver className="mx-auto" />
+        <SiNaver className="mx-auto" style={{fontSize: `${iconSize}px`}} />
       </span>
-      <span className="font-bold table-cell align-middle px-1 text-[.6rem]">
+
+			<span className="font-bold table-cell align-middle px-1" 
+						 style={{fontSize: `${fontSize}px`}} >
         {title}
       </span>
     </div>

@@ -82,8 +82,8 @@ function Header() {
         </div>
         {status === "unauthenticated" ? (
           <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
-            <LoginButtonGoogle title="구글 로그인" />
-            <LoginButtonNaver title="네이버 로그인" />
+            <LoginButtonGoogle title="로그인" width="90" height="50" fontSize="15" iconSize="20" />
+            <LoginButtonNaver title="로그인" width="90" height="50" fontSize="15" iconSize="20" />
             {/* <LoginButtonKakao title="카카오 로그인" /> 카카오에서 승인 거절...ㅠㅠ */}
           </div>
         ) : (
