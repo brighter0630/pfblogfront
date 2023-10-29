@@ -15,28 +15,20 @@ import BasicFrame from "@/components/BasicFrame";
 import Loading from "./Loading";
 import getMonthAgo from "@/libs/getMonthAgo";
 
-export default function PfReturnChart({ arrayOfTotalAsset }) {
-  const [loading, setLoading] = useState(true);
-  const [assetChartData, setAssetChartData] = useState();
-
-  useEffect(() => {
-    setAssetChartData(
-      arrayOfTotalAsset.map((eachMonth) => {
-        return {
-          name: getMonthAgo(eachMonth.date),
-          totalAsset: eachMonth.summary.reduce(
-            (pre, cur) => pre + cur.totalEquityPerStock,
-            0
-          ),
-        };
-      })
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip bg-white shadow-md p-2 round-sm">
+        <p className="label">{`총자산: $${Number(payload[0].value).toLocaleString('en-US')}`}</p>
+      </div>
     );
-    setLoading(false);
-  }, []);
-
-  if (loading) {
-    return <Loading />;
   }
+  return null;
+};
+
+export default function PfReturnChart({ pfChartData }) {
+  const [loading, setLoading] = useState(true);
+	const [pfChartDataModified, setPfChartDataModified] = useState();
 
   return (
     <BasicFrame>
@@ -47,7 +39,7 @@ export default function PfReturnChart({ arrayOfTotalAsset }) {
             width={"100%"}
             height={"99%"}
             className={"grid-cols-1"}
-            data={assetChartData}
+            data={pfChartData}
             margin={{
               top: 5,
               right: 30,
@@ -56,13 +48,12 @@ export default function PfReturnChart({ arrayOfTotalAsset }) {
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis tickFormatter={(tick) => tick.toLocaleString()} />
-            <Tooltip />
-            {/* <Legend /> */}
+            <XAxis dataKey="date" />
+						<YAxis tickFormatter={(tick) => tick.toLocaleString()} type="number" domain={[0, 10000]} />
+						<Tooltip content={<CustomTooltip />} />
             <Line
               type="monotone"
-              dataKey="totalAsset"
+              dataKey="total"
               stroke="#8884d8"
               activeDot={{ r: 8 }}
             />

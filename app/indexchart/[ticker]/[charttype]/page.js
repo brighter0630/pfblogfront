@@ -10,10 +10,7 @@ export default async function IndexChart({params}) {
 	const { historical } = await getPriceHistory(ticker)
 	return (
 			<div className="min-w-full">
-				<div className="grid grid-flow-col justify-between">
-					<h2 className="text-2xl text-gray-800 font-bold p-4">{EntoKo[decodedTicker].ko} 지수</h2>
-					<GoBackButton />
-				</div>
+				<h2 className="text-2xl text-gray-800 font-bold p-4">{EntoKo[decodedTicker].ko} 지수</h2>
 				<div className="">
 					<PriceChartNavbar />
 					<PriceChart historical={historical} charttype={charttype} />

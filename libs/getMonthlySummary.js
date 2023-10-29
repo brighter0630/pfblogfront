@@ -1,11 +1,7 @@
-export default async function getMonthlySummary(monthsBetween) {
+export default async function getMonthlySummary() {
   try {
-    const res = await fetch(`${process.env.BASE_URL}/api/monthlysummary`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(monthsBetween),
+    const res = await fetch(`${process.env.BASE_URL}/api/getmonthlysummary`, {
+      method: "GET",
       cache: "no-cache",
     });
     const data = await res.json();

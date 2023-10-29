@@ -4,7 +4,7 @@ const nextConfig = {
 experimental: {
 	serverActions: true
 	},
-  distDir: process.env.BUILDMOD === "production" ? ".next" : ".dev/build",
+	distDir: process.env.BUILDMOD === "production" ? ".production/.next" : ".dev/build",
   reactStrictMode: false,
   env: {
     stockAPIURL_profile: "https://financialmodelingprep.com/api/v3/profile",
