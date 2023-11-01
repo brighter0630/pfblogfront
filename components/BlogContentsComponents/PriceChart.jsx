@@ -34,12 +34,17 @@ function PriceChart({ chartData }) {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis
-            type="number"
-            domain={[
-              0,
-              (dataMax) =>
-                10 ** (String(Math.round(dataMax)).length - 1) *
-                (Number(String(dataMax)[0]) + 2),
+						domain={[
+              (dataMin) => {
+								if(dataMin > 10) {
+									return Math.pow(10, (String(Math.round(dataMin)).length - 1));
+								} else if(dataMin <= 10 && dataMin > 0) {
+									return 0;
+								}
+							}, 
+              (dataMax) => {
+								return Math.pow(10, (String(Math.round(dataMax)).length - 1)) * (Number(String(dataMax)[0])+1);
+							}
             ]}
           />
           <Tooltip />
