@@ -21,6 +21,7 @@
     "clsx": "^2.0.0",
     "contentlayer": "^0.3.4",
     "faker": "^6.6.6",
+    "finnhub": "^1.2.18",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "mariadb": "^3.2.1",

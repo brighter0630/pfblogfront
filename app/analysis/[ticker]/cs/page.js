@@ -1,23 +1,23 @@
 import FinancialTable from "@/components/FinancialTable";
-import { getCSData } from "@/libs/getFinancialData";
+// import { getCSData } from "@/libs/getFinancialData";
+import { getCS } from '@/libs/finnhub/getFinance';
 
 async function CSPage({ params }) {
   const { ticker } = params;
-  const yearsData = await getCSData(ticker);
+  const yearsData = await getCS(ticker);
   const selectedCols = [
-    "netIncome",
-    "depreciationAndAmortization",
+    "netIncomeStartingLine",
+    "depreciationAmortization",
     "stockBasedCompensation",
-    "changeInWorkingCapital",
-    "investmentsInPropertyPlantAndEquipment",
-    "acquisitionsNet",
-    "commonStockRepurchased",
-    "dividendsPaid",
-    "netCashProvidedByOperatingActivities",
-    "netCashUsedForInvestingActivites",
-    "netCashUsedProvidedByFinancingActivities",
-    "capitalExpenditure",
-    "freeCashFlow",
+    "changesinWorkingCapital",
+		"issuanceReductionCapitalStock",
+		"issuanceReductionDebtNet",
+    "cashDividendsPaid",
+    "netOperatingCashFlow",
+    "netInvestingCashFlow",
+    "netCashFinancingActivities",
+    "capex",
+    "fcf",
   ];
   return (
     <div className="justify-center m-auto overflow-auto min-w-min w-full">

@@ -1,17 +1,19 @@
 import FinancialTable from "@/components/FinancialTable";
-import { getBSData } from "@/libs/getFinancialData";
+// import { getBSData } from "@/libs/getFinancialData";
+import { getBS } from '@/libs/finnhub/getFinance';
 
 async function BSPage({ params }) {
   const { ticker } = params;
-  const yearsData = await getBSData(ticker);
+// const yearsData = await getBSData(ticker);
+	const yearsData = await getBS(ticker);
   const selectedCols = [
-    "cashAndCashEquivalents",
-    "cashAndShortTermInvestments",
-    "netReceivables",
+    "cashEquivalents",
+    "cashShortTermInvestments",
+    "totalReceivables",
+    "accountsPayable",
     "inventory",
-    "propertyPlantEquipmentNet",
+    "propertyPlantEquipment",
     "longTermInvestments",
-    "accountPayables",
     "shortTermDebt",
     "longTermDebt",
     "netDebt",

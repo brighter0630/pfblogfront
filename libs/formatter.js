@@ -11,13 +11,13 @@ export default function formmater(col, value, translator) {
       formatted = "$ " + (value / 1000000).toFixed(2) + "M";
     }
   } else if (translator[col].money) {
-    formatted = Math.round(value / 1000000).toLocaleString("en-US");
+    formatted = Math.round(value).toLocaleString("en-US");
   } else if (translator[col].ratio) {
     formatted = `${(value * 100).toFixed(2)}%`;
   } else if (translator[col].perShare) {
     formatted = value.toFixed(2);
   } else if (translator[col].share) {
-    formatted = Math.round(value / 1000000).toLocaleString("en-US");
+    formatted = Math.round(value / 1).toLocaleString("en-US");
   } else if (translator[col].days) {
     formatted = value.toFixed(1);
   } else if (value === 0) {

@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 export default async function AnalysisLayout({ children, params }) {
-  const { ticker } = params;
+	const { ticker } = params;
   const profile = await getCompanyProfile(ticker);
   const afterMarketPrice = await getAfterMarketPrice(ticker);
 

@@ -13,7 +13,7 @@ import {
   ResponsiveContainer,
   Label,
 } from "recharts";
-import divider from "../../libs/divider";
+import divider from "@/libs/divider";
 
 export function yAxisFormatter(value, unit) {
   if (unit == "") {
@@ -23,8 +23,9 @@ export function yAxisFormatter(value, unit) {
 }
 
 function FinancialBarChart({ chartData, col }) {
-  const modifiedChartData = divider(chartData, col);
+  const modifiedChartData = divider(chartData.slice(0, 10), col);
   const unit = modifiedChartData[0].unit;
+
   return (
     <div className="h-40 p-1 mx-auto">
       <ResponsiveContainer height={"100%"} width="100%">

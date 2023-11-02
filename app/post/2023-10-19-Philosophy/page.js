@@ -1,5 +1,5 @@
 import FinancialTable from "@/components/FinancialTable";
-import { getISData } from "@/libs/getFinancialData";
+import { getIS } from "@/libs/finnhub/getFinance";
 import PriceChart from "@/components/BlogContentsComponents/PriceChart";
 import getPriceChartData from "@/components/BlogContentsComponents/libs/getPriceChartData";
 import Link from "next/link";
@@ -16,9 +16,9 @@ export const blogMeta = {
 };
 
 async function Page() {
-  const yearsDataT = await getISData("T");
-  const yearsDataADP = await getISData("ADP");
-  const selectedCols = ["revenue", "operatingIncome", "netIncome"];
+  const yearsDataT = await getIS("T");
+  const yearsDataADP = await getIS("ADP");
+  const selectedCols = ["revenue", "ebit", "netIncome"];
   const chartDataT = await getPriceChartData("T", "10years", "2023-10-19");
   const chartDataADP = await getPriceChartData("ADP", "10years", "2023-10-19");
 

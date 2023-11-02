@@ -1,23 +1,25 @@
 import FinancialTable from "@/components/FinancialTable";
 import { getISData } from "@/libs/getFinancialData";
+import { getIS } from '@/libs/finnhub/getFinance';
 
 async function ISPage({ params }) {
   const { ticker } = params;
-  const yearsData = await getISData(ticker);
+	const yearsData = await getIS(ticker)
+	// const yearsData = await getISData(ticker);
   const selectedCols = [
     "revenue",
-    "costOfRevenue",
-    "grossProfit",
-    "sellingGeneralAndAdministrativeExpenses",
-    "interestIncome",
-    "interestExpense",
-    "depreciationAndAmortization",
-    "ebitda",
-    "operatingIncome",
-    "operatingIncomeRatio",
+    "costOfGoodsSold",
+    "grossIncome",
+    "sgaExpense",
+    "researchDevelopment",
+    "totalOperatingExpense",
+		"totalOtherIncomeExpenseNet",
+    "interestIncomeExpense",
+    "ebit",
     "netIncome",
-    "eps",
-    "weightedAverageShsOutDil",
+		"netIncomeAfterTaxes",
+    "dilutedEPS",
+    "dilutedAverageSharesOutstanding",
   ];
   
   return (

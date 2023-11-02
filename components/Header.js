@@ -20,13 +20,8 @@ export function searchPathFinder(ticker, pathName) {
   }
 }
 
-export function cursorToSearchBox(e, pathName) {
-  if (
-    e.key !== "Escape" &&
-    (pathName.includes("analysis") ||
-      pathName.includes("transactionhistory") ||
-      pathName === "/")
-  ) {
+export function cursorToSearchBox(e) {
+  if (e.key !== "Escape") {
     document.getElementById("searchTicker").focus();
   } else if (e.key === "Escape") {
     document.getElementById("searchTicker").blur();
@@ -41,7 +36,11 @@ function Header() {
 
   useEffect(() => {
     if (window !== undefined) {
-      window.addEventListener("keydown", (e) => cursorToSearchBox(e, pathName));
+			if(pathName.includes('analysis') || pathName.includes('transactionHistory') || pathName === '/') {
+				window.addEventListener("keydown", cursorToSearchBox);
+			} else {
+				window.removeEventListener('keydown', cursorToSearchBox);
+			}
     }
   }, [pathName]);
 

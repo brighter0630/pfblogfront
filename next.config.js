@@ -7,6 +7,7 @@ experimental: {
 	distDir: process.env.BUILDMOD === "production" ? ".production/.next" : ".dev/build",
   reactStrictMode: false,
   env: {
+		STOCK_APIKEY_FINNHUB: process.env.STOCK_APIKEY_FINNHUB,
     stockAPIURL_profile: "https://financialmodelingprep.com/api/v3/profile",
     stockAPIURL_outlook:
       "https://financialmodelingprep.com/api/v4/company-outlook?symbol=",

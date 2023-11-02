@@ -1,13 +1,12 @@
 "use client";
 
-// import { EntoKo } from "@/translation";
 import { EntoKo } from '@/translationFinnhub';
 import { useState } from "react";
 import CustomModal from "./CustomModal";
 import formatter from '@/libs/formatter';
 import FinancialBarChart from "./BlogContentsComponents/FinancialBarChart";
 
-function FinancialTable({ yearsData, selectedCols }) {
+function FinancialTableRatio({ yearsData, selectedCols }) {
   const [showModal, setShowModal] = useState(
     new Array(selectedCols.length).fill(false)
   );
@@ -33,15 +32,16 @@ function FinancialTable({ yearsData, selectedCols }) {
           <th className="p-3 text-sm font-semibold tracking-wide text-center min-w-[100px]">
             (단위: 백만)
           </th>
-          {yearsData.map((yearData, i) => (
+					{/* period 값을 얻기 위해 netMargin 항목을 사용했을 뿐, 다른 의미는 없음. */}
+          {yearsData['netMargin'].slice(0, 10).map((yearData, i) => (
             <th
               key={i}
               className="p-3 text-sm font-semibold tracking-wide text-left min-w-[65px]"
             >
               <p className="text-base text-center">
                 {" "}
-                {yearData.period.substr(0, 4)}
-              </p>
+								{yearData.period.substr(0, 4)}
+							</p>
               <p className="text-xs text-right mr-1">
                 {yearData.period.substr(5, 2)}월
               </p>
@@ -67,12 +67,12 @@ function FinancialTable({ yearsData, selectedCols }) {
                   height={180}
                 >
                   <FinancialBarChart
-                    chartData={yearsData.map((yearData) => {
+                    chartData={yearsData[col].map((yearData) => {
                       return {
                         name: `${yearData["period"].substring(0, 4)} ${yearData[
                           "period"
                         ].substring(5, 7)}월`,
-                        value: yearData[col],
+                        value: yearData.v,
                       };
                     })}
                     col={col}
@@ -80,9 +80,9 @@ function FinancialTable({ yearsData, selectedCols }) {
                 </CustomModal>
               )}
             </th>
-            {yearsData.map((yearData, i) => (
+            {yearsData[col].slice(0, 10).map((yearData, i) => (
               <td key={i} className="text-right pr-5">
-                {formatter(col, yearData[col], EntoKo)}
+                {formatter(col, yearData.v, EntoKo)}
               </td>
             ))}
           </tr>
@@ -92,4 +92,4 @@ function FinancialTable({ yearsData, selectedCols }) {
   );
 }
 
-export default FinancialTable;
+export default FinancialTableRatio;

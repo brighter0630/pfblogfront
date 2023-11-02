@@ -17,12 +17,12 @@ export const blogMeta = {
 
 export default async function Page() {
 	const chartData = await getPriceChartData('STE', '10years', '2023-10-30');
-	const colsIS = ['revenue', 'netIncome'];
-	const colsRatio = ['dividendYield', 'freeCashFlowPerShare', 'returnOnEquity', 'returnOnCapitalEmployed'];
+	//	const colsIS = ['revenue', 'ebit', 'netIncome'];
+	//	const colsRatio = ['payoutRatio', 'fcf', 'roe', 'roic'];
 
-	const isData1 = await getISForPost('STE', '2023', 7);
-	const isData2 = await getISForPost('STE', '2010', 7);
-	const ratioData1 = await getRatioForPost('STE', '2023', 7);
+	//	const isData1 = await getISForPost('STE', '2023', 7);
+	//	const isData2 = await getISForPost('STE', '2010', 7);
+	//	const ratioData1 = await getRatioForPost('STE', '2023', 7);
 
 	return (
 		<article>
@@ -35,11 +35,11 @@ export default async function Page() {
 			<Ptag>배당성장주 투자에 있어서 주가의 흐름이 중요할까? 장기적인 마인드를 가진 투자자라면 사실 크게 중요하지 않아야 한다. 단, 예외가 있다. 그건 바로 최근 주가가 급격하게 상승했는 지 여부다. 배당을 주는 주식에 투자하지만 주가도 당연히 중요하다. 내가 투자한 기업의 가치가 오르길 원치 않는 사람이 어디있을까? 기업의 가치가 상승하기 위해서는 <strong>&lsquo;시장에서 최소한으로 주목받았을 때 사야한다.&rsquo;</strong> 간접적으로 이를 확인하는 방법은 최근 3개월, 1년 사이에 주가가 급격하게 상승했는 지 유무다.</Ptag>
 			<PriceChart chartData={chartData} />
 			<Ptag>STE의 주가를 보면 계속해서 우상향하다가 2022년 하반기에 다른 주식들과 마찬가지로 어느 정도의 조정을 받았다. 다시 상승세를 보이다가 최근 매크로의 악화로 다소 조정 받는 모습을 보인다. 하지만 &lsquo;거의 항상&rsquo; 매크로 악화로 인한 주가 하락은 현금을 보유한 투자자들에게 기회다.&rsquo; 매크로 악화로 인한 주가 하락은 현금을 보유한 투자자들에게 기회다.&rsquo; 매크로 악화로 인한 주가 하락은 현금을 보유한 투자자들에게 기회다.&rsquo; 매크로 악화로 인한 주가 하락은 현금을 보유한 투자자들에게 기회다.</Ptag>
-			<FinancialTable yearsData={isData1} selectedCols={colsIS} />
+			{/* <FinancialTable yearsData={isData1} selectedCols={colsIS} /> */}
 			<Ptag>매출과 이익은 계속해서 우상향 중이다. 당장 매출과 이익 실적이 좋다고 해서 바로 매수해야 하는 것은 아니다. 매출과 이익 실적을 볼 때는 경기 좋지 않았던 시기의 매출과 이익 성장을 살펴보며 미래의 실적을 가늠해 보아야 한다. 미래는 예측할 수 없는 것이지만, 만약 과거 어려운 시기에 비즈니스가 계속 성장해나갔다면 미래의 위기에서도 잘 성장해나갈 가능성이 높다. </Ptag>
-			<FinancialTable yearsData={isData2} selectedCols={colsIS} />
+			{/* <FinancialTable yearsData={isData2} selectedCols={colsIS} /> */}
 			<Ptag>가장 가까운 위기다운 위기였던 금융위기 시기를 보자. 위의 표에서 보듯 더디지만 꾸준하게 성장했던 모습이다. 성장주보다는 다소 느리지만, 금융위기 상황에서도 매출과 이익이 꾸준하게 성장했다. 그렇게 성장할 수 있었던 건 Steris, plc.의 비즈니스 자체의 특성 덕분이다. 모든 의료 시술에는 감염에 대한 리스크가 따르고 경제가 어렵다고 해도 시술, 수술 관련 감염에 돈을 아끼는 환자와 의료진은 없기 때문이다. 위의 기록이 없다고 하더라도 이런 종류의 비즈니스는 경기를 타지 않고 계속해서 성장할 것이라 예상할 수 있다.</Ptag>
-			<FinancialTable yearsData={ratioData1} selectedCols={colsRatio} />
+			{/* <FinancialTable yearsData={ratioData1} selectedCols={colsRatio} /> */}
 			<Ptag>배당수익률은 그렇게 높지 않은 1% 정도의 수준이다. 하지만 올해에도 여전히 배당금을 인상했고, 앞으로도 배당금을 지속해서 인상할 것으로 예상된다. Pay-out Ratio도 낮아 배당금 인상의 여력이 있다. 최근 ROE의 흐름을 보면 훌륭한 편은 아니다. 다만 경영진의 자본 배분 효율화 노력의 일환으로 배당금을 지속해서 증액시킨다면, 잉여 자본의 배당으로 배당금과 배당수익률이 오르고, 자본의 효율성도 개선되어 ROE 도 차차 개선되지 않을까 기대되는 기업이다.</Ptag>
 		</article>
 	)
