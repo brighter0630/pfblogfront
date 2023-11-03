@@ -8,6 +8,14 @@ important: true,
     "./posts/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+		screens: {
+      'sm': '360px',
+      'md': '640px',
+      'lg': '768px',
+      'xl': '1024px',
+      '2xl': '1280px',
+			'3xl': '1536px',
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

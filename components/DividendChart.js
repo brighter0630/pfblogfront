@@ -26,8 +26,8 @@ function DividendChart({ charttype, historical }) {
     );
 
     return (
-      <div className="grid grid-flow-col h-96 relative my-10 min-w-[480px] mx-auto">
-        <ResponsiveContainer width="100%" height="100%">
+      <div className="flex h-48 md:h-96 relative my-4 md:my-10 min-w-[360px] mx-auto text-xs md:text-base">
+        <ResponsiveContainer width="99%" height="99%">
           <BarChart
             width={500}
             height={300}

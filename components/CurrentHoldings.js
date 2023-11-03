@@ -38,31 +38,31 @@ export default function PfTable({
   return (
     <BasicFrame>
       {!loading && (
-        <div>
-          <span className={"m-4 font-medium text-2xl"}>
+        <div className="w-full">
+          <span className={"m-0 md:m-4 font-medium text-2xl"}>
             보유 종목 목록 <span className="text-sm">(화폐 단위: $) </span>
           </span>
-          <div className="justify-center m-auto overflow-auto min-w-min max-w-4xl">
-            <table className="m-8">
+          <div className="flex justify-center m-auto max-w-3xl">
+            <table className="m-2 md:m-8">
               <thead>
                 <tr className="border-gray-400 border-b-2">
                   <th
                     className={
-                      "p-3 text-sm font-semibold tracking-wide text-center min-w-[75px]"
+                      "p-1 md:p-3 text-xs md:text-sm font-semibold text-center md:min-w-[75px]"
                     }
                   >
                     <span>티커</span>
                   </th>
                   <th
                     className={
-                      "p-3 text-sm font-semibold tracking-wide text-center min-w-[75px]"
+                      "max-w-0 p-0 m-0 md:p-3 text-sm font-semibold text-center collapse md:visible md:min-w-[75px]"
                     }
                   >
                     회사
                   </th>
                   <th
                     className={
-                      "p-3 text-sm font-semibold tracking-wide text-center min-w-[100px]"
+                      "p-1 md:p-3 text-xs md:text-sm font-semibold text-center min-w-[100px]"
                     }
                   >
                     보유주식수
@@ -76,21 +76,21 @@ export default function PfTable({
       </th> */}
                   <th
                     className={
-                      "p-3 text-sm font-semibold tracking-wide text-center min-w-[125px]"
+                      "p-0 max-w-0 md:p-3 text-sm font-semibold text-center collapse md:visible md:min-w-[75px]"
                     }
                   >
                     총 매수 원금
                   </th>
                   <th
                     className={
-                      "p-3 text-sm font-semibold tracking-wide text-center min-w-[100px]"
+                      "p-0 max-w-0 md:p-3 text-sm font-semibold tracking-wide text-center collapse md:visible md:min-w-[75px]"
                     }
                   >
                     현재 주가
                   </th>
                   <th
                     className={
-                      "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+                      "p-1 md:p-3 text-xs md:text-sm font-semibold text-center min-w-[75px]"
                     }
                   >
                     수익률
@@ -104,7 +104,7 @@ export default function PfTable({
       </th> */}
                   <th
                     className={
-                      "p-3 text-sm font-semibold tracking-wide text-left min-w-[75px]"
+                      "p-0 md:p-3 text-xs md:text-sm font-semibold text-left md:min-w-[75px]"
                     }
                   >
                     S&P500대비
@@ -134,7 +134,7 @@ export default function PfTable({
                       </Link>
                     </td>
 
-                    <td className={"p-3 text-sm text-left"}>
+                    <td className={"max-w-0 md:p-3 text-sm text-left collapse md:visible md:min-w-[75px]"}>
                       <Link href={`/analysis/${stock.ticker}/pc/year`}>
                         {stock.name}
                       </Link>
@@ -149,14 +149,14 @@ export default function PfTable({
           ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
         </td> */}
 
-                    <td className={"p-3 text-sm"}>
+                    <td className={"p-0 max-w-0 md:p-3 md:text-sm collapse md:visible"}>
                       {/* 총 매수 금액 */}
                       {(
                         Math.round(stock.totalEquityPerStock * 100) / 100
                       ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                     </td>
                     {/* 현재 주가 */}
-                    <td className={"p-3 text-sm"}>
+                    <td className={"p-0 max-w-0 md:p-3 text-xs md:text-sm collapse md:visible"}>
                       {(Math.round(stock.realtimePrice * 100) / 100)
                         .toFixed(2)
                         .toLocaleString("en-US")}
@@ -205,7 +205,7 @@ export default function PfTable({
           %
         </td> */}
                     <td
-                      className={`p-3 text-sm ${
+                      className={`p-1 md:p-3 text-xs md:text-sm ${
                         (stock.realtimePrice * stock.totalQuantityPerStock) /
                           (stock.totalQuantityOfSNP * snpIndex[0].close) -
                           1 >=

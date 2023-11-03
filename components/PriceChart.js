@@ -20,15 +20,13 @@ function PriceChart({ symbol, historical, charttype }) {
   }
 
   return (
-    <div className="grid grid-flow-col h-96 relative my-10 w-full">
+    <div className="h-48 md:h-96 relative py-5 my-10 w-full text-xs md:text-base">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
-          width={1000}
-          height={700}
           data={[...chartData].reverse()}
           margin={{
-            top: 10,
-            right: 30,
+            top: 0,
+            right: 0,
             left: 0,
             bottom: 0,
           }}
@@ -55,6 +53,7 @@ function PriceChart({ symbol, historical, charttype }) {
 								return Math.pow(10, (String(Math.round(dataMax)).length - 1)) * (Number(String(dataMax)[0])+1);
 							}
             ]}
+						width={50}
           />
           <Tooltip />
           <Area

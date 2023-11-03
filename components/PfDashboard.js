@@ -55,66 +55,74 @@ function PfDashboard({ summaryData, currentPrices }) {
     <BasicFrame>
       {!loading && (
         <div>
-          <span className={"m-4 font-medium text-2xl"}>Portfolio 현황</span>
-          <span>{printDateFull(new Date())}</span>
-          <span> 기준 </span>
-          <div className="grid grid-cols-6 grid-flow-col my-4 mx-auto justify-center min-h-[100px] max-h-[100px]">
-            <div className="col-span-4 grid grid-rows-2 justify-center text-center gap-0 h-3/6 transition duration-150 ease-in-out">
-              <span className="text-sm">현재 총 자산</span>
-              {isNaN(totalCurrentAsset) ? (
-                <span></span>
-              ) : (
-                <span className="text-7xl font-extralight">
-                  $
-                  {(Math.round(totalCurrentAsset * 100) / 100).toLocaleString(
-                    undefined,
-                    { minimumFractionDigits: 2 }
-                  )}
-                </span>
-              )}
-            </div>
-            <div className="grid grid-rows-2 text-center">
-              <span className="text-sm">수익률</span>
-              {isNaN(totalCurrentAsset) || isNaN(totalInvestedCapital) ? (
-                <span></span>
-              ) : (
-                <span
-                  className={`font-medium text-xl ${
-                    totalCurrentAsset - totalInvestedCapital > 0
-                      ? " text-red-600"
-                      : "text-blue-600"
-                  }`}
-                >
-                  {(
-                    Math.round(
-                      (totalCurrentAsset / totalInvestedCapital - 1) * 10000
-                    ) / 100
-                  ).toLocaleString(undefined, { minimumFractionDigits: 2 })}
-                  %
-                </span>
-              )}
-            </div>
-            <div className="grid grid-rows-2 text-center">
-              <span className="text-sm">수익</span>
-              {isNaN(totalCurrentAsset - totalInvestedCapital) ? (
-                <span></span>
-              ) : (
-                <span
-                  className={`font-medium text-xl ${
-                    totalCurrentAsset - totalInvestedCapital > 0
-                      ? " text-red-600"
-                      : "text-blue-600"
-                  }`}
-                >
-                  $
-                  {(totalCurrentAsset - totalInvestedCapital).toLocaleString(
-                    undefined,
-                    { minimumFractionDigits: 2 }
-                  )}
-                </span>
-              )}
-            </div>
-          </div>
+					<div className="flex h-12">
+						<div className="my=auto">
+							<span className={"font-medium md:m-4 text-2xl"}>Portfolio 현황</span>
+						</div>
+						<div className="my-auto max-w-0 md:max-w-none md:mx-5 collapse md:visible">
+							<span>{printDateFull(new Date())}</span>
+							<span> 기준 </span>
+						</div>
+					</div>
+					<table className="mx-auto my-2 md:my-5 justify-center text-center gap-0 h-3/6 w-full">
+						<thead className="">
+							<tr>
+								<th className="text-sm md:text-base">현재 총 자산</th>
+								<th className="text-xs md:text-sm">수익률</th>
+								<th className="text-xs md:text-sm">수익</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							{isNaN(totalCurrentAsset) ? (
+								<td><Loading /></td>
+							) : (
+								<td className="my-auto text-2xl sm:text-3xl md:text-7xl font-extralight mx-3 px-3 md:mx-8 md:px-8 lg:mx-10 lg:px-10">
+									$
+									{(Math.round(totalCurrentAsset * 100) / 100).toLocaleString(
+										undefined,
+										{ minimumFractionDigits: 2 }
+									)}
+								</td>
+							)}
+							{isNaN(totalCurrentAsset) || isNaN(totalInvestedCapital) ? (
+								<td><Loading /></td>
+								) : (
+									<td
+										className={`font-medium text-base sm:text-xl md:text-2xl px-1 mx-1 md:m-3 md:px-3 lg:mx-5 lg:px-5 ${
+											totalCurrentAsset - totalInvestedCapital > 0
+												? " text-red-600"
+												: "text-blue-600"
+										}`}
+									>
+										{(
+											Math.round(
+												(totalCurrentAsset / totalInvestedCapital - 1) * 10000
+											) / 100
+										).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+										%
+									</td>
+								)}
+							{isNaN(totalCurrentAsset - totalInvestedCapital) ? (
+								<td><Loading /></td>
+								) : (
+									<td
+										className={`font-medium text-base sm:text-xl md:text-2xl px-1 mx-1 md:m-3 md:px-3 lg:mx-5 lg:px-5 ${
+											totalCurrentAsset - totalInvestedCapital > 0
+												? " text-red-600"
+												: "text-blue-600"
+										}`}
+									>
+										$
+										{(totalCurrentAsset - totalInvestedCapital).toLocaleString(
+											undefined,
+											{ minimumFractionDigits: 2 }
+										)}
+									</td>
+								)}
+							</tr>
+						</tbody>
+					</table>
         </div>
       )}
     </BasicFrame>

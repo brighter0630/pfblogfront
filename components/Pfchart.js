@@ -10,7 +10,6 @@ import Loading from "./Loading";
 export default function Pfchart({ data, currentPrices }) {
   const [loading, setLoading] = useState(true);
   const [chartData, setChartData] = useState();
-
   const COLORS = [
     "#0088FE",
     "#00C49F",
@@ -76,7 +75,7 @@ export default function Pfchart({ data, currentPrices }) {
       {!loading && (
         <div>
           <span className="m-4 font-medium text-2xl">보유 종목 차트</span>
-          <div className="grid overflow-x-hidden overflow-y-auto grid-flow-col h-96 relative my-10">
+          <div className="grid grid-flow-col h-48 md:h-96 relative my-4 md:my-10">
             <ResponsiveContainer
               width={"100%"}
               height={"99%"}
@@ -89,7 +88,7 @@ export default function Pfchart({ data, currentPrices }) {
                   cy="50%"
                   label={renderCustomizedLabel}
                   labelLine={false}
-                  outerRadius={160}
+								outerRadius={() => window?.innerWidth > 375 ? 200 : 100}
                   dataKey="value"
                 >
                   {chartData?.map((entry, index) => (

@@ -3,7 +3,7 @@ import { FaUserCheck } from "react-icons/fa";
 
 export default function UserGreeting({ session }) {
   return (
-    <div className="grid grid-flow-col px-1 text-black">
+    <div className="grid grid-flow-col px-1 text-black collapse invisible max-w-0 md:max-w-none md:visible">
       <div className="grid grid-flow-row gap-0">
         {session?.user?.hasOwnProperty("name") === true && (
           <span className="text-sm my-auto px-1 text-center">

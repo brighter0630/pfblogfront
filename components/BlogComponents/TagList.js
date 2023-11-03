@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function TagList({ list }) {
   return (
-    <div>
+    <div className="float-left">
       <ul>
         {list.map((tag, i) => (
           <span key={i} className="mx-1">

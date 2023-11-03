@@ -51,7 +51,7 @@ export default function BasicInfoCard({ profile }) {
   return (
     <BasicFrame>
       <span className={"m-4 font-medium text-2xl"}>기본 정보</span>
-      <div className="grid grid-cols-2 text-black text-opacity-80 my-4">
+      <div className="flex flex-col md:flex-row text-black text-opacity-80 my-4 text-sm md:text-base">
         <table className="text-center mx-auto">
           <tbody>
             {column1.map((col, i) => (

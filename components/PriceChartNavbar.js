@@ -50,7 +50,7 @@ function PriceChartNavbar({ ticker }) {
 						prefetch={false}
 						>
 						<li
-						className={`min-w-[50px] text-center rounded-md p-1 ${
+						className={`max-h-[25px] min-w-[15px] md:min-w-[50px] text-xs md:text-base text-center rounded-md p-1 ${
 						pathName === navLink.path
 						? "bg-slate-400 text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
 						: ""

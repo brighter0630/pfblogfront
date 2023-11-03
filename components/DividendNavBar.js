@@ -14,8 +14,8 @@ function DividendNavBar({ ticker }) {
   const pathName = usePathname();
 
   return (
-    <div className="mx-auto pt-5">
-      <ul className="grid grid-flow-col w-full justify-start gap-5 mx-auto">
+    <div className="mx-auto pt-3 md:pt-5">
+      <ul className="grid grid-flow-col w-full justify-start gap-2 md:gap-5 mx-auto text-xs md:text-base">
         {navLinks.map((navLink, i) => (
           <Link
             prefetch={false}

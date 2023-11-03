@@ -22,7 +22,7 @@ async function BSPage({ params }) {
     "totalAssets",
   ];
   return (
-    <div className="justify-center m-auto overflow-auto min-w-min w-full">
+    <div className="justify-center m-auto w-full">
       <FinancialTable yearsData={yearsData} selectedCols={selectedCols} />
     </div>
   );

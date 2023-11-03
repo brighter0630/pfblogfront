@@ -1,5 +1,4 @@
 import FinancialTable from "@/components/FinancialTable";
-// import { getCSData } from "@/libs/getFinancialData";
 import { getCS } from '@/libs/finnhub/getFinance';
 
 async function CSPage({ params }) {
@@ -20,7 +19,7 @@ async function CSPage({ params }) {
     "fcf",
   ];
   return (
-    <div className="justify-center m-auto overflow-auto min-w-min w-full">
+    <div className="justify-center m-auto w-full">
       <FinancialTable yearsData={yearsData} selectedCols={selectedCols} />
     </div>
   );

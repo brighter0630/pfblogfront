@@ -1,4 +1,14 @@
 export const EntoKo = {
+	operatingIncome: {
+		ko: "영업이익",
+		ratio: false,
+		money: true,
+    date: false,
+    share: false,
+    perShare: false,
+    days: false,
+
+	},
   costOfGoodsSold: {
     ko: "매출원가",
     ratio: false,

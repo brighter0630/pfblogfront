@@ -30,8 +30,8 @@ async function DVPage({ params }) {
 	];
 
   return (
-    <div className="justify-center m-auto overflow-auto min-w-min w-full grid grid-flow-row ">
-      <div className="grid grid-flow-col">
+    <div className="justify-center m-auto w-full grid grid-flow-row ">
+      <div className="flex flex-col md:flex-row">
 				<DividendChart historical={historical} charttype={charttype} />
 				<DividendCard historical={historical}></DividendCard>
       </div>

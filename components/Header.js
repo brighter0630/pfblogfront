@@ -3,12 +3,13 @@
 import React, { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { GrLogout } from "react-icons/gr";
+import { BiMenu } from 'react-icons/bi';
 import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import LoginButtonNaver from "./LoginButtonNaver";
 import LoginButtonGoogle from "./LoginButtonGoogle";
-// import LoginButtonKakao from "./LoginButtonKakao";
 import UserGreeting from "./UserGreeting";
+import Sidebar from '@/components/Sidebar';
 
 export function searchPathFinder(ticker, pathName) {
   if (pathName.includes("analysis")) {
@@ -57,11 +58,19 @@ function Header() {
       setTicker(""); // 효과가 있는 지는 모름.
     }
   };
+	const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="flex my-3 mx-auto px-1 gap-3 h-14">
+    <div className="flex my-3 mx-auto px-1 min-w-full">
       <div className="mx-auto flex flex-row">
-        <div className="flex flex-row my-auto">
+				<div onClick={() => setShowMenu(!showMenu)} className={`m-auto justify-center cursor-pointer flex min-w-[35px] md:min-w-[75px] px-0 md:px-1`} >
+					<span className="collapse max-w-0 md:max-w-none md:visible">메뉴</span>
+					<BiMenu className="text-2xl my-auto" />
+				</div>
+				<aside className={`h-screen ${showMenu ? 'visible absolute left-0 top-0 z-10': 'hidden'}`} onMouseLeave={() => setShowMenu(false)} onClick={() => setTimeout(() => setShowMenu(false), 500)} >
+					<Sidebar />
+				</aside>
+        <div className="flex flex-row my-auto min-w-[125px] md:min-w-[200px] lg:min-w-[300px] w-fit">
           <label htmlFor="searchTicker">
             <input
               type="search"
@@ -71,7 +80,7 @@ function Header() {
               onKeyDown={searchHandler}
               placeholder="티커를 입력하세요. (ex: AAPL)"
               autoComplete="off"
-              className="outline-0 rounded-md ml-5 w-96 h-10 opacity-80 p-4"
+              className="outline-0 rounded-md ml-2 md:ml-5 opacity-80 p-2 md:p-4"
             />
           </label>
           <BsSearch
@@ -80,20 +89,20 @@ function Header() {
           />
         </div>
         {status === "unauthenticated" ? (
-          <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
+          <div className="flex flex-row cursor-pointer mx-1 collapse invisible max-w-0 md:max-w-none md:visible">
             <LoginButtonGoogle title="로그인" width="90" height="50" fontSize="15" iconSize="20" />
             <LoginButtonNaver title="로그인" width="90" height="50" fontSize="15" iconSize="20" />
             {/* <LoginButtonKakao title="카카오 로그인" /> 카카오에서 승인 거절...ㅠㅠ */}
           </div>
         ) : (
-          <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 max-w-[200px]">
+          <div className="grid grid-flow-col gap-4 cursor-pointer mx-0 w-24 md:w-32">
             <UserGreeting session={session} />
             <div
-              className="m-auto flex gap-2 border-4"
+              className="collapse invisible max-w-0 md:max-w-none md:visible m-auto flex gap-2 border-4 text-sm md:text-xl"
               onClick={() => signOut()}
             >
-              <span className="text-bold  p-1 px-2 rounded-lg">Logout</span>
-              <GrLogout className="text-xl m-auto" />
+              <span className="collapse md:visible text-bold p-1 px-2 rounded-lg">Logout</span>
+              <GrLogout className="m-auto" />
             </div>
           </div>
         )}

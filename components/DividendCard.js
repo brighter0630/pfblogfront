@@ -16,7 +16,7 @@ function DividendCard({ historical }) {
     <div className="my-auto">
       {historical.length !== 0 && (
         <BasicFrame>
-          <h1 className="text-center text-xl font-medium">배당 정보</h1>
+          <h1 className="text-center text-base md:text-xl font-medium">배당 정보</h1>
           <table className="mx-auto">
             <tbody>
               {selectedCols.map((col, i) => (

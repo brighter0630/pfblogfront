@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function PostListing({ postsMeta }) {
   return (
-    <div className="grid mx-auto my-4 max-w-5xl p-4 md:p-0 min-w-[480px] w-[768px]">
+    <div className="grid mx-auto my-1 sm:my-2 md:my-4 max-w-3xl p-4 md:p-0 min-w-none md:min-w-[480px]">
       {postsMeta
         ?.filter((post) => new Date(post.date) < new Date())
         .map((post, i) => (
@@ -20,16 +20,17 @@ function PostListing({ postsMeta }) {
                   by {post.author}
                 </span>
               </div>
-              <h3 className="p-6 font-sm text-sm">{post.metaDesc}</h3>
+              <h3 className="p-6 font-sm text-sm">&nbsp;&nbsp;{post.metaDesc}</h3>
             </Link>
             <div className="flex flex-row mb-1">
-              {post.tags.map((tag, i) => (
+              {post.tags.slice(0, 3).map((tag, i) => (
                 <Link key={i} href={`/postlist/tag/${tag}/1`} replace={false}>
-                  <span className="p-1 text-sm text-gray-300 bg-slate-900 rounded-md m-1">
+                  <span className="p-1 text-xs md:text-sm text-gray-300 bg-slate-900 rounded-md m-1 break-keep">
                     #{tag}
                   </span>
                 </Link>
               ))}
+								<span className={`${post.tags.length > 3 ? "visible" : "collapse"}`}>...</span>
             </div>
           </div>
         ))}

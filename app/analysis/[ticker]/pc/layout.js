@@ -4,9 +4,9 @@ async function PCPageLayout({ children, params }) {
   const { ticker } = params;
 
   return (
-    <div className="p-5 m-4 overflow-y-visible text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row">
-      <div className="grid grid-flow-col justify-between">
-        <span className="text-4xl text-center pl-3">
+    <div className="p-2 md:p-5 m-1 md:m-4 text-opacity-90 font-semibold text-black gap-5 flex flex-col">
+      <div className="flex flex-col justify-between">
+        <span className="collapse max-w-0 max-h-0 md:max-w-none md:max-h-none md:visible text-2xl md:text-4xl text-center pl-3">
           {ticker.toUpperCase()}의 주가차트
         </span>
         <PriceChartNavbar ticker={ticker} />

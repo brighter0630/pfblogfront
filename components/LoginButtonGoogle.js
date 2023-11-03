@@ -13,7 +13,7 @@ export default function LoginButtonGoogle({ title, width, height, fontSize, icon
   return (
     <div
       onClick={() => trySignIn()}
-      className="my-auto table rounded-md min-w-[90px] bg-[#3F85F4] text-white text-center cursor-pointer"
+      className="my-auto table mx-1 rounded-md min-w-[90px] bg-[#3F85F4] text-white text-center cursor-pointer collapse md:visible"
 			style={{width: `${width}px`, height: `${height}px`}}
     >
       <span className="font-bold table-cell align-middle px-1">

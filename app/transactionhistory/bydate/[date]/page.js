@@ -24,10 +24,10 @@ export default async function TransactionListByDate({ params }) {
         />
       </Head>
       <BasicFrame>
-        <h1 className="text-center text-2xl font-bold">거래 기록</h1>
+        <h1 className="text-center text-xl md:text-2xl font-bold">거래 기록</h1>
         {monthTransctionData === undefined ||
         monthTransctionData.length === 0 ? (
-          <div className="py-4 px-10">
+          <div className="text-sm md:text-base py-2 px-5 md:py-4 md:px-10">
             {params.date.substring(5, 7)}월의 거래 기록이 존재하지 않습니다.
           </div>
         ) : (

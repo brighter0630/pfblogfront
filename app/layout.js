@@ -19,31 +19,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body
-        className={`min-w-[1024px] grid grid-cols-5 ${NanumBarunpenR.className}`}
+        className={`w-auto ${NanumBarunpenR.className}`}
       >
-        <AuthContext>
-          <aside className="h-screen sticky top-0 col-span-1">
-            <Sidebar />
-          </aside>
-          <div className="col-span-4 flex flex-col max-w-3xl mx-auto">
-            <Header />
-            <main className="max-w-5xl">{children}</main>
-						<div className="flex justify-between px-5 py-2">
+				<AuthContext>
+					<div className="flex flex-col sm:w-[360px] md:w-[640px] lg:w-[768px] mx-auto justify-center">
+						<Header />
+						<main className="w-full">{children}</main>
+						<div className="flex justify-between px-2 md:px-5 py-1 md:py-2">
 							<ToTheTopButton />
 							<GoBackButton />
 						</div>
-            <footer className="text-slate-700 py-10 font-semibold max-h-52 mt-10 bg-slate-200 overflow-x-hidden">
-              <div className="my-auto p-4 text-center">
-                <p className="">
-                  <span dangerouslySetInnerHTML={{ __html: "&copy;" }} />{" "}
-                  배당성장주투자. All rights reserved.
-                </p>
-                <p>Contact: brighter87@gmail.com</p>
-              </div>
-            </footer>
-          </div>
-        </AuthContext>
-      </body>
+						<footer className="text-slate-700 py-10 font-semibold max-h-52 mt-10 bg-slate-200 overflow-x-hidden">
+							<div className="my-auto p-4 text-center">
+								<p className="">
+									<span dangerouslySetInnerHTML={{ __html: "&copy;" }} />{" "}
+									배당성장주투자. All rights reserved.
+								</p>
+								<p>Contact: brighter87@gmail.com</p>
+							</div>
+						</footer>
+					</div>
+				</AuthContext>
+			</body>
     </html>
   );
 }

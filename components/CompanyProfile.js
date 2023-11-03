@@ -39,10 +39,11 @@ function CompanyProfile({ profile, afterMarketPrice }) {
 
   return (
     <BasicFrame>
-      <span className={"m-4 font-medium text-2xl"}>요약 정보</span>
-      <div className="grid grid-cols-4 text-black text-opacity-80">
-        <div className="mx-auto my-4 p-0 col-span-2 flex justify-center align-middle">
-          <div className="my-auto">
+      <span className={"m-0 max-w-0 md:max-w-none md:m-4 font-medium text-2xl collapse md:visible"}>요약 정보</span>
+			<span className={"m-0 font-medium text-2xl visible md:collapse"}>{profile?.companyName} 요약 정보</span>
+      <div className="flex justify-center text-black text-opacity-80">
+        <div className="mx-2 md:mx-4 my-4 p-0 flex justify-center align-middle">
+          <div className="my-auto collapse max-w-0 md:max-w-none md:visible">
             <Image
               src={profile?.image}
               width={200}
@@ -75,7 +76,7 @@ function CompanyProfile({ profile, afterMarketPrice }) {
               }`}
             >
               {/* 현재가격 */}
-              <span className={`text-5xl`}>
+              <span className="text-2xl md:text-5xl">
                 $
                 {realTimePrice.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
@@ -94,7 +95,7 @@ function CompanyProfile({ profile, afterMarketPrice }) {
                   2
                 )}
               </p>
-              <span className="text-base m-2">
+              <span className="text-sm md:text-base m-2">
                 (
                 {(
                   Math.round(
@@ -140,11 +141,11 @@ function CompanyProfile({ profile, afterMarketPrice }) {
         <div className="grid grid-rows-3 text-center font-normal items-center justify-center">
           <div className="flex flex-col h-1/5">
             <span className=" text-sm">섹터</span>
-            <span className="text-2xl">{profile?.sector}</span>
+            <span className="text-base md:text-2xl">{profile?.sector}</span>
           </div>
           <div className="grid grid-flow-row h-1/5">
             <span className="text-sm">산업</span>
-            <span className="text-2xl">{profile?.industry}</span>
+            <span className="text-base md:text-2xl">{profile?.industry}</span>
           </div>
           <div className="grid grid-flow-row h-1/5">
             <span className="text-sm">CEO</span>
