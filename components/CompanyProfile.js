@@ -40,7 +40,7 @@ function CompanyProfile({ profile, afterMarketPrice }) {
   return (
     <BasicFrame>
 			<span className="hidden md:flex m-4 font-medium text-2xl">요약 정보</span>
-			<span className="flex md:hidden m-2 font-medium text-base">{profile?.companyName} 요약 정보</span>
+			<span className="flex py-2 md:hidden m-2 font-medium text-base">{profile?.companyName} 요약 정보</span>
       <div className="flex md:flex-row flex-col justify-center text-black text-opacity-80 mx-auto">
         <div className="mx-2 md:mx-8 my-4 p-0 hidden md:flex justify-center align-middle">
           <div className="my-auto hidden md:flex md:flex-col">
