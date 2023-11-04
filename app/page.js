@@ -24,7 +24,7 @@ export default async function Home() {
 
   return (
     <div
-      className={`my-4 mx-auto text-opacity-90 font-semibold text-black grid gap-5 grid-flow-row`}
+      className={`my-4 mx-auto text-opacity-90 font-semibold text-black gap-5 flex flex-col`}
     >
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-NHT517M9G5`}

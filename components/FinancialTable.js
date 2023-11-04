@@ -37,9 +37,9 @@ function FinancialTable({ yearsData, selectedCols }) {
 						{yearsData.map((yearData, i) => (
 							<th
 								key={i}
-								className="p-1 md:p-3 text-xs md:text-sm font-semibold text-left" 
+								className="p-1 md:p-3 font-semibold text-left" 
 							>
-								<p className="text-sm md:text-base text-center">
+								<p className="text-xs md:text-base text-center">
 									{" "}
 									{yearData.period.substr(0, 4)}
 								</p>

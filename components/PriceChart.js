@@ -20,7 +20,7 @@ function PriceChart({ symbol, historical, charttype }) {
   }
 
   return (
-    <div className="h-48 md:h-96 relative py-5 my-10 w-full text-xs md:text-base">
+    <div className="h-48 md:h-96 relative py-5 my-1 md:my-10 w-full text-xs md:text-base">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
           data={[...chartData].reverse()}

@@ -19,10 +19,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body
-        className={`w-auto ${NanumBarunpenR.className}`}
+        className={`w-auto ${NanumBarunpenR.className} sm:w-[370px] md:w-[620px] lg:w-[745px] mx-auto`}
       >
 				<AuthContext>
-					<div className="flex flex-col sm:w-[360px] md:w-[640px] lg:w-[768px] mx-auto justify-center">
+					<div className="flex flex-col">
 						<Header />
 						<main className="w-full">{children}</main>
 						<div className="flex justify-between px-2 md:px-5 py-1 md:py-2">

@@ -39,7 +39,7 @@ export default function PfTable({
     <BasicFrame>
       {!loading && (
         <div className="w-full">
-          <span className={"m-0 md:m-4 font-medium text-2xl"}>
+          <span className={"m-2 md:m-4 font-medium text-lg md:text-2xl"}>
             보유 종목 목록 <span className="text-sm">(화폐 단위: $) </span>
           </span>
           <div className="flex justify-center m-auto max-w-3xl">

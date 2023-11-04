@@ -74,14 +74,13 @@ export default function Pfchart({ data, currentPrices }) {
     <BasicFrame>
       {!loading && (
         <div>
-          <span className="m-4 font-medium text-2xl">보유 종목 차트</span>
+          <span className="m-2 md:m-4 font-medium text-lg md:text-2xl">보유 종목 차트</span>
           <div className="grid grid-flow-col h-48 md:h-96 relative my-4 md:my-10">
             <ResponsiveContainer
               width={"100%"}
               height={"99%"}
-              className={"grid-cols-1"}
             >
-              <PieChart width={400} height={800} className="min-w-full">
+              <PieChart width={350} height={700} className="min-w-full">
                 <Pie
                   data={chartData}
                   cx="50%"

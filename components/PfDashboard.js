@@ -57,7 +57,7 @@ function PfDashboard({ summaryData, currentPrices }) {
         <div>
 					<div className="flex h-12">
 						<div className="my=auto">
-							<span className={"font-medium md:m-4 text-2xl"}>Portfolio 현황</span>
+							<span className={"font-medium m-2 md:m-4 text-lg md:text-2xl"}>Portfolio 현황</span>
 						</div>
 						<div className="my-auto max-w-0 md:max-w-none md:mx-5 collapse md:visible">
 							<span>{printDateFull(new Date())}</span>

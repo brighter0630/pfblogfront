@@ -25,7 +25,7 @@ function PostLayout({ children }) {
           gtag('config', 'G-NHT517M9G5');
         `}
       </Script>
-      <div className=" text-gray-800 text-opacity-75 prose p-5 max-w-[640px]">
+      <div className=" text-gray-800 text-opacity-85 prose p-3 md:p-5 max-w-[640px] mx-auto">
         <Title text={blogMeta.title} />
         <div className="grid grid-flow-col justify-between">
           <TagList list={blogMeta.tags} />

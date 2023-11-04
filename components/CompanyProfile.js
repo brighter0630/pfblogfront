@@ -39,10 +39,18 @@ function CompanyProfile({ profile, afterMarketPrice }) {
 
   return (
     <BasicFrame>
-      <span className={"m-0 max-w-0 md:max-w-none md:m-4 font-medium text-2xl collapse md:visible"}>요약 정보</span>
-			<span className={"m-0 font-medium text-2xl visible md:collapse"}>{profile?.companyName} 요약 정보</span>
-      <div className="flex justify-center text-black text-opacity-80">
-        <div className="mx-2 md:mx-4 my-4 p-0 flex justify-center align-middle">
+			<table className="m-0 md:m-4">
+				<tbody>
+					<tr className="collapse md:visible font-medium text-2xl">
+						<td><span>요약 정보</span></td>
+					</tr>
+					<tr className="m-2 md:m-4 font-medium text-base text-left visible md:collapse">
+						<td><span>{profile?.companyName} 요약 정보</span></td>
+					</tr>
+				</tbody>
+			</table>
+      <div className="flex justify-center text-black text-opacity-80 mx-auto">
+        <div className="mx-2 md:mx-8 my-4 p-0 flex justify-center align-middle">
           <div className="my-auto collapse max-w-0 md:max-w-none md:visible">
             <Image
               src={profile?.image}

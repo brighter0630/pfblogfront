@@ -46,24 +46,22 @@ export default function PfReturnChart({ pfChartData }) {
 
   return (
     <BasicFrame>
-      <span className="m-0 md:m-4 font-medium text-2xl">포트폴리오 자산 추이</span>
-      <div className="grid grid-flow-col h-48 md:h-96 relative my-4 md:my-10 min-w-[100%] text-xs md:text-base">
-        <ResponsiveContainer width="99%" height="99%">
+      <span className="m-2 md:m-4 font-medium text-lg md:text-2xl">포트폴리오 자산 추이</span>
+      <div className="grid grid-flow-col relative h-48 md:h-96 my-4 md:my-10 text-xs md:text-base">
+				<ResponsiveContainer width={"90%"} height={"99%"} className="mx-auto"> 
           <LineChart
-            width={"100%"}
-            height={"99%"}
-            className={"grid-cols-1"}
+            className={"min-w-full"}
             data={pfChartDataModified}
             margin={{
-              top: 2,
-              right: 15,
+              top: 0,
+              right: 5,
               left: 0,
-              bottom: 2,
+              bottom: 0,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" />
-						<YAxis tickFormatter={(tick) => tick.toLocaleString()} type="number" 
+						<YAxis tickFormatter={(tick) => tick.toLocaleString()} type="number" width={50}
 							domain={[
               dataMin => {
 								if(dataMin > 10) {

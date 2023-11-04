@@ -26,22 +26,22 @@ function DividendChart({ charttype, historical }) {
     );
 
     return (
-      <div className="flex h-48 md:h-96 relative my-4 md:my-10 min-w-[360px] mx-auto text-xs md:text-base">
+      <div className="flex h-48 md:h-96 relative my-1 md:my-10 w-full mx-auto text-xs md:text-base">
         <ResponsiveContainer width="99%" height="99%">
           <BarChart
             width={500}
             height={300}
             data={[...chartData].reverse()}
             margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
+              top: 2,
+              right: 0,
+              left: 0,
+              bottom: 2,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" />
-            <YAxis type="number" domain={[0, (dataMax) => dataMax * 1.25]} />
+            <YAxis type="number" domain={[0, (dataMax) => dataMax * 1.25]} width={50} />
             <Tooltip />
             <Bar dataKey="adjDividend" fill="#82ca9d" name="배당금" />
           </BarChart>
@@ -50,7 +50,7 @@ function DividendChart({ charttype, historical }) {
     );
   } else {
     return (
-      <div className="text-center text-3xl opacity-50 min-h-[150px] flex items-center justify-center">
+      <div className="text-center text-lg md:text-3xl opacity-50 min-h-[100px] md:min-h-[150px] flex items-center justify-center">
         <span className="">아직 배당을 지급한 기록이 없는 회사입니다.</span>
       </div>
     );
