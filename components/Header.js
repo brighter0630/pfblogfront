@@ -62,15 +62,15 @@ function Header() {
 	const [showMenu, setShowMenu] = useState(false);
 
   return (
-		<div className="px-1 md:px-2 my-1 md:my-3 flex mx-auto"> 
+		<div className="px-2 md:px-4 md:px-4  mb-1 md:mb-3 flex bg-[#F5F5F5] fixed top-0 mt-0 pt-0 mx-auto z-30 sm:w-[360px] md:w-[610px] lg:w-[735px] items-center justify-center"> 
 			<div onClick={() => setShowMenu(!showMenu)} className={`my-auto cursor-pointer flex float-left px-0 md:px-1`} >
 				<span className="collapse md:visible md:min-w-[50px]">메뉴</span>
 				<BiMenu className="text-2xl my-auto" />
 			</div>
-			<div className={`${showMenu ? 'visible' : 'hidden'}`} onClick={() => setShowMenu(false)} >
+			<aside className={`${showMenu ? 'absolute left-0 top-0 z-10' : 'hidden'}`} onClick={() => setShowMenu(false)} >
 				<ModalBackground />
-			</div>
-			<aside className={`h-screen ${showMenu ? 'visible absolute left-0 top-0 z-20': 'hidden'}`} onMouseLeave={() => setShowMenu(false)} onClick={() => setTimeout(() => setShowMenu(false), 500)} >
+			</aside>
+			<aside className={`h-screen ${showMenu ? 'absolute left-0 top-0 z-20': 'hidden'}`} onClick={() => setTimeout(() => setShowMenu(false), 500)} >
 				<Sidebar />
 			</aside>
 			<div className="flex-row flex my-2 md:my-4">
@@ -91,7 +91,7 @@ function Header() {
 					onClick={() => searchClicked()}
 				/>
 			</div>
-			<div className="my-auto">
+			<div className="my-auto float-right">
 			{status === "unauthenticated" ? (
 				<div className="flex flex-row cursor-pointer mx-1" >
 					<LoginButtonGoogle title="로그인" width="90" height="50" fontSize="15" iconSize="20" />

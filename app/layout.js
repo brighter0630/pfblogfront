@@ -11,6 +11,7 @@ export const metadata = {
   title: "이웃집백만장자의 배당성장 포트폴리오",
   description:
     "월 천만원 적립식 배당성장주 투자의 여정을 공유합니다. 10년 재무제표(대차대조표, 손익계산서, 현금흐름표) 및 배당 정보를 제공합니다.",
+	viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
 };
 
 const NanumBarunpenR = localFont({ src: "../public/fonts/NanumBarunpenR.ttf" });
@@ -19,12 +20,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body
-        className={`w-auto ${NanumBarunpenR.className} sm:w-[370px] md:w-[620px] lg:w-[745px] mx-auto`}
+        className={`${NanumBarunpenR.className} sm:w-[370px] md:w-[620px] lg:w-[745px] overflow-x-hidden mx-auto w-full`}
       >
 				<AuthContext>
-					<div className="flex flex-col">
+					<div className="flex flex-col relative">
 						<Header />
-						<main className="w-full">{children}</main>
+						<main className="w-full mt-10 md:mt-20">{children}</main>
 						<div className="flex justify-between px-2 md:px-5 py-1 md:py-2">
 							<ToTheTopButton />
 							<GoBackButton />

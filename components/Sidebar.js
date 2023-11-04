@@ -16,10 +16,10 @@ function Sidebar() {
   const pathName = usePathname();
 
   return (
-    <div className={`flex flex-col h-full bg-[--sidebar-color] min-w-[300px]`}>
+    <div className={`flex flex-col min-h-full bg-[--sidebar-color] min-w-[250px] fixed bottom-0 left-0 `}>
       <div className={`flex py-5 pl-3 pr-0 mb-5 max-h-[300px]`}>
         <Link href="/">
-          <div className={`mt-2 p-2 text-xl font-bold`}>
+          <div className={`mt-2 p-2 text-base md:text-xl font-bold`}>
             <span>이웃집백만장자의 배당성장주 투자</span>
           </div>
         </Link>
