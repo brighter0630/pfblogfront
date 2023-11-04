@@ -41,7 +41,7 @@ function PriceChartNavbar({ ticker }) {
 	];
 
 	return (
-		<ul className="grid grid-flow-col gap-5 mx-auto w-11/12">
+		<ul className="flex flex-row gap-1 md:gap-3 mx-auto w-11/12">
 			{navLinks.map((navLink, i) => (
 				<Link
 				key={i}
@@ -50,7 +50,7 @@ function PriceChartNavbar({ ticker }) {
 				prefetch={false}
 			>
 					<li
-					className={`min-w-[30px] md:min-w-[100px] text-xs md:text-base text-center rounded-md p-1 ${
+					className={`min-w-[30px] md:min-w-[40px] text-xs md:text-base text-center rounded-md p-1 ${
 						pathName === navLink.path
 						? "bg-slate-400 text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
 							: ""

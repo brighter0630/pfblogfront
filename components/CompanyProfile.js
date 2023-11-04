@@ -41,9 +41,9 @@ function CompanyProfile({ profile, afterMarketPrice }) {
     <BasicFrame>
 			<span className="hidden md:flex m-4 font-medium text-2xl">요약 정보</span>
 			<span className="flex md:hidden m-2 font-medium text-base">{profile?.companyName} 요약 정보</span>
-      <div className="flex justify-center text-black text-opacity-80 mx-auto">
-        <div className="mx-2 md:mx-8 my-4 p-0 flex justify-center align-middle">
-          <div className="my-auto collapse max-w-0 md:max-w-none md:visible">
+      <div className="flex md:flex-row flex-col justify-center text-black text-opacity-80 mx-auto">
+        <div className="mx-2 md:mx-8 my-4 p-0 hidden md:flex justify-center align-middle">
+          <div className="my-auto hidden md:flex md:flex-col">
             <Image
               src={profile?.image}
               width={200}
@@ -138,7 +138,8 @@ function CompanyProfile({ profile, afterMarketPrice }) {
             )}
           </div>
         </div>
-        <div className="grid grid-rows-3 text-center font-normal items-center justify-center">
+				<hr className="flex md:hidden" />
+        <div className="grid grid-grow-cols text-center font-normal items-center justify-center">
           <div className="flex flex-col h-1/5">
             <span className=" text-sm">섹터</span>
             <span className="text-base md:text-2xl">{profile?.sector}</span>

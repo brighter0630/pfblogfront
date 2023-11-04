@@ -52,24 +52,24 @@ export default function BasicInfoCard({ profile }) {
     <BasicFrame>
       <span className={"flex m-2 md:m-4 font-medium text-base md:text-2xl"}>기본 정보</span>
       <div className="flex flex-col md:flex-row text-black text-opacity-80 my-4 text-sm md:text-base">
-        <table className="text-center mx-auto">
+        <table className="text-center mx-auto text-xs sm:text-sm md:text-base">
           <tbody>
             {column1.map((col, i) => (
               <tr key={i}>
-                <th className="min-w-[150px] py-1">{EntoKo[col].ko}</th>
-                <td className="min-w-[150px] py-1">
+                <th className="min-w-[100px] lg:min-w-[150px] py-1">{EntoKo[col].ko}</th>
+                <td className="min-w-[100px] lg:min-w-[150px] py-1">
                   {formatter(col, mergedProfile[col], EntoKo)}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <table className="text-center mx-auto">
+        <table className="text-center mx-auto text-xs sm:text-sm lg:text-base">
           <tbody>
             {column2.map((col, i) => (
               <tr key={i}>
-                <th className="min-w-[150px] py-1">{EntoKo[col].ko}</th>
-                <td className="min-w-[150px] py-1">
+                <th className="min-w-[100px] lg:min-w-[150px] py-1">{EntoKo[col].ko}</th>
+                <td className="min-w-[100px] lg:min-w-[150px] py-1">
                   {formatter(col, mergedProfile[col], EntoKo)}
                 </td>
               </tr>
