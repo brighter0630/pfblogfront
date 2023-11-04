@@ -15,23 +15,23 @@ function PriceChartNavbar({ ticker }) {
 	const pathName = usePathname();
 	const navLinks = [
 		{
-			title: "1주일",
+			title: "1W",
 			path: getUrlPath(pathName, 'week'),
 		},
 		{
-			title: "3개월",
+			title: "3M",
 			path: getUrlPath(pathName, '3months'),
 		},
 		{
-			title: "1년",
+			title: "1Y",
 			path: getUrlPath(pathName, 'year'),
 		},
 		{
-			title: "3년",
+			title: "3Y",
 			path: getUrlPath(pathName, '3years'),
 		},
 		{
-			title: "10년",
+			title: "10Y",
 			path: getUrlPath(pathName, '10years'),
 		},
 		{
@@ -41,7 +41,7 @@ function PriceChartNavbar({ ticker }) {
 	];
 
 	return (
-		<ul className="grid grid-flow-col gap-5 mx-auto w-full">
+		<ul className="grid grid-flow-col gap-5 mx-auto w-11/12">
 			{navLinks.map((navLink, i) => (
 				<Link
 				key={i}
@@ -50,7 +50,7 @@ function PriceChartNavbar({ ticker }) {
 				prefetch={false}
 			>
 					<li
-					className={`min-w-[30px] md:min-w-[50px] text-xs md:text-base text-center rounded-md p-1 ${
+					className={`min-w-[30px] md:min-w-[100px] text-xs md:text-base text-center rounded-md p-1 ${
 						pathName === navLink.path
 						? "bg-slate-400 text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
 							: ""

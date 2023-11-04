@@ -17,7 +17,7 @@ export default async function AnalysisLayout({ children, params }) {
 
   return (
     <div className="p-5 my-2 mx-auto text-opacity-90 font-semibold text-black">
-      <div className="mx-auto w-full grid gap-3 grid-flow-row">
+      <div className="flex flex-col gap-5">
         <IndexPriceDiv />
         <CompanyProfile
           profile={profile.profile}
