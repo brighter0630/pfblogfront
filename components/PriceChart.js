@@ -18,6 +18,7 @@ function PriceChart({ symbol, historical, charttype }) {
   if (chartData === false) {
     router.push("/ticker-not-found");
   }
+	const dataLength = chartData.length;
 
   return (
     <div className="h-48 md:h-96 relative py-5 my-1 md:my-10 w-full text-xs md:text-base">
@@ -38,7 +39,15 @@ function PriceChart({ symbol, historical, charttype }) {
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="date" tickFormatter={item => `${item.substring(0,4)}년 ${item.substring(6, 8)}월`} />
+					<XAxis dataKey="date" className="text-xs md:text-sm" tickFormatter={item => { 
+						if(charttype === 'week' || charttype == '3months') {
+							return item;
+						} else if(charttype === '10years') {
+							return `${item.substring(0, 4)}년`;
+						} else {
+							return `${item.substring(0,4)}년 ${item.substring(5, 7)}월`
+						}
+					}} />
           <YAxis
             type="number"
             domain={[

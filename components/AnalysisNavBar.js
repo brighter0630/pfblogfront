@@ -30,22 +30,22 @@ function AnalysisNavBar({ ticker }) {
   const pathName = usePathname();
 
   return (
-    <ul className="grid md:grid-flow-col grid-cols-3 justify-evenly">
-      {navLinks.map((navLink, i) => (
-        <Link key={i} href={navLink.path} replace={false} prefetch={false}>
-          <li
-            className={`border-0 m-1 text-xs md:text-sm lg:text-base p-1 md:p-2 lg:p-3 min-w-[50px] md:min-w-[120px] text-center transition ease-in-out delay-150 bg-gray-300 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-200 duration-500 hover:border-0
-          ${
-            navLink.path.split("/")[3] === pathName.split("/")[3]
-              ? "bg-indigo-300 text-white"
-              : ""
-          }`}
-          >
-            {navLink.title}
-          </li>
-        </Link>
-      ))}
-    </ul>
+		<ul className="w-11/12 mx-auto grid md:grid-flow-col grid-cols-3 justify-evenly">
+			{navLinks.map((navLink, i) => (
+				<Link key={i} href={navLink.path} replace={false} prefetch={false}>
+					<li
+						className={`border-0 m-1 text-xs md:text-sm lg:text-base p-1 md:p-2 lg:p-3 min-w-[50px] md:min-w-[120px] text-center transition ease-in-out delay-150 bg-gray-300 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-200 duration-500 hover:border-0
+					${
+						navLink.path.split("/")[3] === pathName.split("/")[3]
+							? "bg-indigo-300 text-white"
+							: ""
+					}`}
+					>
+						{navLink.title}
+					</li>
+				</Link>
+			))}
+		</ul>
   );
 }
 
