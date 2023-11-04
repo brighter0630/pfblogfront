@@ -38,7 +38,7 @@ function PriceChart({ symbol, historical, charttype }) {
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
+					<XAxis dataKey="date" tickFormatter={item => `${item.substring(0,4)}년 ${item.substring(6, 8)}월`} />
           <YAxis
             type="number"
             domain={[
