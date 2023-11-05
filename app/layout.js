@@ -6,6 +6,8 @@ import AuthContext from "@/src/context/AuthContext";
 import localFont from "next/font/local";
 import GoBackButton from '@/components/GoBackButton';
 import ToTheTopButton from '@/components/ToTheTopButton';
+import LeftFirstSidebar from '@/components/Sidebars/LeftFirst';
+import RightFirstSidebar from '@/components/Sidebars/RightFirst';
 
 export const metadata = {
   title: "이웃집백만장자의 배당성장 포트폴리오",
@@ -25,6 +27,12 @@ export default function RootLayout({ children }) {
 				<AuthContext>
 					<div className="flex flex-col relative">
 						<Header />
+						<aside className="hidden xl:flex fixed top-28 left-0 z-20 w-64 h-screen">
+							<LeftFirstSidebar />
+						</aside>
+						<aside className="hidden xl:flex fixed top-28 right-0 z-20 w-64 h-screen">
+							<RightFirstSidebar />
+						</aside>
 						<main className="w-full mt-10 md:mt-20">{children}</main>
 						<div className="flex justify-between px-2 md:px-5 py-1 md:py-2">
 							<ToTheTopButton />

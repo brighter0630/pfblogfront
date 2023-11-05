@@ -8,6 +8,7 @@ experimental: {
   reactStrictMode: false,
   env: {
 		STOCK_APIKEY_FINNHUB: process.env.STOCK_APIKEY_FINNHUB,
+		WEBSOCKET_FINNHUB: 'wss://ws.finnhub.io?token=',
     stockAPIURL_profile: "https://financialmodelingprep.com/api/v3/profile",
     stockAPIURL_outlook:
       "https://financialmodelingprep.com/api/v4/company-outlook?symbol=",
