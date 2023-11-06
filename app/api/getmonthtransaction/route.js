@@ -7,6 +7,7 @@ export async function POST(request) {
 
   try {
     const monthTransctionData = await executeQuery(query);
+		console.log(monthTransctionData);
     return NextResponse.json({ monthTransctionData });
   } catch (error) {
     console.log("에러", error);

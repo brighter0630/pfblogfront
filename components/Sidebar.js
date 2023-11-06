@@ -68,7 +68,7 @@ function Sidebar() {
         >
           <Link
             href={`/transactionhistory/bydate/${printDateMonth(
-              new Date(new Date().getFullYear(), new Date().getMonth(), 1) - 1
+              new Date(new Date().getFullYear(), new Date().getMonth(), 1)
             )}`}
             className="flex text-xl"
           >

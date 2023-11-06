@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import BasicFrame from "@/components/BasicFrame";
 
-function CompanyProfile({ profile, afterMarketPrice }) {
+function CompanyProfile({ profile, afterMarketPrice, currentPrice }) {
   const route = useRouter();
   const [realTimePrice, setRealTimePrice] = useState();
   const [loading, setLoading] = useState(true);
@@ -78,7 +78,7 @@ function CompanyProfile({ profile, afterMarketPrice }) {
               {/* 현재가격 */}
               <span className="text-2xl md:text-5xl">
                 $
-                {realTimePrice.toLocaleString(undefined, {
+                {realTimePrice === 0 ? currentPrice[0].price : realTimePrice.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
                 })}
               </span>

@@ -11,7 +11,7 @@ import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 export default function DateNavbar() {
   const date = new Date();
   const [lastMonth, setLastMonth] = useState(
-    printDateMonth(new Date(date.getFullYear(), date.getMonth(), 1) - 1)
+    printDateMonth(new Date(date.getFullYear(), date.getMonth(), 1))
   );
 
   return (

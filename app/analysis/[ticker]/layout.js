@@ -1,6 +1,7 @@
 import IndexPriceDiv from "@/components/IndexPriceDiv";
 import CompanyProfile from "@/components/CompanyProfile";
 import { getCompanyProfile } from "@/libs/getCompanyProfile";
+import getCurrentPrice from '@/libs/getCurrentPrice';
 import AnalysisNavBar from "@/components/AnalysisNavBar";
 import { getAfterMarketPrice } from "@/libs/getAfterMarketPrice";
 import BasicInfoCard from "@/components/BasicInfoCard";
@@ -15,6 +16,7 @@ export default async function AnalysisLayout({ children, params }) {
 	const { ticker } = params;
   const profile = await getCompanyProfile(ticker);
   const afterMarketPrice = await getAfterMarketPrice(ticker);
+	const currentPrice = await getCurrentPrice(ticker);
 
   return (
     <div className="p-5 my-2 mx-auto text-opacity-90 font-semibold text-black">
@@ -23,6 +25,7 @@ export default async function AnalysisLayout({ children, params }) {
         <CompanyProfile
           profile={profile.profile}
           afterMarketPrice={afterMarketPrice}
+					currentPrice={currentPrice}
         />
 				<PressReleasesLayout ticker={ticker} />
         <BasicInfoCard profile={profile} />

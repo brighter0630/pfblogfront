@@ -35,7 +35,7 @@ function TransactionTable({ data }) {
         {data.map((each, index) => (
           <tr
             key={index}
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-gray-500 hover:text-white duration-300"
+            className="overflow-x-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-gray-500 hover:text-white duration-300"
           >
             <td className="p-3 text-sm">
               <Link href={`/transactionhistory/byticker/${each.ticker}`}>
