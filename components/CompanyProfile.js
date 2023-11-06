@@ -72,7 +72,7 @@ function CompanyProfile({ profile, afterMarketPrice, currentPrice }) {
           ) : (
             <div
               className={`text-center gap-0 ${
-                profile?.changes >= 0 ? "text-red-700" : "text-blue-700"
+                realTimePrice - (profile?.price - profile?.changes) >= 0 ? "text-red-700" : "text-blue-700"
               }`}
             >
               {/* 현재가격 */}
