@@ -3,7 +3,7 @@ import PostListing from "@/components/PostListing";
 import Head from "next/head";
 import { getAllPostsMeta } from "@/libs/getPostsJS";
 
-async function EachPage({ params }) {
+async function Page({ params }) {
   const { page } = params;
   const postsMeta = await getAllPostsMeta();
   const sortedPosts = postsMeta.sort(
@@ -14,6 +14,7 @@ async function EachPage({ params }) {
     process.env.POSTSPERPAGE * (page - 1),
     process.env.POSTSPERPAGE * page
   );
+
   return (
     <div>
       <Head>
@@ -34,4 +35,4 @@ async function EachPage({ params }) {
   );
 }
 
-export default EachPage;
+export default Page;

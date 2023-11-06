@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="text-center font-semibold bg-[--sidebar-color] sticky top-[100vh] w-fit">
+    <footer className="text-center font-semibold bg-[--sidebar-color] top-[100vh]">
       <div className="my-auto">
         <p>
           <span dangerouslySetInnerHTML={{ __html: "&copy;" }} /> 배당성장투자.

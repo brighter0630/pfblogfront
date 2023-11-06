@@ -1,6 +1,5 @@
 "use client";
 
-// import { EntoKo } from "@/translation";
 import { EntoKo } from '@/translationFinnhub';
 import { useState } from "react";
 import CustomModal from "./CustomModal";
@@ -18,8 +17,8 @@ function FinancialTable({ yearsData, selectedCols }) {
     let tempArray = new Array(selectedCols.length).fill(false);
     tempArray[i] = true;
 
-    setPositionX(e.pageX + 20);
-    setPositionY(e.pageY - 100);
+		setPositionX(e.clientX+50);
+    setPositionY(e.clientY-100);
     setShowModal(tempArray);
   };
   const initModalArray = () => {

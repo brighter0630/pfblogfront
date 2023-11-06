@@ -42,7 +42,7 @@ function CompanyProfile({ profile, afterMarketPrice }) {
 			<span className="hidden md:flex m-4 font-medium text-2xl">요약 정보</span>
 			<span className="flex py-2 md:hidden m-2 font-medium text-base">{profile?.companyName} 요약 정보</span>
       <div className="flex md:flex-row flex-col justify-center text-black text-opacity-80 mx-auto">
-        <div className="mx-2 md:mx-8 my-4 p-0 hidden md:flex justify-center align-middle">
+        <div className="mx-1 md:mx-3 lg:mx-5 my-4 p-0 hidden md:flex justify-center align-middle">
           <div className="my-auto hidden md:flex md:flex-col">
             <Image
               src={profile?.image}
@@ -63,7 +63,7 @@ function CompanyProfile({ profile, afterMarketPrice }) {
             </div>
           </div>
         </div>
-        <div className="col-span-1 grid grid-rows-3 my-auto px-1">
+        <div className="col-span-1 grid grid-rows-3 my-auto px-1 mx-1 md:mx-3 lg:mx-5 ">
           <div className="text-center my-auto">
             <span className="text-sm">{printDateYYYYMMDDhhmm(new Date())}</span>
           </div>
@@ -139,7 +139,7 @@ function CompanyProfile({ profile, afterMarketPrice }) {
           </div>
         </div>
 				<hr className="flex md:hidden" />
-        <div className="grid grid-grow-cols text-center font-normal items-center justify-center">
+        <div className="grid grid-grow-cols text-center font-normal items-center justify-center mx-1 md:mx-3 lg:mx-5">
           <div className="flex flex-col h-1/5">
             <span className=" text-sm">섹터</span>
             <span className="text-base md:text-2xl">{profile?.sector}</span>

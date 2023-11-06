@@ -4,6 +4,7 @@ import { getCompanyProfile } from "@/libs/getCompanyProfile";
 import AnalysisNavBar from "@/components/AnalysisNavBar";
 import { getAfterMarketPrice } from "@/libs/getAfterMarketPrice";
 import BasicInfoCard from "@/components/BasicInfoCard";
+import PressReleasesLayout from '@/components/pressReleases/PressReleasesLayout';
 
 export const metadata = {
   title: "배당성장주 무료 10년 재무제표",
@@ -23,6 +24,7 @@ export default async function AnalysisLayout({ children, params }) {
           profile={profile.profile}
           afterMarketPrice={afterMarketPrice}
         />
+				<PressReleasesLayout ticker={ticker} />
         <BasicInfoCard profile={profile} />
         <AnalysisNavBar ticker={ticker} />
       </div>

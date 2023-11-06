@@ -3,7 +3,7 @@
 function CustomModal({ title, positionX, positionY, width, height, children }) {
   return (
     <div
-      className={`absolute z-1 p-1 grid grid-flow-row min-w-[500px] bg-slate-50 rounded-lg shadow-md`}
+      className={`fixed z-10 p-1 flex flex-col min-w-[500px] bg-slate-50 rounded-lg shadow-md`}
       style={{
         top: `${positionY}px`,
         left: `${positionX}px`,

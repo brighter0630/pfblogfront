@@ -17,7 +17,7 @@ function FinancialTableRatio({ yearsData, selectedCols }) {
     let tempArray = new Array(selectedCols.length).fill(false);
     tempArray[i] = true;
 
-    setPositionX(e.pageX + 20);
+    setPositionX(e.clientX + 50);
     setPositionY(e.pageY - 100);
     setShowModal(tempArray);
   };

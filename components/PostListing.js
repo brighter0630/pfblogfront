@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function PostListing({ postsMeta }) {
   return (
-    <div className="grid mx-auto my-1 sm:my-2 md:my-4 max-w-3xl p-4 md:p-0 min-w-none md:min-w-[480px]">
+    <div className="grid mx-auto my-1 sm:my-1 md:my-2 w-full md:p-0">
       {postsMeta
         ?.filter((post) => new Date(post.date) < new Date())
         .map((post, i) => (

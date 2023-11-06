@@ -63,6 +63,7 @@ function PriceChart({ symbol, historical, charttype }) {
 							}
             ]}
 						width={50}
+						tickFormatter={tick => tick.toLocaleString('en-US')}
           />
           <Tooltip />
           <Area
