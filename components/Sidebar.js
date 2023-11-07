@@ -16,7 +16,7 @@ function Sidebar() {
   const pathName = usePathname();
 
   return (
-    <div className={`flex flex-col min-h-full bg-[--sidebar-color] min-w-[250px] fixed bottom-0 left-0 `}>
+		<div className={`flex flex-col min-h-full bg-[#AED6F1] text-black min-w-[250px] fixed bottom-0 left-0 `}>
       <div className={`flex py-5 pl-3 pr-0 mb-5 max-h-[300px]`}>
         <Link href="/">
           <div className={`mt-2 p-2 text-base md:text-xl font-bold`}>
@@ -26,8 +26,8 @@ function Sidebar() {
       </div>
       <ul className={`grid grid-flow-row mt-0 pl-5`}>
         <li
-          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
-            pathName === "/" && "bg-[#596a8b] scale-105"
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[--hover-menu] duration-300 ${
+            pathName === "/" && "bg-[--active-menu] scale-105"
           }`}
         >
           <Link href="/" className="flex text-xl">
@@ -36,8 +36,8 @@ function Sidebar() {
           </Link>
         </li>
         <li
-          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
-            pathName.includes("postlist") && "bg-[#596a8b] scale-105"
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[--hover-menu] duration-300 ${
+            pathName.includes("postlist") && "bg-[--active-menu] scale-105"
           }`}
         >
           <Link href="/postlist/1" className="flex text-xl">
@@ -46,8 +46,8 @@ function Sidebar() {
           </Link>
         </li>
         <li
-          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
-            pathName.includes("analysis") && "bg-[#596a8b] scale-105"
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[--hover-menu] duration-300 ${
+            pathName.includes("analysis") && "bg-[--active-menu] scale-105"
           }`}
         >
           <Link href="/analysis/AAPL/pc/3months" className="flex text-xl">
@@ -62,8 +62,8 @@ function Sidebar() {
           </Link>
         </li> */}
         <li
-          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
-            pathName.includes("transactionhistory") && "bg-[#596a8b] scale-105"
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[--hover-menu] duration-300 ${
+            pathName.includes("transactionhistory") && "bg-[--active-menu] scale-105"
           }`}
         >
           <Link
@@ -77,8 +77,8 @@ function Sidebar() {
           </Link>
         </li>
         <li
-          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300 ${
-            pathName.includes("admin") && "bg-[#596a8b] scale-105"
+          className={`py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[--hover-menu] duration-300 ${
+            pathName.includes("admin") && "bg-[--active-menu] scale-105"
           }`}
         >
           <Link href="/admin" className="flex text-xl">

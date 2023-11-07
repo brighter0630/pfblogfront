@@ -11,7 +11,7 @@ function Header() {
 	const [showSearchAutoComplete, setShowSearchAutoComplete] = useState(false);
 
 	return (
-		<div className="px-2 md:px-4 md:px-4  mb-1 md:mb-3 flex bg-[#F5F5F5] fixed top-0 mt-0 pt-0 mx-auto z-30 w-screen items-center justify-center"> 
+		<div className="px-2 md:px-4 md:px-4  mb-1 md:mb-3 flex bg-[#AED6F1] text-gray-800 shadow-sm fixed top-0 mt-0 pt-0 mx-auto z-30 w-screen items-center justify-center"> 
 			<MenuButton />
 			<TickerSearchBox />
 			<div className="flex-row flex my-2 md:my-4">

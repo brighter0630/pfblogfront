@@ -30,20 +30,22 @@ function AnalysisNavBar({ ticker }) {
   const pathName = usePathname();
 
   return (
-		<ul className="w-11/12 mx-auto grid md:grid-flow-col grid-cols-3">
+		<ul className="w-11/12 mx-auto flex flex-row">
 			{navLinks.map((navLink, i) => (
-				<Link key={i} href={navLink.path} replace={false} prefetch={false}>
-					<li
-					className={`border-0 m-1 text-xs md:text-sm lg:text-base px-1 py-3 w-30 text-center transition ease-in-out delay-150 bg-gray-300 hover:bg-indigo-200 duration-500 hover:border-0
-					${
-						navLink.path.split("/")[3] === pathName.split("/")[3]
-							? "bg-indigo-300 text-white"
-							: ""
-					}`}
-					>
-						{navLink.title}
-					</li>
-				</Link>
+				<div key={i} className="w-1/5 lg:w-1/5">
+					<Link href={navLink.path} replace={false} prefetch={false}>
+						<li
+						className={`border-0 m-1 text-xs md:text-sm px-1 py-3 text-center transition ease-in-out delay-150 bg-gray-300 hover:bg-indigo-200 duration-500 hover:border-0
+						${
+							navLink.path.split("/")[3] === pathName.split("/")[3]
+								? "bg-indigo-300 text-white"
+								: ""
+						}`}
+						>
+							{navLink.title}
+						</li>
+					</Link>
+				</div>
 			))}
 		</ul>
   );

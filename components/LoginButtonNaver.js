@@ -12,7 +12,7 @@ export default function LoginButtonNaver({ title, width, height, fontSize, iconS
 	 return (
     <div
       onClick={() => trySignIn()}
-      className="my-auto table rounded-md bg-[#2DB400] text-white text-center cursor-pointer collapse max-w-0 md:max-w-none md:visible"
+      className="my-auto table mx-1 rounded-md bg-[#2DB400] text-white text-center cursor-pointer"
 			style={{width: `${width}px`, height: `${height}px`}}
     >
       <span className="font-bold table-cell align-middle px-1">

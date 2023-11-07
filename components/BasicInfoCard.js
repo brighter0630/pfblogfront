@@ -56,8 +56,8 @@ export default function BasicInfoCard({ profile }) {
           <tbody>
             {column1.map((col, i) => (
               <tr key={i}>
-                <th className="min-w-[100px] lg:min-w-[150px] py-1">{EntoKo[col].ko}</th>
-                <td className="min-w-[100px] lg:min-w-[150px] py-1">
+                <th className="min-w-[100px] xl:min-w-[150px] py-1">{EntoKo[col].ko}</th>
+                <td className="min-w-[100px] xl:min-w-[150px] py-1">
                   {formatter(col, mergedProfile[col], EntoKo)}
                 </td>
               </tr>
@@ -68,8 +68,8 @@ export default function BasicInfoCard({ profile }) {
           <tbody>
             {column2.map((col, i) => (
               <tr key={i}>
-                <th className="min-w-[100px] lg:min-w-[150px] py-1">{EntoKo[col].ko}</th>
-                <td className="min-w-[100px] lg:min-w-[150px] py-1">
+                <th className="min-w-[100px] xl:min-w-[150px] py-1">{EntoKo[col].ko}</th>
+                <td className="min-w-[100px] xl:min-w-[150px] py-1">
                   {formatter(col, mergedProfile[col], EntoKo)}
                 </td>
               </tr>

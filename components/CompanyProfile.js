@@ -40,7 +40,7 @@ function CompanyProfile({ profile, afterMarketPrice, currentPrice }) {
   return (
     <BasicFrame>
 			<span className="hidden md:flex m-4 font-medium text-2xl">요약 정보</span>
-			<span className="flex py-2 md:hidden m-2 font-medium text-base">{profile?.companyName} 요약 정보</span>
+			<span className="flex py-1 md:hidden m-2 my-1 font-medium text-base">{profile?.companyName} 요약 정보</span>
       <div className="flex md:flex-row flex-col justify-center text-black text-opacity-80 mx-auto">
         <div className="mx-1 md:mx-3 lg:mx-5 my-4 p-0 hidden md:flex justify-center align-middle">
           <div className="my-auto hidden md:flex md:flex-col">
@@ -63,26 +63,27 @@ function CompanyProfile({ profile, afterMarketPrice, currentPrice }) {
             </div>
           </div>
         </div>
-        <div className="col-span-1 grid grid-rows-3 my-auto px-1 mx-1 md:mx-3 lg:mx-5 ">
-          <div className="text-center my-auto">
-            <span className="text-sm">{printDateYYYYMMDDhhmm(new Date())}</span>
+				<hr className="mb-1 md:mb-2" />
+        <div className="flex flex-col my-auto px-1 mx-1 md:mx-3 lg:mx-5 ">
+          <div className="text-center my-2 md:my-4">
+            <span className="text-xs md:text-sm">{printDateYYYYMMDDhhmm(new Date())}</span>
           </div>
           {realTimePrice === false ? (
-            <span className="text-center text-lg text-red-800">거래중단</span>
+            <span className="text-center text-base md:text-lg text-red-800">거래중단</span>
           ) : (
             <div
-              className={`text-center gap-0 ${
+              className={`text-center text-base md:text-lg gap-0 ${
                 realTimePrice - (profile?.price - profile?.changes) >= 0 ? "text-red-700" : "text-blue-700"
               }`}
             >
               {/* 현재가격 */}
-              <span className="text-2xl md:text-5xl">
+              <span className="text-base md:text-2xl lg:text-4xl">
                 $
                 {realTimePrice === 0 ? currentPrice[0].price : realTimePrice.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
                 })}
               </span>
-              <p className={`text-2xl`}>
+              <p className={`text-base md:text-2xl`}>
                 <span
                   className={`${
                     realTimePrice - (profile?.price - profile?.changes) < 0 &&
@@ -108,7 +109,7 @@ function CompanyProfile({ profile, afterMarketPrice, currentPrice }) {
             </div>
           )}
 
-          <div className="grid grid-rows-2 gap-0 my-auto text-center">
+          <div className="grid grid-rows-2 gap-0 my-auto text-center text-sm md:text-base">
             <span className="text-xs my-auto">장외거래</span>
             {afterMarketPrice.timestamp === 0 || realTimePrice === false ? (
               <div>정보 없음</div>
@@ -138,24 +139,24 @@ function CompanyProfile({ profile, afterMarketPrice, currentPrice }) {
             )}
           </div>
         </div>
-				<hr className="flex md:hidden" />
-        <div className="grid grid-grow-cols text-center font-normal items-center justify-center mx-1 md:mx-3 lg:mx-5">
-          <div className="flex flex-col h-1/5">
-            <span className=" text-sm">섹터</span>
-            <span className="text-base md:text-2xl">{profile?.sector}</span>
+				<hr className="flex md:hidden my-2" />
+        <div className="flex flex-col text-center font-normal items-center justify-center mx-1 md:mx-3 lg:mx-5 text-xs md:text-sm lg:text-xl h-fit">
+          <div className="flex flex-col">
+            <span className="">섹터</span>
+            <span className="font-bold">{profile?.sector}</span>
           </div>
-          <div className="grid grid-flow-row h-1/5">
-            <span className="text-sm">산업</span>
-            <span className="text-base md:text-2xl">{profile?.industry}</span>
+          <div className="grid grid-flow-row">
+            <span className="">산업</span>
+            <span className="font-bold">{profile?.industry}</span>
           </div>
-          <div className="grid grid-flow-row h-1/5">
-            <span className="text-sm">CEO</span>
+          <div className="grid grid-flow-row">
+            <span className="">CEO</span>
             <a
               target="_blank"
               href={`https://www.google.com/search?q=${profile.ceo}`}
               rel="noopener noreferrer"
             >
-              <span className="text-sm font-bold">{profile?.ceo}</span>
+              <span className="text-xs md:text-sm font-bold">{profile?.ceo}</span>
             </a>
           </div>
         </div>
