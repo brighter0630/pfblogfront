@@ -140,7 +140,7 @@ function CompanyProfile({ profile, afterMarketPrice, currentPrice }) {
           </div>
         </div>
 				<hr className="flex md:hidden my-2" />
-        <div className="flex flex-col text-center font-normal items-center justify-center mx-1 md:mx-3 lg:mx-5 text-xs md:text-sm lg:text-xl h-fit">
+        <div className="flex flex-col text-center font-normal items-center justify-center mx-1 md:mx-3 lg:mx-5 text-xs md:text-sm lg:text-lg gap-y-4 md:gap-y-8 lg:gap-y-4">
           <div className="flex flex-col">
             <span className="">섹터</span>
             <span className="font-bold">{profile?.sector}</span>
@@ -156,7 +156,7 @@ function CompanyProfile({ profile, afterMarketPrice, currentPrice }) {
               href={`https://www.google.com/search?q=${profile.ceo}`}
               rel="noopener noreferrer"
             >
-              <span className="text-xs md:text-sm font-bold">{profile?.ceo}</span>
+              <span className="font-bold">{profile?.ceo}</span>
             </a>
           </div>
         </div>
