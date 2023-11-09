@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { FaUserCheck } from "react-icons/fa";
 import { signOut, useSession } from "next-auth/react";
