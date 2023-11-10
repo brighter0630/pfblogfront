@@ -6,6 +6,7 @@ import AnalysisNavBar from "@/components/AnalysisNavBar";
 import { getAfterMarketPrice } from "@/libs/getAfterMarketPrice";
 import BasicInfoCard from "@/components/BasicInfoCard";
 import PressReleasesLayout from '@/components/pressReleases/PressReleasesLayout';
+import FinancialInfoFooter from '@/components/FinancialInfoFooter';
 
 export const metadata = {
   title: "배당성장주 무료 10년 재무제표",
@@ -32,6 +33,7 @@ export default async function AnalysisLayout({ children, params }) {
         <AnalysisNavBar ticker={ticker} />
       </div>
       <main className="mx-auto w-full">{children}</main>
+			<FinancialInfoFooter />
     </div>
   );
 }

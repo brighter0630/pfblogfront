@@ -32,7 +32,7 @@ function Sidebar() {
         >
           <Link href="/" className="flex text-xl">
             <BsPieChartFill className="mx-5 text-lg my-auto" />
-            <span>대시보드</span>
+            <span>모델 포트폴리오</span>
           </Link>
         </li>
         <li
@@ -42,7 +42,7 @@ function Sidebar() {
         >
           <Link href="/postlist/1" className="flex text-xl">
             <BsJournalText className="mx-5 text-lg my-auto" />
-            투자생각
+						<span>투자레터</span>
           </Link>
         </li>
         <li
@@ -52,7 +52,7 @@ function Sidebar() {
         >
           <Link href="/analysis/AAPL/pc/3months" className="flex text-xl">
             <BsFillGrid3X3GapFill className="mx-5 text-lg my-auto" />
-            기업분석
+						<span>기업분석</span>
           </Link>
         </li>
         {/* <li className="py-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#596a8b] duration-300">
@@ -73,7 +73,7 @@ function Sidebar() {
             className="flex text-xl"
           >
             <BsBarChart className="mx-5 text-lg my-auto" />
-            거래내역
+						<span>거래내역</span>
           </Link>
         </li>
         <li
@@ -83,7 +83,7 @@ function Sidebar() {
         >
           <Link href="/admin" className="flex text-xl">
             <BsFillGearFill className="mx-5 text-lg my-auto" />
-            관리자
+						<span>관리자</span>
           </Link>
         </li>
       </ul>
