@@ -17,6 +17,7 @@ export default function NotAMember() {
 			setWidth(window.innerWidth > 640 ? 300 : 150);
 			setFontSize(window.innerWidth > 640 ? 20 : 15);
 		}
+		updateWindowSize();
 		window.addEventListener('resize', updateWindowSize);
 
 		return () => window.removeEventListener('resize', updateWindowSize);
