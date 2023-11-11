@@ -1,12 +1,19 @@
+"use client";
+
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export default function AutoCompleteLayout({ tickerList, ticker, setShowAutoComplete }) {
 	const clickHandler = () => setShowAutoComplete(false);
 
-	if(tickerList.length !== 0) {
-		const filtered = tickerList.result.filter(el => el.type === 'Common Stock' && !el.symbol.includes('.')).sort((a, b) => a.displaySymbol.includes(ticker.toUpperCase()) || a.description.toLowerCase().includes(ticker.toLowerCase()));
+	useEffect(() => {
+		if(ticker === '') {
+			setShowAutoComplete(false);
+		}
+	}, []);
 
-		if(ticker === '') setShowAutoComplete(false);
+	if(tickerList.length !== 0) {
+		const filtered = tickerList.result.filter(el => el.type === 'Common Stock' && !el.symbol.includes('.')).sort((a, b) => a.displaySymbol.includes(ticker.toUpperCase()) || a.description.toUpperCase().includes(ticker.toUpperCase()));
 
 		if(filtered.length === 0 && ticker !== '' ) {
 			return (			

@@ -32,7 +32,7 @@ export default function TickerSearchBox() {
 	const [showAutoComplete, setShowAutoComplete] = useState(false);
 	const router = useRouter();
 	const searchHandler = (e) => {
-		if (e.key === "Enter") {
+		if (e.key === "Enter" || e.keyCode === 13) {
 			document.getElementById("searchTicker").blur();
 			setShowAutoComplete(false);
 			router.push(searchPathFinder(ticker, pathName));
@@ -68,7 +68,7 @@ export default function TickerSearchBox() {
 			setShowAutoComplete(true);
 		}
 		if(ticker.length > 0) {
-			debounce(() => getTickerList(ticker), 500)();
+			debounce(() => getTickerList(ticker.toUpperCase()), 100)();
 		} else {
 			setShowAutoComplete(false);
 		}

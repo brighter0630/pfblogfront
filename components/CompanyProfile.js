@@ -111,7 +111,7 @@ function CompanyProfile({ profile, afterMarketPrice, currentPrice }) {
 
           <div className="grid grid-rows-2 gap-0 my-auto text-center text-sm md:text-base">
             <span className="text-xs my-auto">장외거래</span>
-            {afterMarketPrice.timestamp === 0 || realTimePrice === false ? (
+            {afterMarketPrice.timestamp === 0 || realTimePrice === false || profile?.exchangeShortName === 'PNK' ? (
               <div>정보 없음</div>
             ) : (
               <div>
