@@ -44,7 +44,7 @@ export default function Page({ params }) {
 					</thead>
 					<tbody className="gap-1 md:gap-2">
 						<tr>
-							<td className="text-center">A</td><td className="pl-1 md:pl-2">기업으로부터의 상여</td>
+							<td className="py1 md:py-2 text-center">A</td><td className="pl-1 md:pl-2">기업으로부터의 상여</td>
 							<td className="text-center">K</td><td className="pl-1 md:pl-2">스왑 거래</td>
 						</tr>
 						<tr>
