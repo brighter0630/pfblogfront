@@ -2,7 +2,7 @@ import IndexPriceDiv from "@/components/IndexPriceDiv";
 import CompanyProfile from "@/components/CompanyProfile";
 import { getCompanyProfile } from "@/libs/getCompanyProfile";
 import getCurrentPrice from '@/libs/getCurrentPrice';
-import AnalysisNavBar from "@/components/AnalysisNavBar";
+import AnalysisNavBar from "@/components/AnalysisNavBar/AnalysisNavBar";
 import { getAfterMarketPrice } from "@/libs/getAfterMarketPrice";
 import BasicInfoCard from "@/components/BasicInfoCard";
 import PressReleasesLayout from '@/components/pressReleases/PressReleasesLayout';

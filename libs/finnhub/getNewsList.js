@@ -15,14 +15,6 @@ export const getStockNewsList = async (ticker, fromDate, toDate) => {
 	const data = await res.json();
 
 	return data;
-	// finnhub 의 문제인지 아래 코드가 작동하지 않음. 따라서 fetch로 직접 받아오기로.
-	// 	return new Promise((resolve, reject) => finnhubClient.companyNews(ticker, fromDate, toDate, (error, data, response) => {
-	// 		if(!error) {
-	// 			resolve(data);
-	// 		}
-	// 		console.error(error);
-	// 		reject('Error in Fetching StockNewsList');
-	// 	}));
 }
 
 export const getGeneralNewsList = () => {
