@@ -7,9 +7,9 @@ import { MdNavigateNext } from 'react-icons/md';
 
 function TransactionPagination({ noOfData, LinesPerPage }) {
   const pathName = usePathname();
-	const finalCompPosition = pathName.length - 1;
+	const finalCompPosition = pathName.split('/').length - 1;
 	const router = useRouter();
-  const activeIndex = pathName.split("/")[pathName.split("/").length - 1];
+  const activeIndex = pathName.split("/")[finalCompPosition];
 
   const pages = [
 		...new Array(Math.ceil(noOfData/LinesPerPage)),

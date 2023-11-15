@@ -11,7 +11,7 @@ export default function Page({ params }) {
 	const { ticker, page } = params
 	const [insiderTransactionData, setInsiderTransactionData] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const LinesPerPage = 20;
+	const LinesPerPage = 15;
 
 	useEffect(() => {
 		async function getData(ticker) {
@@ -44,7 +44,7 @@ export default function Page({ params }) {
 					</thead>
 					<tbody className="gap-1 md:gap-2">
 						<tr>
-							<td className="py1 md:py-2 text-center">A</td><td className="pl-1 md:pl-2">기업으로부터의 상여</td>
+							<td className="text-center">A</td><td className="pl-1 md:pl-2">기업으로부터의 상여</td>
 							<td className="text-center">K</td><td className="pl-1 md:pl-2">스왑 거래</td>
 						</tr>
 						<tr>
@@ -83,7 +83,7 @@ export default function Page({ params }) {
 					<tbody>
 						{insiderTransactionData.slice(LinesPerPage * (page - 1), LinesPerPage * page).map((el, index) => (
 							<tr key={index} className="text-xs md:text-sm">
-								<td className="text-center">{el.filingDate}</td>
+								<td className="py-1 md:py-2 text-center">{el.filingDate}</td>
 								<td className="text-center">{el.transactionDate}</td>
 								<td>{el.name}</td>
 								<td className="text-center">{el.transactionCode}</td>
