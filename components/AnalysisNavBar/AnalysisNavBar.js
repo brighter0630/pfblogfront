@@ -89,7 +89,7 @@ function AnalysisNavBar({ ticker }) {
 				>
 						<div className="flex flex-row items-center justify-center relative">
 							<span>{navLink.title}</span>
-							<RiArrowDropDownLine className={`text-base md:text-xl absolute hidden md:flex md:right-2 ${showFinancialMenu && "rotate-180"}`} />
+							<RiArrowDropDownLine className={`text-base md:text-xl absolute hidden md:flex md:right-2 ${showFinancialMenu[i] && "rotate-180"}`} />
 						</div>
 					<DropDownMenu show={showFinancialMenu[i]} menu={navLink.content} />	
 					</li> )}
